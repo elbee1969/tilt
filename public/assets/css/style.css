@@ -1,26 +1,182 @@
-html, body {
-	font-family: Consolas, monaco, monospace;
-	background-color: #272822;
-	color: #F8F8F2;
+
+footer {
+	border-top: 5px solid #bdbdbd;
+	margin-top: 100px;
 }
 
-.container {
-	margin: 50px;
+.hello:hover {
+animation-name:swing;
+animation-duration: 2s;
 }
 
-a {
+
+#logo_navbar {
+  font-size: 2em;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+	color: white;
+}
+
+#logo_footer {
+  font-size: 2em;
+  font-family: 'Pacifico', cursive;
+	color: black;
+	margin-bottom: 0px;
+}
+
+.imgiconhomepage {
+	width: 200px;
+	height: 200px;
+	margin-top: 20px;
+	box-shadow: 5px 5px 5px #888888;
+}
+
+.iconhomepage {
+	margin-top: 20px;
+}
+
+.separator {
+	width: 300px;
+	margin-top: -50px;
+	margin-bottom: -20px;
+}
+
+.categoryicon{
+	width: 50px;
+	height: 50px;
+	margin-top: 20px;
+}
+
+.categoryspace {
+	margin-bottom: 100px;
+}
+
+#concept {
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+
+#region {
+	margin-top: 50px;
+	padding-bottom: 50px;
+}
+
+#propcomp {
+	margin-top: 50px;
+}
+
+#coeurplateau {
+	margin-top: 50px;
+}
+
+.subtitle_icon {
+	margin-top: 20px;
+}
+
+.slogan {
+	font-family: 'Josefin Sans', sans-serif;
+	text-align: center;
+  font-size: 1em;
+	margin-top: -25px;
+	color: white;
+	margin-bottom: 5px;
+}
+
+.foo {
+	margin-bottom: 0px;
+}
+
+.rs {
+  text-decoration: none;
+  color: #616161;
+}
+
+.center {
+	text-align: center;
+	margin-bottom: 0px;
+}
+
+.copyright {
+	text-align: center;
+}
+
+.fa-facebook {
+	margin-top: 30px;
+	margin-right: 20px;
+	color :#3f51b5
+}
+
+.fa-facebook:hover {
+	margin-top: 30px;
+	margin-right: 20px;
+	color :#9fa8da
+}
+
+.fa-twitter {
+	margin-top: 30px;
+	margin-left: 20px;
+	color :#3f51b5
+}
+
+.fa-twitter:hover {
+	margin-top: 30px;
+	margin-left: 20px;
+	color :#9fa8da
+}
+
+
+#copyright {
+	padding-top: 30px;
+}
+
+.titre {
+	font-size: 2em;
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+}
+
+.border {
+	width: 100%;
+
+}
+
+.backgroundsection {
+	margin-top: 81px;
+	background-color: white;
+}
+
+.nav-link {
 	text-decoration: none;
-	color: #A6E22E;
+	color: white !important ;
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+	font-size: 20px !important;
+	font-family: 'Josefin Sans', sans-serif;
 }
 
-a:hover {
-	color: #F92672;
+.nav-link:hover {
+	text-decoration: none;
+	color: #9fa8da !important ;
 }
 
-h1 {
-	color: #F92672;
+#mainiphone {
+	width: 200px;
+	height: 200px;
 }
 
-h2 {
-	color: #66D9EF;
+#appstore {
+	width: 116px;
+	height: 34.5px;
+}
+
+#googleplay {
+	width: 116px;
+	height: 34.5px;
+}
+
+
+ul, li {
+	list-style: none;
+	margin-left:0;
+	padding-left:0;
 }
