@@ -8,7 +8,7 @@ use \Service\Tools\ValidationTool;
 use \W\Security\AuthentificationModel;
 use \W\Security\StringUtils;
 
-class UsersController extends AppController {
+class UsersController extends DefaultController {
 
 
   public function passwordForget()
