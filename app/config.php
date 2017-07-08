@@ -9,7 +9,7 @@ $w_config = [
     'db_table_prefix' => 'tilt_',						//préfixe ajouté aux noms de table
 
 	//authentification, autorisation
-	'security_user_table' => 'user',				//nom de la table contenant les infos des utilisateurs
+	'security_user_table' => 'tilt_user',				//nom de la table contenant les infos des utilisateurs
 	'security_id_property' => 'id',					//nom de la colonne pour la clef primaire
 	'security_username_property' => 'pseudo',		//nom de la colonne pour le "pseudo"
 	'security_email_property' => 'email',			//nom de la colonne pour l'"email"
@@ -22,7 +22,7 @@ $w_config = [
 	'security_login_route_name' => 'login',			//nom de la route affichant le formulaire de connexion
 
 	// configuration globale
-	'site_name'	=> '', 								// contiendra le nom du site
+	'site_name'	=> 'TILT', 								// contiendra le nom du site
 ];
 
 require('routes.php');

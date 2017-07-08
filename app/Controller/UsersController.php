@@ -1,14 +1,14 @@
 <?php
 namespace Controller;
 
-use \Controller\DefaultController;
-use \Service\Tools\Tools;
+use \Controller\TiltController;
+use \Model\UsersModel;
 use \Service\Tools\CleanTool;
 use \Service\Tools\ValidationTool;
 use \W\Security\AuthentificationModel;
 use \W\Security\StringUtils;
 
-class UsersController extends DefaultController {
+class UsersController extends TiltController {
 
 
   public function passwordForget()
@@ -132,4 +132,172 @@ class UsersController extends DefaultController {
 
       $this->showNotFound();
     }
+
+    /**
+       * [affichage du formulaire d'inscription]
+       * @return [type] [description]
+       */
+      public function register()
+      {
+          $user = $this->getUser();
+          if(!empty($user)) {  $this->redirectToRoute('default_home'); }
+          $this->show('users/register');
+      }
+      /**
+       * [registerAction description]
+       * @return [type] [description]
+       */
+      public function registerAction()
+      {
+        $errors = array();
+
+        $clean      = new CleanTool();
+        $validation = new ValidationTool();
+        $model      = new UsersModel();
+        $auth       = new AuthentificationModel();
+
+        $post       = $clean->cleanPost($_POST);
+          $pseudo    = $post['pseudo'];
+          $prenom    = $post['prenom'];
+          $nom       = $post['nom'];
+          $email     = $post['email'];
+          $region    = $post['region'];
+          $password  = $post['password'];
+          $password2 = $post['password2'];
+
+          // validation username
+          $errors['pseudo'] = $validation->textValid($pseudo,'pseudo');
+          if($errors['pseudo'] != '') {
+            if($model->usernameExists($pseudo)){
+                $errors['pseudo'] = 'Ce pseudo existe déjà !';
+              }
+          }
+          // validation $email
+          if (!empty($email)) {
+              $errors['email'] = $validation->emailValid($post['email']);
+                  if ($validation->IsValid($errors) == false) {
+                    if($model->emailExists($email)){
+                      $errors['email'] = 'Ce email existe déjà !';
+                    }
+                  }
+          } else {
+            $errors['email'] = '* Format de mail invalide.';
+          }
+          $errors['nom'] = $validation->textValid($nom,'nom');
+          $errors['prenom'] = $validation->textValid($prenom,'prenom');
+
+          if(!empty($region)){
+            if(!is_numeric($region)){
+              $errors['region'] = 'Vous devez entrer un chiffre';
+            }elseif($region > 13 || $region < 0){
+              $errors['region'] = 'Vous devez entrer un chiffre entre 0 et 13';
+            }
+          }else{
+            $errors['region'] = '* Veuillez saisir une region';
+          }
+
+
+          // validation password
+          $errors['password'] = $validation->textValid($password,'password',8);
+          if ($password !== $password2){
+            $errors['password'] = 'Les password sont différents';
+          }
+
+            if($validation->IsValid($errors) == false){
+              $this->show('users/register', array(
+                'errors'   => $errors
+              ));
+            } else {
+                $role ='apprenant';
+                $passwd = $auth->hashPassword($password);
+                $token =  StringUtils::randomString();
+                $datenow = new \DateTime;
+                $data = array(
+                  'pseudo'      => $pseudo,
+                  'email'       => $email,
+                  'password'    => $passwd,
+                  'token'       => $token,
+                  'first_name'  => $prenom,
+                  'last_name'   => $nom,
+                  'role'        => $role,
+                  'region_id'   => $region,
+                  'avatar'      => 0,
+                  'created_at'  => $datenow->format('Y-m-d H:i:s'),
+                  'status'      => 1,
+                );
+// debug($data);
+// die();
+                $model->insert($data);
+                $this->flash('utilisateur bien enrengistrer');
+                $this->redirectToRoute('login');
+            }
+      }
+
+        /**
+         * [login description]
+         * @return [type] [description]
+         */
+        public function login()
+        {
+          $user = $this->getUser();
+          //var_dump($user);
+          if(!empty($user)) {  $this->redirectToRoute('default_home'); }
+          $this->show('users/login');
+        }
+        /**
+         * [loginAction description]
+         * @return [type] [description]
+         */
+
+        public function loginAction()
+        {
+          $errors = array();
+          $clean      = new CleanTool();
+          $validation = new ValidationTool();
+          $auth       = new AuthentificationModel();
+          $model      = new UsersModel();
+
+            $post        = $clean->cleanPost($_POST);
+              $connexion = $post['connexion'];
+              $password  = $post['password'];
+              $user = $model->getUserByUsernameOrEmail($connexion);
+
+              $errors['connexion'] = $validation->textValid($connexion,'identifiant de connexion');
+              if($errors['connexion'] != '') {
+                if (empty($user)){ $errors['connexion'] = 'Utilisateur inconnu !'; }
+              }
+              $errors['password'] = $validation->textValid($password,'password');
+
+              if($auth->isValidLoginInfo($connexion, $password) == 0){
+                $errors['connexion'] = 'erreur de connexion';
+              }
+
+                if($validation->IsValid($errors) == false){
+                  $this->show('users/login', array(
+                    'errors'   => $errors
+                  ));
+                } else {
+                  $auth->logUserIn($user);
+                  $this->flash('Bienvenue');
+                  $this->redirectToRoute('default_home');
+                }
+        }
+
+        /**
+         * [logout description]
+         * @return [type] [description]
+         */
+        public function logout(){
+          $auth = new AuthentificationModel();
+          $auth->logUserOut();
+          $this->redirectToRoute('default_home');
+        }
+
+
+
+
+
+
+
+
   }

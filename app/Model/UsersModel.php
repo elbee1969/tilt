@@ -2,12 +2,20 @@
 
 namespace Model;
 
-use \W\Model\Model;
 use \W\Model\ConnectionModel;
+use \W\Model\UsersModel as WUsersModel;
 
-class UserModel extends Model {
+class UsersModel extends  WUsersModel
+ {
 
-  // ici dans le Blog nous avons fait un __construct qui utilise les méthodes setTable et getDbh
+  //  public function __construct(){
+  //      $app = getApp();
+  //      // Définit la table en fonction de la config
+  //      $this->setTable($app->getConfig('security_user_table'));
+  //
+  //      $this->dbh = ConnectionModel::getDbh();
+  //    }
+  // // ici dans le Blog nous avons fait un __construct qui utilise les méthodes setTable et getDbh
 
   public function findFiveLastEnseignants() {
 

@@ -20,28 +20,39 @@
 		  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
-		  <a class="navbar-brand" href="#"><p id="logo_navbar">Tilt</p>
+		  <a class="navbar-brand" href="<?= $this->url('default_home'); ?>"><p id="logo_navbar">Tilt</p>
 			<p class="slogan">Teach it learn that !</p></a>
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
 		      <li>
-						<a class="nav-link" href="http://www.tilt.fr">Concept</a>
+						<a class="nav-link" href="<?= $this->url('default_concept'); ?>">Concept</a>
 		      </li>
 					<li>
-						<a class="nav-link" href="http://www.tilt.fr">Communauté</a>
+						<a class="nav-link" href="<?= $this->url('default_communaute'); ?>">Communauté</a>
 					</li>
 					<li>
-						<a class="nav-link" href="http://www.tilt.fr">Matières</a>
+						<a class="nav-link" href="<?= $this->url('default_matieres'); ?>">Matières</a>
 					</li>
 					<li>
-						<a class="nav-link" href="http://www.tilt.fr">A propos</a>
+						<a class="nav-link" href="<?= $this->url('default_apropos'); ?>">A propos</a>
 					</li>
 					<li>
-						<a class="nav-link" href="http://www.tilt.fr">Contact</a>
+						<a class="nav-link" href="<?= $this->url('default_contact'); ?>">Contact</a>
 					</li>
+
+					<?php if(in_array($w_user['role'], ['admin'])){ ?>
+					<li><a class="nav-link" href="<?= $this->url('back_home'); ?>">BackOffice</a></li>
+					<?php } ?>
+
+
 		    </ul>
 		    <form class="form-inline my-2 my-lg-0">
-		        <a class="nav-link" href="#">Inscription / Connexion</a>
+					<?php if($w_user){ ?>
+						<a class= "nav-link" href="<?= $this->url('logout'); ?>"><?= 'Bonjour '.$w_user['pseudo']; ?> -> Déconnexion </a>
+
+					<?php }else{ ?>
+		        <a class="nav-link" href="<?= $this->url('login'); ?>">Inscription / Connexion</a>
+					<?php } ?>
 		      <input class="form-control mr-sm-2" type="text" placeholder="Compétences, régions ..."><button class="btn btn-outline-success my-2 my-sm-0 fa fa-search" aria-hidden="true" type="submit"></button></input>
 
 		    </form>
@@ -52,60 +63,61 @@
 			<?= $this->section('main_content') ?>
 		</section>
 
+
 		<footer>
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-2 hidden-xs-down hidden-sm-down"><!-- Collone vide !--></div>
-		<div class="col-md-3 col-12">
-			<div class="row">
-			<div class="col-md-12">
-				<p id="logo_footer">Tilt</p>
-			</div>
-		</div>
-			<div class="row">
-				<div class="col-md-7 col-6">
-					<ul>
-						<li>Mentions légales</li>
-						<li>Contact</li>
-						<li>CGU</li>
-						<li>FAQ</li>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-2 hidden-xs-down hidden-sm-down"><!-- Collone vide !--></div>
+					<div class="col-md-3 col-12">
+						<div class="row">
+						<div class="col-md-12">
+							<p id="logo_footer">Tilt</p>
+						</div>
+					</div>
+						<div class="row">
+							<div class="col-md-7 col-6">
+								<ul>
+									<li>Mentions légales</li>
+									<li>Contact</li>
+									<li>CGU</li>
+									<li>FAQ</li>
+							</div>
+							<div class="col-md-5 col-6 ">
+								<li>Top enseignants</li>
+								<li>Top apprenants</li>
+								<li>Top matières</li>
+								<li>Top régions actives</li>
+							</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2 col-12">
+			<div class="container-fluid">
+						<div class="row">
+						<div class="col-12 align-self-start">
+							<p class="copyright" id="logo_footer">Rejoignez-nous</p>
+							<p class="copyright">
+								<a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
+								<a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
+							</p>
+						</div>
+						</div>
+						<div class="row align-items-end">
+						<div class="col-12 align-self-end">
+							<p class="copyright" id="copyright"> © 2017 Tilt | Webforce3 </p>
+						</div>
+						</div>
+					</div>
 				</div>
-				<div class="col-md-5 col-6 ">
-					<li>Top enseignants</li>
-					<li>Top apprenants</li>
-					<li>Top matières</li>
-					<li>Top régions actives</li>
-				</ul>
+					<div class="col-md-2 col-12 align-self-center">
+			<p class="copyright"><a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><img id="appstore" src="./assets/img/download-appstore.png" alt=""></a> <a target="_blank" href="https://play.google.com/store?hl=fr"><img id="googleplay" src="./assets/img/download-googleplay.png" alt=""></a></p>
+					</div>
+					<div class="col-md-2 col-12 align-self-end hidden-xs-down hidden-sm-down">
+			<img id="mainiphone" src="https://static1.squarespace.com/static/521d05e2e4b04fdb82ede5d4/t/526c0155e4b039ceb7d8986f/1382809949346/rc_hand-phone-main.png" alt="">
+					</div>
+					<div class="col-md-2 col-12 hidden-xs-down hidden-sm-down"><!-- Collone vide !--></div>
 				</div>
 			</div>
-		</div>
-		<div class="col-md-2 col-12">
-<div class="container-fluid">
-			<div class="row">
-			<div class="col-12 align-self-start">
-				<p class="copyright" id="logo_footer">Rejoignez-nous</p>
-				<p class="copyright">
-					<a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
-					<a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
-				</p>
-			</div>
-			</div>
-			<div class="row align-items-end">
-			<div class="col-12 align-self-end">
-				<p class="copyright" id="copyright"> © 2017 Tilt | Webforce3 </p>
-			</div>
-			</div>
-		</div>
-	</div>
-		<div class="col-md-2 col-12 align-self-center">
-<p class="copyright"><a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><img id="appstore" src="./assets/img/download-appstore.png" alt=""></a> <a target="_blank" href="https://play.google.com/store?hl=fr"><img id="googleplay" src="./assets/img/download-googleplay.png" alt=""></a></p>
-		</div>
-		<div class="col-md-2 col-12 align-self-end hidden-xs-down hidden-sm-down">
-<img id="mainiphone" src="https://static1.squarespace.com/static/521d05e2e4b04fdb82ede5d4/t/526c0155e4b039ceb7d8986f/1382809949346/rc_hand-phone-main.png" alt="">
-		</div>
-		<div class="col-md-2 col-12 hidden-xs-down hidden-sm-down"><!-- Collone vide !--></div>
-	</div>
-</div>
 
 		</footer>
 
