@@ -7,6 +7,10 @@
 		['GET', '/Matieres', 'Matieres#matieres', 'default_matieres'],
 		['GET', '/Apropos', 'Apropos#apropos', 'default_apropos'],
 		['GET', '/Contact', 'Contact#contact', 'default_contact'],
+		['GET', '/Profil', 'Users#profil', 'users_profil'],
+
+
+		['GET', '/NomRegions', 'Regions#region', 'regions_regions'],
 
 		['GET','/passwordforget', 'Users#passwordForget', 'passwordforget'],
 		['POST','/passwordforget', 'Users#passwordForgetAction', 'passwordforget_action'],
