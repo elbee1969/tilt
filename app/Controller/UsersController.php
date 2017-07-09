@@ -44,10 +44,15 @@ class UsersController extends TiltController {
               if (!empty($user)) {
 
                 // Envoie de mail
-
+                $to = 'laurent.berthelot1969@gmail.com';
+                $subject = 'G&eacute;n&eacute;ration de votre nouveau mot de passe';
                 $html = '<a href="'. $this->generateUrl('newpassword').'?email='.urlencode($user['email']).'&token='.$user['token'].'">Click ici</a>';
+                $header = "From: ".$user['first_name'].' '.$user['last_name']. " <" . $email . ">\r\n"; //optional headerfields
                 echo $html;
 
+                ini_set("SMTP",'localhost' );
+		            ini_set('sendmail_from', $email);
+		            $mail = mail($to,$subject, $html, $header);
                 die();
 
                 $message = 'le mail à bien été envoyé';

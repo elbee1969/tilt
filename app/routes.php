@@ -6,7 +6,10 @@
 		['GET', '/Communaute', 'Communaute#communaute', 'default_communaute'],
 		['GET', '/Matieres', 'Matieres#matieres', 'default_matieres'],
 		['GET', '/Apropos', 'Apropos#apropos', 'default_apropos'],
+
 		['GET', '/Contact', 'Contact#contact', 'default_contact'],
+		['POST', '/Contact', 'Contact#contactAction', 'default_contact_action'],
+
 		['GET', '/Profil', 'Users#profil', 'users_profil'],
 
 
