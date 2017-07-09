@@ -164,7 +164,7 @@ $(document).ready(function() {
 		showTooltip: true,
 			onRegionClick: function(element, code, region)
 			{
-window.location.href = '/test-tilt/public/france_map.html?slug='  // + nom de la region créée en BDD & prêt a lusage ;
+window.location.href = '/test-tilt/public/france_map.html?slug=' + region  // + nom de la region créée en BDD & prêt a lusage ;
 			}
 	});
 });
