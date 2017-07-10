@@ -196,16 +196,16 @@ class UsersController extends TiltController {
         $errors['nom'] = $validation->textValid($nom,'nom');
         $errors['prenom'] = $validation->textValid($prenom,'prenom');
 
-        if(!empty($region)){
-          if(!is_numeric($region)){
-            $errors['region'] = 'Vous devez entrer un chiffre';
-          }elseif($region > 13 || $region < 0){
-            $errors['region'] = 'Vous devez entrer un chiffre entre 0 et 13';
-          }
-        }else{
-          $errors['region'] = '* Veuillez saisir une region';
-        }
-
+        // if(!empty($region)){
+        //   if(!is_numeric($region)){
+        //     $errors['region'] = 'Vous devez entrer un chiffre';
+        //   }elseif($region > 13 || $region < 0){
+        //     $errors['region'] = 'Vous devez entrer un chiffre entre 0 et 13';
+        //   }
+        // }else{
+        //   $errors['region'] = '* Veuillez saisir une region';
+        // }
+        $errors['region'] = $validation->textValid($region,'region');
 
         // validation password
         $errors['password'] = $validation->textValid($password,'password',8);
@@ -218,7 +218,7 @@ class UsersController extends TiltController {
               'errors'   => $errors
             ));
           } else {
-              $role ='apprenant';
+              $role ='admin';
               $passwd = $auth->hashPassword($password);
               $token =  StringUtils::randomString();
               $datenow = new \DateTime;
