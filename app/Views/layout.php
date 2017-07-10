@@ -47,7 +47,6 @@
 					<?php if(in_array($w_user['role'], ['admin','apprenant', 'enseignant'])){ ?>
 					<li><a class="nav-link" href="<?= $this->url('users_profil'); ?>">Profil de <?= ' '.$w_user['pseudo']; ?></a></li>
 					<?php } ?>
-
 		    </ul>
 		    <form class="form-inline my-2 my-lg-0">
 					<?php if($w_user){ ?>

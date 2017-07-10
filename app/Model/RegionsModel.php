@@ -28,4 +28,9 @@ class RegionsModel extends Model {
 
   } //ferme la méthode findAllRegions
 
+  //méthode pour trouver le nom de la région à partir de son region_id dans la table users
+  public function findRegionName() {
+    
+  }
+
 } //ferme la class RegionsModel
