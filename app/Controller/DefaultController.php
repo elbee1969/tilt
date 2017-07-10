@@ -27,8 +27,8 @@ class DefaultController extends TiltController
 		// debug($c);
 
 		// test de la méthode pour trouver les utilisareurs en fonction d'une région
-		$users = new UsersModel();
-		$d = $users->findApprenantsInRegion('auvergne');
+		// $users = new UsersModel();
+		// $d = $users->findApprenantsInRegion('auvergne');
 		// debug($d);
 
 		// test de la méthode pour les icones de la page d'accueil
