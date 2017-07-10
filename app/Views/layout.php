@@ -36,10 +36,11 @@
 					<li>
 						<a class="nav-link" href="<?= $this->url('default_apropos'); ?>">A propos</a>
 					</li>
+					<?php if(!$w_user){ ?>
 					<li>
 						<a class="nav-link" href="<?= $this->url('default_contact'); ?>">Contact</a>
 					</li>
-
+					<?php } ?>
 					<?php if(in_array($w_user['role'], ['admin'])){ ?>
 					<li><a class="nav-link" href="<?= $this->url('back_home'); ?>">BackOffice</a></li>
 					<?php } ?>
