@@ -2,9 +2,11 @@
 
 	$w_routes = array(
 		['GET', '/', 'Default#home', 'default_home'],
+
 		['GET', '/concept', 'Concept#concept', 'default_concept'],
 		['GET', '/communaute', 'Communaute#communaute', 'default_communaute'],
 		['GET', '/matieres', 'Matieres#matieres', 'default_matieres'],
+
 		['GET', '/apropos', 'Apropos#apropos', 'default_apropos'],
 
 		['GET', '/contact', 'Contact#contact', 'default_contact'],
@@ -12,8 +14,14 @@
 
 		['GET', '/profil', 'Users#profil', 'users_profil'],
 
+		['POST', '/profil', 'Users#addAdressAction', 'users_profil_action'],
 
-		['GET', '/nomRegions', 'Regions#region', 'regions_regions'],
+		['GET', '/avatar', 'Users#addAvatar', 'users_avatar'],
+		['POST', '/avatar', 'Users#addAvatarAction', 'users_avatar_action'],
+
+
+		['GET', '/regions', 'Regions#regions', 'regions_regions'],
+		['GET', '/region[:id]', 'Regions#detailRegion', 'regions_region'],
 
 		['GET','/passwordforget', 'Users#passwordForget', 'passwordforget'],
 		['POST','/passwordforget', 'Users#passwordForgetAction', 'passwordforget_action'],
@@ -27,8 +35,10 @@
 		['GET', '/login', 'Users#login', 'login'],
 		['POST', '/login', 'Users#loginAction', 'login_action'],
 
+
+
 		['GET|POST', '/logout', 'Users#logout', 'logout'],
 
-		['GET|POST', '/BackOffice', 'Back#home', 'back_home'],
+		['GET|POST', '/backOffice', 'Back#home', 'back_home'],
 
 	);

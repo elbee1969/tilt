@@ -7,6 +7,7 @@ use \Service\Tools\CleanTool;
 use \Service\Tools\ValidationTool;
 use \W\Security\AuthentificationModel;
 use \W\Security\StringUtils;
+use \Model\RegionsModel;
 
 class UsersController extends TiltController {
 
@@ -45,7 +46,7 @@ class UsersController extends TiltController {
 
                 // Envoie de mail
                 $to = 'laurent.berthelot1969@gmail.com';
-                $subject = 'G&eacute;n&eacute;ration de votre nouveau mot de passe';
+                $subject = 'Génération de votre nouveau mot de passe';
                 $html = '<a href="'. $this->generateUrl('newpassword').'?email='.urlencode($user['email']).'&token='.$user['token'].'">Click ici</a>';
                 $header = "From: ".$user['first_name'].' '.$user['last_name']. " <" . $email . ">\r\n"; //optional headerfields
                 echo $html;
@@ -149,9 +150,11 @@ class UsersController extends TiltController {
      */
     public function register()
     {
+        $regionsList = new RegionsModel();
+        $allRegions = $regionsList->findAllRegions();
         $user = $this->getUser();
         if(!empty($user)) {  $this->redirectToRoute('default_home'); }
-        $this->show('users/register');
+        $this->show('users/register', ['allRegions' => $allRegions]);
     }
     /**
      * [registerAction description]
@@ -196,16 +199,7 @@ class UsersController extends TiltController {
         $errors['nom'] = $validation->textValid($nom,'nom');
         $errors['prenom'] = $validation->textValid($prenom,'prenom');
 
-        if(!empty($region)){
-          if(!is_numeric($region)){
-            $errors['region'] = 'Vous devez entrer un chiffre';
-          }elseif($region > 13 || $region < 0){
-            $errors['region'] = 'Vous devez entrer un chiffre entre 0 et 13';
-          }
-        }else{
-          $errors['region'] = '* Veuillez saisir une region';
-        }
-
+        $errors['region'] = $validation->textValid($region,'region');
 
         // validation password
         $errors['password'] = $validation->textValid($password,'password',8);
@@ -218,7 +212,7 @@ class UsersController extends TiltController {
               'errors'   => $errors
             ));
           } else {
-              $role ='apprenant';
+              $role ='admin';
               $passwd = $auth->hashPassword($password);
               $token =  StringUtils::randomString();
               $datenow = new \DateTime;
@@ -304,8 +298,82 @@ class UsersController extends TiltController {
       }
 
 
+      // public function addAdress() {
+      //   $this->show('users/profil');
+      // }
+
+      public function addAdressAction() {
 
 
+        $errors = array();
+        $clean      = new CleanTool();
+        $validation = new ValidationTool();
+        $auth       = new AuthentificationModel();
+        $model      = new UsersModel();
+        debug($_POST);
+          $post = $clean->cleanPost($_POST);
+          $number = $post['number'];
+          $street = $post['street'];
+          $city = $post['city'];
+          $postal = $post['postal'];
+
+          $errors['number'] = $validation->textValid($number, 'numéro de rue', 3, 7);
+          $errors['street'] = $validation->textValid($street, 'nom de rue', 3, 30);
+          $errors['city'] = $validation->textValid($city, 'nom de ville', 3, 30);
+          $errors['postal'] = $validation->textValid($postal, 'code postal', 3, 5);
+
+          if($validation->IsValid($errors) == false){
+            $this->show('users/profil', array(
+              'errors'   => $errors,
+            ));
+
+          } else {
+
+            $data = array(
+              'number' => $number,
+              'street' => $street,
+              'city' => $city,
+              'postal' => $postal,
+            );
+
+            $model->insert($data);
+
+          }
+
+      }
+
+      public function addAvatar() {
+
+        $this->show('users/avatar');
+
+      }
+
+      public function addAvatarAction(){
+
+        $errors = array();
+        $validation = new ValidationTool();
+
+        $avatar = $_FILES['avatar'];
+        $sizeMax = 2096000; // 2MO
+        $extensions = array('.jpg', '.png', '.jpeg');
+        $extensionsmime = array('image/jpeg', 'image/png' );
+        $tmp_name = $_FILES['avatar']['tmp_name'];
+        $installavatar = '\public\assets\img\avatar';
+  // debug($avatar);
+        $errors['avatar'] = $validation->uploadValid($avatar,$sizeMax,$extensions,$extensionsmime);
+
+        if (count($errors) == 0) {
+          move_uploaded_file($tmp_name, $installavatar);
+          echo "Image téléchargé";
+        } else {
+          $this->show('users/avatar', array(
+            'errors' => $errors,
+          ));
+        }
+
+
+
+      }
 
 
 

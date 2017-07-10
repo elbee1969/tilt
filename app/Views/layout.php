@@ -38,8 +38,6 @@
 						<a class="nav-link" href="<?= $this->url('default_contact'); ?>">Contact</a>
 					</li>
 					<?php } ?>
-
-
 		    </ul>
 
 

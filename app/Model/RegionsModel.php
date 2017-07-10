@@ -11,5 +11,26 @@ class RegionsModel extends Model {
   public function __construct() {
     $this->setTable('tilt_regions');
     $this->dbh = ConnectionModel::getDbh();
+  } //ferme le constructeur
+
+  // méthode pour la liste déroulante de la page Inscription
+  public function findAllRegions() {
+
+    $sql = "SELECT name, id
+            FROM tilt_regions";
+
+    $sth = $this->dbh->prepare($sql);
+    $sth->execute();
+
+    $result = $sth->fetchAll();
+
+    return $result;
+
+  } //ferme la méthode findAllRegions
+
+  //méthode pour trouver le nom de la région à partir de son region_id dans la table users
+  public function findRegionName() {
+    
   }
-}
+
+} //ferme la class RegionsModel

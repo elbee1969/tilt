@@ -158,7 +158,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$('#francemap').vectorMap({
-			map: 'france_fr',
+		map: 'france_fr',
 		hoverOpacity: 0.5,
 		hoverColor: "#9fa8da",
 		backgroundColor: "#FFFFFF",
@@ -169,7 +169,10 @@ $(document).ready(function() {
 		showTooltip: true,
 			onRegionClick: function(element, code, region)
 			{
-window.location.href = '/test-tilt/public/france_map.html?slug=' + region  // + nom de la region créée en BDD & prêt a lusage ;
+				console.log (element);
+window.location.href = '/tilt/public/region' + code  // + nom de la region créée en BDD & prêt a lusage ;
+
+
 			}
 	});
 });
