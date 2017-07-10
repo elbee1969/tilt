@@ -16,7 +16,7 @@ class RegionsModel extends Model {
   // méthode pour la liste déroulante de la page Inscription
   public function findAllRegions() {
 
-    $sql = "SELECT name
+    $sql = "SELECT name, id
             FROM tilt_regions";
 
     $sth = $this->dbh->prepare($sql);

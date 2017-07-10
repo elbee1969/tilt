@@ -77,9 +77,12 @@ $this->layout('layout', ['title' => 'Inscription']);
   </div>
 </div>
 
-
-
-
-
+<!-- Pour Baptiste, de la part de Nicolas: select à mettre à la place du input des régions  -->
+<select class="" name="">
+  <option value=""></option>
+  <?php for ($i=0; $i < 13; $i++) {
+    echo '<option value=" ' .$allRegions[$i]['id']. ' ">' .$allRegions[$i]['name']. '</option>';
+  } ?>
+</select>
 
 <?php $this->stop('main_content'); ?>

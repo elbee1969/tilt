@@ -39,13 +39,15 @@ class DefaultController extends TiltController
 
 		//test de la méthode pour trouver les apprenants dans une région donnée
 		// avec leurs compétences
-		$apprenants = new UsersModel();
-		$g = $apprenants->findApprenantsInRegion('normandie');
-		debug($g);
+		// $apprenants = new UsersModel();
+		// $g = $apprenants->findApprenantsInRegion('normandie');
+		// debug($g);
 
-		$enseignants = new UsersModel();
-		$h = $enseignants->findEnseignantsinRegion('ile-de-france');
-		debug($h);
+		//test de la méthode pour trouver les enseignants dans uen région donnée
+		// avec leurs compétences
+		// $enseignants = new UsersModel();
+		// $h = $enseignants->findEnseignantsinRegion('ile-de-france');
+		// debug($h);
 
 		$this->show('default/home');
 	}

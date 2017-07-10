@@ -7,6 +7,7 @@ use \Service\Tools\CleanTool;
 use \Service\Tools\ValidationTool;
 use \W\Security\AuthentificationModel;
 use \W\Security\StringUtils;
+use \Model\RegionsModel;
 
 class UsersController extends TiltController {
 
@@ -149,9 +150,11 @@ class UsersController extends TiltController {
      */
     public function register()
     {
+        $regionsList = new RegionsModel();
+        $allRegions = $regionsList->findAllRegions();
         $user = $this->getUser();
         if(!empty($user)) {  $this->redirectToRoute('default_home'); }
-        $this->show('users/register');
+        $this->show('users/register', ['allRegions' => $allRegions]);
     }
     /**
      * [registerAction description]
