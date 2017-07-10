@@ -304,8 +304,82 @@ class UsersController extends TiltController {
       }
 
 
+      // public function addAdress() {
+      //   $this->show('users/profil');
+      // }
+
+      public function addAdressAction() {
 
 
+        $errors = array();
+        $clean      = new CleanTool();
+        $validation = new ValidationTool();
+        $auth       = new AuthentificationModel();
+        $model      = new UsersModel();
+        debug($_POST);
+          $post = $clean->cleanPost($_POST);
+          $number = $post['number'];
+          $street = $post['street'];
+          $city = $post['city'];
+          $postal = $post['postal'];
+
+          $errors['number'] = $validation->textValid($number, 'numéro de rue', 3, 7);
+          $errors['street'] = $validation->textValid($street, 'nom de rue', 3, 30);
+          $errors['city'] = $validation->textValid($city, 'nom de ville', 3, 30);
+          $errors['postal'] = $validation->textValid($postal, 'code postal', 3, 5);
+
+          if($validation->IsValid($errors) == false){
+            $this->show('users/profil', array(
+              'errors'   => $errors,
+            ));
+
+          } else {
+
+            $data = array(
+              'number' => $number,
+              'street' => $street,
+              'city' => $city,
+              'postal' => $postal,
+            );
+
+            $model->insert($data);
+
+          }
+
+      }
+
+      public function addAvatar() {
+
+        $this->show('users/avatar');
+
+      }
+
+      public function addAvatarAction(){
+
+        $errors = array();
+        $validation = new ValidationTool();
+
+        $avatar = $_FILES['avatar'];
+        $sizeMax = 2096000; // 2MO
+        $extensions = array('.jpg', '.png', '.jpeg');
+        $extensionsmime = array('image/jpeg', 'image/png' );
+        $tmp_name = $_FILES['avatar']['tmp_name'];
+        $installavatar = '\public\assets\img\avatar';
+  // debug($avatar);
+        $errors['avatar'] = $validation->uploadValid($avatar,$sizeMax,$extensions,$extensionsmime);
+
+        if (count($errors) == 0) {
+          move_uploaded_file($tmp_name, $installavatar);
+          echo "Image téléchargé";
+        } else {
+          $this->show('users/avatar', array(
+            'errors' => $errors,
+          ));
+        }
+
+
+
+      }
 
 
 

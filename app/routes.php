@@ -5,12 +5,16 @@
 		['GET', '/Concept', 'Concept#concept', 'default_concept'],
 		['GET', '/Communaute', 'Communaute#communaute', 'default_communaute'],
 		['GET', '/Matieres', 'Matieres#matieres', 'default_matieres'],
-		['GET', '/Apropos', 'Apropos#apropos', 'default_apropos'],
+		['GET', '/apropos', 'Apropos#apropos', 'default_apropos'],
 
-		['GET', '/Contact', 'Contact#contact', 'default_contact'],
-		['POST', '/Contact', 'Contact#contactAction', 'default_contact_action'],
+		['GET', '/contact', 'Contact#contact', 'default_contact'],
+		['POST', '/contact', 'Contact#contactAction', 'default_contact_action'],
 
-		['GET', '/Profil', 'Users#profil', 'users_profil'],
+		['GET', '/profil', 'Users#profil', 'users_profil'],
+		['POST', '/profil', 'Users#addAdressAction', 'users_profil_action'],
+
+		['GET', '/avatar', 'Users#addAvatar', 'users_avatar'],
+		['POST', '/avatar', 'Users#addAvatarAction', 'users_avatar_action'],
 
 
 		['GET', '/NomRegions', 'Regions#region', 'regions_regions'],
@@ -26,6 +30,8 @@
 
 		['GET', '/login', 'Users#login', 'login'],
 		['POST', '/login', 'Users#loginAction', 'login_action'],
+
+
 
 		['GET|POST', '/logout', 'Users#logout', 'logout'],
 
