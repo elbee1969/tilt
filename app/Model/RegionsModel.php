@@ -11,5 +11,8 @@ class RegionsModel extends Model {
   public function __construct() {
     $this->setTable('tilt_regions');
     $this->dbh = ConnectionModel::getDbh();
-  }
-}
+  } //ferme le constructeur
+
+  
+
+} //ferme la class RegionsModel
