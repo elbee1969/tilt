@@ -1,7 +1,7 @@
 <?php
-
+  
 namespace W\Model;
- 
+
 /**
  * Le modèle de base à étendre
  */
