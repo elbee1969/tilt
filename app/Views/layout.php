@@ -54,7 +54,10 @@
 						<a class= "nav-link" href="<?= $this->url('logout'); ?>"><?= 'Bonjour '.$w_user['pseudo']; ?> -> Déconnexion </a>
 
 					<?php }else{ ?>
-		        <a class="nav-link" href="<?= $this->url('login'); ?>">Inscription / Connexion</a>
+						<ul class="navbar-nav mr-auto">
+		        	<li><a class="nav-link" href="<?= $this->url('users_register'); ?>">Inscription</a></li>
+							<li><a class="nav-link" href="<?= $this->url('login'); ?>">Connexion</a></li>
+						</ul>
 					<?php } ?>
 		      <input class="form-control mr-sm-2" type="text" placeholder="Compétences, régions ..."><button class="btn btn-outline-success my-2 my-sm-0 fa fa-search" aria-hidden="true" type="submit"></button></input>
 
@@ -98,7 +101,6 @@
 			<div class="container-fluid">
 						<div class="row">
 						<div class="col-12 align-self-start">
-							<p class="copyright" id="logo_footer">Rejoignez-nous</p>
 							<p class="copyright">
 								<a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
 								<a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>

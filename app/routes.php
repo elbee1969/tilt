@@ -21,8 +21,8 @@
 		['GET','/newpassword', 'Users#newPassword', 'newpassword'],
 		['POST','/newpassword', 'Users#newPasswordAction', 'newpassword_action'],
 
-		['GET', '/Inscription', 'Users#register', 'users_register'],
-		['POST', '/Inscription', 'Users#registerAction', 'users_register_action'],
+		['GET', '/inscription', 'Users#register', 'users_register'],
+		['POST', '/inscription', 'Users#registerAction', 'users_register_action'],
 
 		['GET', '/login', 'Users#login', 'login'],
 		['POST', '/login', 'Users#loginAction', 'login_action'],

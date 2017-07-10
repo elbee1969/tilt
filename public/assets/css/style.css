@@ -9,7 +9,6 @@ animation-name:swing;
 animation-duration: 2s;
 }
 
-
 #logo_navbar {
   font-size: 2em;
   text-align: center;
@@ -24,7 +23,7 @@ animation-duration: 2s;
 	margin-bottom: 0px;
 }
 
-.imgiconhomepage {
+.testiconcept {
 	width: 200px;
 	height: 200px;
 	margin-top: 20px;
@@ -35,9 +34,15 @@ animation-duration: 2s;
 	margin-top: 20px;
 }
 
+
+
+.iconcategory {
+	margin-top: 50px;
+}
+
 .separator {
 	width: 300px;
-	margin-top: -50px;
+	margin-top: -25px;
 	margin-bottom: -20px;
 }
 
@@ -51,14 +56,54 @@ animation-duration: 2s;
 	margin-bottom: 100px;
 }
 
-#concept {
-	margin-top: 80px;
-	margin-bottom: 80px;
+
+/* Categories de la homepage */
+
+#rechercheparregion {
+
 }
 
-#region {
+#toutunconcept {
+
+}
+
+#erreur {
 	margin-top: 50px;
-	padding-bottom: 50px;
+}
+
+
+#btninscription {
+	margin-top: 20px;
+}
+
+#btnlostpassword {
+	margin-top: 20px;
+}
+
+
+#titleinscription {
+	margin-top: 50px;
+}
+
+#titleconnexion {
+	margin-top: 50px;
+}
+
+
+#categoriesproposees {
+	margin-top: 50px;
+}
+
+#testimonials {
+
+}
+
+#etvousdixdoigts {
+margin-top: 50px;
+}
+
+#francemap {
+	margin-top: -10px;
 }
 
 #propcomp {
@@ -129,7 +174,7 @@ animation-duration: 2s;
 	padding-top: 30px;
 }
 
-.titre {
+.policetitre {
 	font-size: 2em;
 	font-family: 'Pacifico', cursive;
 	text-align: center;
