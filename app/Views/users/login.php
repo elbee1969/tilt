@@ -34,7 +34,7 @@ $this->layout('layout', ['title' => 'Login']);
 
 
 
-    <input class="btn btn-primary btn-lg btn-block" title="s'inse connecter" type="submit" name="btnSubmit" value="Je rejoins les tilters ! "/>
+    <input class="btn btn-primary btn-lg btn-block" title="Se connecter" type="submit" name="btnSubmit" value="Je rejoins les tilters ! "/>
     </div>
     </form>
   </div>

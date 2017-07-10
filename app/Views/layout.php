@@ -24,34 +24,33 @@
 			<p class="slogan">Teach it learn that !</p></a>
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <ul class="navbar-nav mr-auto">
-		      <li>
-						<a class="nav-link" href="<?= $this->url('default_concept'); ?>">Concept</a>
-		      </li>
-					<li>
-						<a class="nav-link" href="<?= $this->url('default_communaute'); ?>">Communauté</a>
-					</li>
-					<li>
-						<a class="nav-link" href="<?= $this->url('default_matieres'); ?>">Matières</a>
-					</li>
 					<li>
 						<a class="nav-link" href="<?= $this->url('default_apropos'); ?>">A propos</a>
+					</li>
+					<li>
+						<a class="nav-link" href="<?= $this->url('default_home'); ?>">......</a>
+					</li>
+					<li>
+						<a class="nav-link" href="<?= $this->url('default_home'); ?>">......</a>
 					</li>
 					<?php if(!$w_user){ ?>
 					<li>
 						<a class="nav-link" href="<?= $this->url('default_contact'); ?>">Contact</a>
 					</li>
 					<?php } ?>
-					<?php if(in_array($w_user['role'], ['admin'])){ ?>
-					<li><a class="nav-link" href="<?= $this->url('back_home'); ?>">BackOffice</a></li>
-					<?php } ?>
-					<?php if(in_array($w_user['role'], ['admin','apprenant', 'enseignant'])){ ?>
-					<li><a class="nav-link" href="<?= $this->url('users_profil'); ?>">Profil de <?= ' '.$w_user['pseudo']; ?></a></li>
-					<?php } ?>
+
 
 		    </ul>
+
+
+
+
 		    <form class="form-inline my-2 my-lg-0">
+					<?php if(in_array($w_user['role'], ['admin','apprenant', 'enseignant'])){ ?>
+					<li><a class="nav-link" href="<?= $this->url('users_profil'); ?>"><?= ' '.$w_user['pseudo']; ?></a></li>
+					<?php } ?>
 					<?php if($w_user){ ?>
-						<a class= "nav-link" href="<?= $this->url('logout'); ?>"><?= 'Bonjour '.$w_user['pseudo']; ?> -> Déconnexion </a>
+						<a class= "nav-link" href="<?= $this->url('logout'); ?>"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
 
 					<?php }else{ ?>
 						<ul class="navbar-nav mr-auto">
@@ -129,6 +128,7 @@
 	<script src="./assets/js/jquery-3.2.1.js" charset="utf-8"></script>
 	<script type="text/javascript" src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 	<script src="./assets/js/bootstrap.js" charset="utf-8"></script>
+	<script src="./assets/js/count.js" charset="utf-8"></script>
 	<?= $this->section('js') ?> <!-- Appel de la section js qui est situé dans home.php - Cela va récupérer les JS de la map  !-->
 
 

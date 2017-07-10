@@ -2,18 +2,18 @@
 
 	$w_routes = array(
 		['GET', '/', 'Default#home', 'default_home'],
-		['GET', '/Concept', 'Concept#concept', 'default_concept'],
-		['GET', '/Communaute', 'Communaute#communaute', 'default_communaute'],
-		['GET', '/Matieres', 'Matieres#matieres', 'default_matieres'],
-		['GET', '/Apropos', 'Apropos#apropos', 'default_apropos'],
+		['GET', '/concept', 'Concept#concept', 'default_concept'],
+		['GET', '/communaute', 'Communaute#communaute', 'default_communaute'],
+		['GET', '/matieres', 'Matieres#matieres', 'default_matieres'],
+		['GET', '/apropos', 'Apropos#apropos', 'default_apropos'],
 
-		['GET', '/Contact', 'Contact#contact', 'default_contact'],
-		['POST', '/Contact', 'Contact#contactAction', 'default_contact_action'],
+		['GET', '/contact', 'Contact#contact', 'default_contact'],
+		['POST', '/contact', 'Contact#contactAction', 'default_contact_action'],
 
-		['GET', '/Profil', 'Users#profil', 'users_profil'],
+		['GET', '/profil', 'Users#profil', 'users_profil'],
 
 
-		['GET', '/NomRegions', 'Regions#region', 'regions_regions'],
+		['GET', '/nomRegions', 'Regions#region', 'regions_regions'],
 
 		['GET','/passwordforget', 'Users#passwordForget', 'passwordforget'],
 		['POST','/passwordforget', 'Users#passwordForgetAction', 'passwordforget_action'],

@@ -4,11 +4,6 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12">
-
-			<p class="policetitre" id="rechercheparregion">Salut Laurent, Boris & Nico ! Bien joué pour les modifs ! <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></p>
-
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
 			<p class="policetitre" id="rechercheparregion">Recherche des Tilters par région</p>
 
 		</div>
@@ -127,7 +122,7 @@
 <p class="center iconhomepage"><img class="testiconcept rounded-circle" src="./assets/img/testi4.jpg" alt=""></p>
 <a href="#"><p class="center subtitle_icon">Madonna Louise C.</p></a>
 <p class="center iconhomepage"><img class="separator" src="./assets/img/separator.png" alt=""></p>
-<p class="center"><i>Superbe plateforme d'entraide et de service<br> entre particuliers ! Je suis également surprise<br> par l'amabilité des tilters ! </i></p>
+<p class="center"><i>Superbe plateforme d'entraide et de service entre particuliers ! Je suis également surprise par l'amabilité des tilters ! </i></p>
 </div>
 </div>
 
