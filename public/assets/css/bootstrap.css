@@ -2240,9 +2240,148 @@ pre code {
   border: 0;
 }
 
+
+.form-controlall {
+  display: inline-block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #a0a0a0;
+  background-color: #fff;
+  background-image: none;
+  -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+
+  border-top: 1px solid #a0a0a0;
+  border-bottom:1px solid #a0a0a0;
+  border-left:     1px solid #a0a0a0;
+  border-right: 1px solid #a0a0a0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+
+  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.form-controlall::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+.form-controlall:focus {
+  color: #464a4c;
+  background-color: #fff;
+  outline: none;
+}
+
+.form-controlall::-webkit-input-placeholder {
+  color: #636c72;
+  opacity: 1;
+}
+
+.form-controlall::-moz-placeholder {
+  color: #636c72;
+  opacity: 1;
+}
+
+.form-controlall:-ms-input-placeholder {
+  color: #636c72;
+  opacity: 1;
+}
+
+.form-controlall::placeholder {
+  color: #636c72;
+  opacity: 1;
+}
+
+.form-controlall:disabled, .form-controlall[readonly] {
+  background-color: #eceeef;
+  opacity: 1;
+}
+
+.form-controlall:disabled {
+  cursor: not-allowed;
+}
+
+select.form-controlall:not([size]):not([multiple]) {
+  height: calc(2.25rem + 2px);
+}
+
+select.form-controlall:focus::-ms-value {
+  color: #464a4c;
+  background-color: #fff;
+}
+
+.form-controlall-file,
+.form-controlall-range {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .form-control {
   display: inline-block;
-  width: 80%;
+  width: 100%;
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
   line-height: 1.25;
@@ -2256,12 +2395,16 @@ pre code {
   border-bottom:1px solid #a0a0a0;
   border-left:     1px solid #a0a0a0;
   border-right: 0px solid transparent;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+
   -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
 }
+
 
 .form-control::-ms-expand {
   background-color: transparent;
