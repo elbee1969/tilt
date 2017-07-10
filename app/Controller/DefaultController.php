@@ -6,6 +6,7 @@ use \Controller\TiltController;
 
 use \Model\UsersModel;
 use \Model\CompetencesModel;
+use \Model\RegionsModel;
 
 class DefaultController extends TiltController
 {
@@ -35,6 +36,11 @@ class DefaultController extends TiltController
 		// $icon = new CompetencesModel();
 		// $e = $icon->findCompetencesFromCategory('arts');
 		// debug($e);
+
+		//test de la méthode pour alimenter la liste déroulante des régions
+		$regions = new RegionsModel();
+		$f = $regions->findAllRegions();
+		debug($f);
 
 		$this->show('default/home');
 	}
