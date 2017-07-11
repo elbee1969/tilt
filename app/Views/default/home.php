@@ -170,7 +170,7 @@ $(document).ready(function() {
 			onRegionClick: function(element, code, region)
 			{
 				console.log (element);
-window.location.href = '/tilt/public/region' + region  // + nom de la region créée en BDD & prêt a lusage ;
+window.location.href = '/tilt/public/region' + code  // + nom de la region créée en BDD & prêt a lusage ;
 
 
 			}
