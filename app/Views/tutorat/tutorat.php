@@ -11,19 +11,19 @@ $this->layout('layout', ['tutorat' => 'Ajout apprenant']);
 
 
 <?php
-debug($w_user);
-  foreach ($apprenants as $apprenant) {
+//debug($w_user);
+  //foreach ($apprenants as $apprenant) {
   //   echo '<div style="border: 1px solid black;" class="msg">';
   //   //foreach ($users as $user) {
   //   //  if($message['user_id'] == $user['id']){
   //   //    echo '<p><span>Message de '.$user['pseudo'].' : </span>';
   //   //  }
   //   //}
-    echo '<p><span>Apprenant : '.$apprenant['pseudo'].' : </span>';
+    //echo '<p><span>Apprenant : '.$apprenant['pseudo'].' : </span>';
   //
   //
   //   echo '</div>';
-  }
+  //}
 
  ?>
 

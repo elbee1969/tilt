@@ -29,7 +29,6 @@ class UsersModel extends  WUsersModel
 
     $sth = $this->dbh->prepare($sql);
     $sth->execute();
-
     $result = $sth->fetchAll();
 
     return $result;
@@ -102,6 +101,6 @@ class UsersModel extends  WUsersModel
 
     return $result;
 
-  } // ferme la méthode findEnseignantsinRegion 
+  } // ferme la méthode findEnseignantsinRegion
 
 } // ferme la classe UserModel

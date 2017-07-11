@@ -27,6 +27,7 @@ class TutoratController extends TiltController
 //debug($enseignant);
 //echo $user;
 debug($apprenants);
+$this->show('tutorat/tutorat');
 //die();
 				if(!empty($apprenants)){
 
