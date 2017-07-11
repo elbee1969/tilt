@@ -8,7 +8,7 @@ $this->layout('layout', ['title' => 'Nom de la région']);
 <div class="container-fluid">
 <div class="row">
   <div class="col-12">
-    <p id="titleconnexion" class="policetitre"><?php echo $region['name']; ?></p>
+    <p id="titleconnexion" class="policetitre"><?= $region['name']; ?></p>
   </div>
 </div>
 
