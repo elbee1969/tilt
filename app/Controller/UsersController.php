@@ -12,6 +12,14 @@ use \Model\RegionsModel;
 class UsersController extends TiltController {
 
 
+
+  public function adresse()
+  {
+  	$loggedUser = $this->getUser();
+  	//debug($loggedUser);
+  }
+
+
   public function passwordForget()
     {
       $this->show('users/passwordforget');
@@ -118,9 +126,10 @@ class UsersController extends TiltController {
 
 
                   $post = $clean->cleanPost($_POST); $password1 = $post['newpassword']; $password2 = $post['confpassword'];
+                  $error['password'] = $validation->textValid($_POST['newpassword'], 'newpassword', 8, 50);
 
-                  if ($password1 == $password2) { $error['password'] = $validation->textValid($_POST['newpassword'], 'newpassword', 3, 50);
-                  } else {   $error['password'] = 'les mot de passe sont diffreents ';  }
+                  if ($password1 == $password2) {
+                  } else {   $error['password'] = 'les mot de passe sont différents';  }
 
                   if ($validation->IsValid($error)) {
 

@@ -1,7 +1,24 @@
 <?php $this->layout('layout', ['title' => 'Nouveau mot de passe']) ?>
 
 <?php $this->start('main_content') ?>
-	<h2>Nouveau mot de passe</h2>
+
+	<div class="container-fluid">
+	<div class="row">
+	  <div class="col-12">
+	    <p id="titleconnexion" class="policetitre">Nouveau mot de passe</p>
+	  </div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
 
     <form class="newpassword" action="" method="post">
 

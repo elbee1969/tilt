@@ -4,7 +4,7 @@
 		['GET', '/', 'Default#home', 'default_home'],
 
 		['GET', '/concept', 'Concept#concept', 'default_concept'],
-		['GET', '/communaute', 'Communaute#communaute', 'default_communaute'],
+		['GET', '/profil/adresse', 'Adresse#adresse', 'default_adresse'],
 		['GET', '/matieres', 'Matieres#matieres', 'default_matieres'],
 
 		['GET', '/apropos', 'Apropos#apropos', 'default_apropos'],

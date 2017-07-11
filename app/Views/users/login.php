@@ -9,7 +9,7 @@ $this->layout('layout', ['title' => 'Login']);
 <div class="container-fluid">
 <div class="row">
   <div class="col-12">
-    <p id="titleconnexion" class="policetitre">Connectez-vous au Tilters !</p>
+    <p id="titleconnexion" class="policetitre">Connectez-vous aux Tilters !</p>
   </div>
 </div>
 

@@ -138,11 +138,11 @@
 		<p class="policetitre" id="etvousdixdoigts">Et vous, que savez-vous faire de vos 10 doigts ?</p>
 		<p class="center">Devenez Tilteur et révélez toutes vos compétences auprès de la communauté !</p>
 		<p class="center"><img id="coeurplateau" src="./assets/img/tilt.png" alt=""></p>
-		<p class="center" id="propcomp"><button type="button" class="btn btn-primary btn-lg">Proposer mes compétences</button></p>
+		<p class="center" id="propcomp"><a href="<?= $this->url('users_register'); ?>" ><button type="button" class="btn btn-primary btn-lg">Proposer mes compétences</button></a></p>
 	</div>
 </div>
 
-
+IF : USER CONNECTE -> VA L'ENVOYER SUR LA PAGE "DONNER UN COURS" / IF : USER NON CONNECTE -> INSCRIPTION ?
 
 </div>
 
