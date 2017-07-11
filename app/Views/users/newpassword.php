@@ -3,7 +3,7 @@
 <?php $this->start('main_content') ?>
 	<h2>Nouveau mot de passe</h2>
 
-    <form class="newpassword" action="" method="post">
+    <form class="newpassword" action="<?php $this->url('newpassword_action'); ?>" method="post">
 
       <label for="newpassword">Nouveau mot de passe</label><br>
       <span style= "color: red"><?php if(!empty($error['newpassword'])) { echo $error['newpassword']; } ?></span>

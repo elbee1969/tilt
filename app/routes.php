@@ -12,6 +12,12 @@
 		['GET', '/contact', 'Contact#contact', 'default_contact'],
 		['POST', '/contact', 'Contact#contactAction', 'default_contact_action'],
 
+		['GET', '/tutorat', 'Tutorat#tutorat', 'tutorat_tutorat'],
+	
+
+		['GET', '/messages', 'Messages#messages', 'messages_messages'],
+		['POST', '/messages', 'Messages#messagesAdd', 'messages_messages_action'],
+
 		['GET', '/profil', 'Users#profil', 'users_profil'],
 
 		['POST', '/profil', 'Users#addAdressAction', 'users_profil_action'],
