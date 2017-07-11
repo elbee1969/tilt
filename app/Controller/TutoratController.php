@@ -20,25 +20,19 @@ class TutoratController extends TiltController
 	{
 
 		$model 	= new UsersModel();
-				$regionslug = 'hauts-de-france' ;
-				//$user = $model->find($id);
-				//$enseignant = $model->find($id);
-				$apprenants = $model->findApprenantsInRegion($regionslug);
-//debug($enseignant);
-//echo $user;
-debug($apprenants);
-$this->show('tutorat/tutorat');
-//die();
-				if(!empty($apprenants)){
+		// $user = new UsersModel();
+		$user = $this->getUser();
+		//
+				$region_id = $user['region_id'] ;
+
+				$apprenants = $model->findApprenantsInRegionById($region_id);
+				//debug($user);
+				// debug($apprenants);
 
 					$this->show('tutorat/tutorat', array(
-						'apprenants' => $apprenants
-					));
-				}else{
-
-					$this->show('tutorat/tutorat');
-				}
-
+						'apprenants' => $apprenants,
+						'user'			 =>	$user
+					));				
 	}
 
 	/**

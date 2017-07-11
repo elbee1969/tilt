@@ -13,10 +13,10 @@
 		['POST', '/contact', 'Contact#contactAction', 'default_contact_action'],
 
 		['GET', '/tutorat', 'Tutorat#tutorat', 'tutorat_tutorat'],
-	
 
-		['GET', '/messages', 'Messages#messages', 'messages_messages'],
-		['POST', '/messages', 'Messages#messagesAdd', 'messages_messages_action'],
+
+		['GET', '/messages/[i:id]/[i:user_id]', 'Messages#messages', 'messages_messages'],
+		['POST', '/messages/[i:id]/[i:user_id]', 'Messages#messagesAdd', 'messages_messages_action'],
 
 		['GET', '/profil', 'Users#profil', 'users_profil'],
 
