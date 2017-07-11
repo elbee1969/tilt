@@ -13,10 +13,14 @@ $this->layout('layout', ['title' => 'A propos']);
     </div>
   </div>
 <div class="row">
-  <div class="col-12">
+  <div class="col-2">
+
+  </div>
+  <div class="col-8">
 <p>Simple, social, local et instantané, Tilt est un réseau social fondé sur le partage ressources entre personnes, appelées les Tilters. La plate-forme permet des mises en relation immédiates et directes. Avec Tilt on peut ainsi se faire aider en temps réel quand on en a cruellement besoin, et pour presque toutes les demandes possibles les réponses arrivent en moins d'une heure dans les grandes villes et même moins de dix minutes pour Paris !</p>
 
   </div>
+
 
 </div>
 
