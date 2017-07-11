@@ -103,5 +103,6 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
 
 <a href="<?= $this->url('users_avatar') ?>">Avatar</a>
 
+<?php debug($regionName); ?>
 
 <?php $this->stop('main_content'); ?>

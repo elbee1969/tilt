@@ -19,7 +19,15 @@ class UsersController extends TiltController {
 
     public function profil()
       {
-        $this->show('users/profil');
+        $connectedUser = new AuthentificationModel();
+        $a = $connectedUser->getLoggedUser();
+
+        $regionId = $a['region_id'];
+
+        $regionNamefromId = new RegionsModel();
+        $regionName = $regionNamefromId->findRegionName($regionId);
+
+        $this->show('users/profil', ['regionName' => $regionName]);
       }
 
   public function passwordForgetAction(){
