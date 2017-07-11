@@ -7,17 +7,17 @@ use \Controller\TiltController;
 use \Model\UsersModel;
 use \Model\CompetencesModel;
 
-class CommunauteController extends TiltController
+class AdresseController extends TiltController
 {
 
 	/**
 	 * Page d'accueil par défaut
 	 */
-	public function Communaute()
+	public function Adresse()
 	{
 
-
-		$this->show('default/communaute');
+		$loggedUser = $this->getUser();
+		$this->show('default/adresse');
 	}
 
 }

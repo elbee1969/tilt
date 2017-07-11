@@ -9,6 +9,10 @@ animation-name:swing;
 animation-duration: 2s;
 }
 
+#modifavatar {
+	margin-top: 10px;
+}
+
 #logo_navbar {
   font-size: 2em;
   text-align: center;
@@ -132,6 +136,14 @@ margin-top: 50px;
 
 #francemap {
 	margin-top: -10px;
+}
+
+#addAdress {
+	margin-top: 20px;
+}
+
+#profilcours {
+	margin-top: 20px;
 }
 
 #propcomp {

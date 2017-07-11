@@ -8,9 +8,9 @@ $this->layout('layout', ['title' => 'Inscription']);
 
  ?>
 
+ <div class="container-fluid">
 
-<form id="formconnexion" action="<?= $this->url('users_register_action'); ?>"  method="POST">
-<div class="container-fluid">
+   <form id="formconnexion" action="<?= $this->url('users_register_action'); ?>"  method="POST">
 <div class="row">
   <div class="col-12">
     <p id="titleinscription" class="policetitre">Rejoignez la communauté des Tilters !</p>
@@ -44,11 +44,18 @@ $this->layout('layout', ['title' => 'Inscription']);
   <input class="form-controlall" id="email" type="text" placeholder="Email *" name="email" value="<?php if(!empty($_POST['email'])){ echo $_POST['email']; }; ?>">
   <span style="color:red; font-size:0.70em;" ><?php if(!empty($errors['email'])){ echo $errors['email']; }; ?></span>
   </div>
-  <div class="col-12">
+<div class="col-12">
+
   <label for="region"></label>
-  <input class="form-controlall" placeholder="Région *" id="region" type="text" name="region" value="<?php if(!empty($_POST['region'])){ echo $_POST['region']; }; ?>">
+  <select class="form-controlall" id="region" type="text" name="region" value="<?php if(!empty($_POST['region'])){ echo $_POST['region']; }; ?>">
   <span style="color:red; font-size:0.70em;" ><?php if(!empty($errors['region'])){ echo $errors['region']; }; ?></span>
-</div>
+  <option value=""></option>
+  <?php for ($i=0; $i < 13; $i++) {
+    echo '<option value=" ' .$allRegions[$i]['id']. ' ">' .$allRegions[$i]['name']. '</option>';
+  } ?>
+  </select>
+  </div>
+
 <label for="password"></label>
 <div class="col-12">
   <input class="form-controlall" placeholder="Mot de passe *" id="password" type="password" name="password" value="<?php if(!empty($_POST['password'])){ echo $_POST['password']; }; ?>">
@@ -78,11 +85,6 @@ $this->layout('layout', ['title' => 'Inscription']);
 </div>
 
 <!-- Pour Baptiste, de la part de Nicolas: select à mettre à la place du input des régions  -->
-<select class="" name="">
-  <option value=""></option>
-  <?php for ($i=0; $i < 13; $i++) {
-    echo '<option value=" ' .$allRegions[$i]['id']. ' ">' .$allRegions[$i]['name']. '</option>';
-  } ?>
-</select>
+
 
 <?php $this->stop('main_content'); ?>
