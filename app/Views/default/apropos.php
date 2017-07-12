@@ -58,31 +58,31 @@ $this->layout('layout', ['title' => 'A propos']);
 
 <div class="row">
 <div class="col-md-6 col-12 col-lg-3 col-xl-3 col-sm-6">
-<p class="center iconhomepage"><img class="testiconcept rounded-circle" src="./assets/img/equipe/nicolas.jpg" alt=""></p>
+<p class="center iconhomepage"><img class="testiconcept rounded-circle" src="<?= $this->assetUrl('img/equipe/nicolas.jpg') ?>" alt=""></p>
 <p class="center subtitle_icon">Nicolas L.</p>
-<p class="center iconhomepage"><img class="separator" src="./assets/img/separator.png" alt=""></p>
+<p class="center iconhomepage"><img class="separator" src="<?= $this->assetUrl('img/separator.png') ?>" alt=""></p>
 <p class="center policejosefin"><b>Gestionnaire de BDD</b></p>
 <p class="center policejosefin" style="font-size :1.5em;">Quand il ne joue pas au frisbee sur les terres bretonnes, Nicolas s'occupe des bases de données Tilt.</p>
 </div>
 <div class="col-md-6 col-12 col-lg-3 col-xl-3 col-sm-6">
-<p class="center iconhomepage"><img class="testiconcept rounded-circle" src="./assets/img/equipe/boris.jpg" alt=""></p>
+<p class="center iconhomepage"><img class="testiconcept rounded-circle" src="<?= $this->assetUrl('img/equipe/boris.jpg') ?>" alt=""></p>
 <p class="center subtitle_icon">Boris B.</p>
-<p class="center iconhomepage"><img class="separator" src="./assets/img/separator.png" alt=""></p>
+<p class="center iconhomepage"><img class="separator" src="<?= $this->assetUrl('img/separator.png') ?>" alt=""></p>
 <p class="center policejosefin"><b>Gestionnaire des utilisateurs</b></p>
 <p class="center policejosefin" style="font-size :1.5em;">Pilote de drone confirmé et entrepreneur, Boris peaufine inlassablement votre expérience sur Tilt. </p>
 </div>
 <div class="col-md-6 col-12 col-lg-3 col-xl-3 col-sm-6">
-<p class="center iconhomepage"><img class="testiconcept rounded-circle" src="./assets/img/equipe/laurent.jpg" alt=""></p>
+<p class="center iconhomepage"><img class="testiconcept rounded-circle" src="<?= $this->assetUrl('img/equipe/laurent.jpg') ?>" alt=""></p>
 <p class="center subtitle_icon">Laurent B.</p>
-<p class="center iconhomepage"><img class="separator" src="./assets/img/separator.png" alt=""></p>
+<p class="center iconhomepage"><img class="separator" src="<?= $this->assetUrl('img/separator.png') ?>" alt=""></p>
 <p class="center policejosefin"><b>Developpeur back-end</b></p>
 <p class="center policejosefin" style="font-size :1.5em;">Fan inconditionnel de basket américain, il code aussi rapidement qu’il enchaîne les paniers à trois points. </p>
 
 </div>
 <div class="col-md-6 col-12 col-lg-3 col-xl-3 col-sm-6">
-<p class="center iconhomepage"><img class="testiconcept rounded-circle" src="./assets/img/equipe/baptiste.jpg" alt=""></p>
+<p class="center iconhomepage"><img class="testiconcept rounded-circle" src="<?= $this->assetUrl('img/equipe/baptiste.jpg') ?>" alt=""></p>
 <p class="center subtitle_icon">Baptiste C.</p>
-<p class="center iconhomepage"><img class="separator" src="./assets/img/separator.png" alt=""></p>
+<p class="center iconhomepage"><img class="separator" src="<?= $this->assetUrl('img/separator.png') ?>" alt=""></p>
 <p class="center policejosefin"><b>Integrateur</b></p>
 <p class="center policejosefin" style="font-size :1.5em;">Chasseur de grands crus à ses heures perdues, Baptiste cherche aussi à donner du style à Tilt. </p>
 

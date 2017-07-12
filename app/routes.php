@@ -4,7 +4,6 @@
 		['GET', '/', 'Default#home', 'default_home'],
 
 		['GET', '/concept', 'Concept#concept', 'default_concept'],
-		['GET', '/profil/adresse', 'Adresse#adresse', 'default_adresse'],
 		['GET', '/matieres', 'Matieres#matieres', 'default_matieres'],
 
 		['GET', '/apropos', 'Apropos#apropos', 'default_apropos'],
@@ -20,10 +19,11 @@
 
 		['GET', '/profil', 'Users#profil', 'users_profil'],
 
+		['GET', '/profil/adresse', 'Users#addAdress', 'users_adresse'],
 		['POST', '/profil', 'Users#addAdressAction', 'users_profil_action'],
 
-		['GET', '/avatar', 'Avatar#addAvatar', 'users_avatar'],
-		['POST', '/avatar', 'Avatar#addAvatarAction', 'users_avatar_action'],
+		['GET', '/profil/avatar', 'Avatar#addAvatar', 'users_avatar'],
+		['POST', '/profil/avatar', 'Avatar#addAvatarAction', 'users_avatar_action'],
 
 
 		['GET', '/regions', 'Regions#regions', 'regions_regions'],
