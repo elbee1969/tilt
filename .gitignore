@@ -1,4 +1,4 @@
 
 /phpDocumentor.phar
 *.log
-config.php
+/app/config.php
