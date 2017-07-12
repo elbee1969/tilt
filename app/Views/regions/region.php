@@ -5,7 +5,20 @@ $this->layout('layout', ['title' => 'Nom de la région']);
 
 <?php $this->start('main_content'); ?>
 
-<h1>Page Région</h1>
-<?php echo $region['name']; ?>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-12">
+    <p id="titleconnexion" class="policetitre"><?= $region['name']; ?></p>
+  </div>
+</div>
+
+<div class="row">
+  <marquee> Les blablabla</marquee>
+</div>
+
+
+
+
+</div>
 
 <?php $this->stop('main_content'); ?>

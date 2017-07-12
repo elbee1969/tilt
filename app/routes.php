@@ -4,13 +4,19 @@
 		['GET', '/', 'Default#home', 'default_home'],
 
 		['GET', '/concept', 'Concept#concept', 'default_concept'],
-		['GET', '/communaute', 'Communaute#communaute', 'default_communaute'],
+		['GET', '/profil/adresse', 'Adresse#adresse', 'default_adresse'],
 		['GET', '/matieres', 'Matieres#matieres', 'default_matieres'],
 
 		['GET', '/apropos', 'Apropos#apropos', 'default_apropos'],
 
 		['GET', '/contact', 'Contact#contact', 'default_contact'],
 		['POST', '/contact', 'Contact#contactAction', 'default_contact_action'],
+
+		['GET', '/tutorat', 'Tutorat#tutorat', 'tutorat_tutorat'],
+
+
+		['GET', '/messages/[i:id]/[i:user_id]', 'Messages#messages', 'messages_messages'],
+		['POST', '/messages/[i:id]/[i:user_id]', 'Messages#messagesAdd', 'messages_messages_action'],
 
 		['GET', '/profil', 'Users#profil', 'users_profil'],
 

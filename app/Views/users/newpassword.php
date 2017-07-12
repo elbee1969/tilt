@@ -1,9 +1,26 @@
 <?php $this->layout('layout', ['title' => 'Nouveau mot de passe']) ?>
 
 <?php $this->start('main_content') ?>
-	<h2>Nouveau mot de passe</h2>
 
-    <form class="newpassword" action="" method="post">
+	<div class="container-fluid">
+	<div class="row">
+	  <div class="col-12">
+	    <p id="titleconnexion" class="policetitre">Nouveau mot de passe</p>
+	  </div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <form class="newpassword" action="<?php $this->url('newpassword_action'); ?>" method="post">
 
       <label for="newpassword">Nouveau mot de passe</label><br>
       <span style= "color: red"><?php if(!empty($error['password'])) { echo $error['password']; } ?></span>

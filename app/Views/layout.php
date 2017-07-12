@@ -30,6 +30,11 @@
 					<li>
 						<a class="nav-link" href="<?= $this->url('default_home'); ?>">......</a>
 					</li>
+					<?php if($w_user){ ?>
+					<li>
+						<a class="nav-link" href="<?= $this->url('tutorat_tutorat'); ?>">Tutorat</a>
+					</li>
+					<?php } ?>
 					<li>
 						<a class="nav-link" href="<?= $this->url('default_home'); ?>">......</a>
 					</li>

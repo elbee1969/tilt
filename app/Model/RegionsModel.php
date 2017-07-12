@@ -29,8 +29,22 @@ class RegionsModel extends Model {
   } //ferme la méthode findAllRegions
 
   //méthode pour trouver le nom de la région à partir de son region_id dans la table users
-  public function findRegionName() {
-    
+  public function findRegionName($regionId) {
+
+    $sql = "SELECT r.name
+            FROM tilt_regions AS r
+            LEFT JOIN tilt_user AS u
+            ON u.region_id = r.id
+            WHERE u.region_id = :regionId";
+
+    $sth = $this->dbh->prepare($sql);
+    $sth->bindValue(':regionId', $regionId);
+    $sth->execute();
+
+    $result = $sth->fetch();
+
+    return $result;
+
   }
 
 } //ferme la class RegionsModel
