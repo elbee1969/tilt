@@ -128,9 +128,9 @@ class UsersModel extends  WUsersModel
 
   } // ferme la méthode findApprenantsInRegionById
 
-  public function findEnseignantsinRegionById($region_id) {
+  public function findEnseignantsinRegionById($regionid) {
 
-    // idem que findApprenantsInRegion mais pour les Enseignants
+    // idem que findApprenantsInRegionById mais pour les Enseignants
 
     $sql = "SELECT r.id, r.name, i.user_id, i.competences_id, c.name, u.pseudo, u.role
             FROM tilt_regions AS r
@@ -140,10 +140,10 @@ class UsersModel extends  WUsersModel
             ON i.competences_id = c.id
             LEFT JOIN tilt_user AS u
             ON i.user_id = u.id
-            WHERE r.slug = :region_id AND u.role = 'enseignant'";
+            WHERE r.id = :regionid AND u.role = 'enseignant'";
 
     $sth = $this->dbh->prepare($sql);
-    $sth->bindValue(':region_id', $region_id);
+    $sth->bindValue(':regionid', $regionid);
     $sth->execute();
 
     $result = $sth->fetchAll();

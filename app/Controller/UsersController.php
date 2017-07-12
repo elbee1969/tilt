@@ -377,7 +377,7 @@ class UsersController extends TiltController {
             $data = array(
               'number' => $number,
               'street' => $street,
-              'city' => $city,
+              'city'    => $city,
               'postal' => $postal,
             );
 

@@ -20,13 +20,18 @@ $this->layout('layout', ['title' => 'Messagerie']);
 <div class="msgs">
 
   <?php
+
   if(!empty($messages)){
 
     foreach ($messages as $message) {
       echo '<div style="border: 1px solid black;" class="msg">';
-      echo '<p><span>Message de '.$message['id'].' : </span>';
-      echo '</p><p>'.$message['message'].'</p><p><span > envoyé le : '.$message['created_at'].'</span></p>';
+      echo '<p>Message de '.$prenom.' : '.$message['message'].' envoyé le : '.$message['created_at'].'</p>';
       echo '</div>';
+      foreach ($selfmessages as $selfmessage) {
+          echo '<div style="border: 1px solid red;" class="msg">';
+          echo 'Message de '.$w_user['pseudo'].' : '.$selfmessage['message'];
+          echo '</div>';
+      }
     }
   }else{
     echo 'Vous n\'avez pas de message !';

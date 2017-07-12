@@ -20,20 +20,49 @@ class TutoratController extends TiltController
 	{
 
 		$model 	= new UsersModel();
-		// $user = new UsersModel();
+		$modelregion = new RegionsModel();
+		//recupératuin du user connecté
 		$user = $this->getUser();
+		// récupération de la région du user connecté
+		$region = $modelregion->findRegionName($user['region_id']);
+		// si enseignant on utilise $userE
+		if($user['role'] == 'enseignant'){
+			$userE = $this->getUser();
+		}
+		// si apprenant on utilise $userA
+		if($user['role'] == 'apprenant'){
+			$userA = $this->getUser();
+		}
 		//
 				$region_id = $user['region_id'] ;
 
+				$enseignants = $model->findEnseignantsInRegionById($region_id);
 				$apprenants = $model->findApprenantsInRegionById($region_id);
-				$enseignant = $model->findEnseignantsInRegionById($region_id);
-				//debug($user);
-				// debug($apprenants);
 
-					$this->show('tutorat/tutorat', array(
-						'apprenants' => $apprenants,
-						'user'			 =>	$user
-					));
+				//debug($user);
+				if(in_array($user['role'], ['apprenant', 'enseignant'])){
+//si enseignant renvoi la liste de appreants:
+					  if(in_array($user['role'], ['enseignant'])){
+							//debug($apprenants);
+							$this->show('tutorat/tutorat', array(
+								'apprenants' => $apprenants,
+								'user'			 =>	$user,
+								'region'     => $region
+							));
+						}
+//si apprenant renvoi liste des enseignants:
+						if(in_array($user['role'], ['apprenant'])){
+							//debug($enseignants);
+							$this->show('tutorat/tutorat', array(
+								'enseignants' => $enseignants,
+								'user'			 =>	$user,
+								'region'     => $region
+							));
+						}
+				} else {
+					$this->show('tutorat/tutorat');
+				}
+
 	}
 
 	/**
