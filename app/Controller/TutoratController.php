@@ -39,11 +39,11 @@ class TutoratController extends TiltController
 				$enseignants = $model->findEnseignantsInRegionById($region_id);
 				$apprenants = $model->findApprenantsInRegionById($region_id);
 
-				debug($user);
+				//debug($user);
 				if(in_array($user['role'], ['apprenant', 'enseignant'])){
 //si enseignant renvoi la liste de appreants:
 					  if(in_array($user['role'], ['enseignant'])){
-							debug($apprenants);
+							//debug($apprenants);
 							$this->show('tutorat/tutorat', array(
 								'apprenants' => $apprenants,
 								'user'			 =>	$user,

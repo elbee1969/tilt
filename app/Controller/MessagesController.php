@@ -18,10 +18,19 @@ class MessagesController extends TiltController
 	{
 		$modelmsg 	= new MessagesModel();
 		$modeluser 	= new UsersModel();
+		//recupération des infos $user_id passé en POST
+		$user = $modeluser->find($user_id);
+		// récupération du prénom pour le passer et l'afficher dans la page message
+		$prenom = $user['pseudo'];
+
+
 				$messages = $modelmsg->findMessageApprenant($id,$user_id);
+				$selfmessages = $modelmsg->findMessageApprenant($user_id,$id);
 				if(!empty($messages)){
 					$this->show('messages/messages', array(
-						'messages' => $messages
+						'messages' 		=> $messages,
+						'selfmessages' => $selfmessages,
+						'prenom'  		=> $prenom
 					));
 				}else{
 					$this->show('messages/messages');

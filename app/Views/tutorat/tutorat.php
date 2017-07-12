@@ -6,7 +6,7 @@ $this->layout('layout', ['title' => 'Ajout apprenant']);
 <?php $this->start('main_content'); ?>
 
 <?php
-debug($w_user);
+//debug($w_user);
 //si admin on affiche la liste des apprenants et enseignants de la region
 if(in_array($w_user['role'], ['apprenant', 'enseignant'])){
   //si apprenant on affiche liste des enseignants
@@ -14,7 +14,7 @@ if(in_array($w_user['role'], ['apprenant', 'enseignant'])){
     echo '<h3>liste des enseignants de '.$region['name'].'</h3>';
     //debug($enseignants);
     foreach ($enseignants as $enseignant) {
-      echo '<p>'.$enseignant['pseudo'].' formateur en  <b>'.$enseignant['name'].'</b> <a href="'. $this->url('messages_messages', ['id' => $user['id'], 'user_id' => $enseignant['user_id']]).'"> vers messagerie</a></p>';
+        echo '<p>'.$enseignant['pseudo'].' formateur en  <b>'.$enseignant['name'].'</b> <a href="'. $this->url('messages_messages', ['id' => $user['id'], 'user_id' => $enseignant['user_id']]).'"> vers messagerie</a></p>';
     }
   }
   //si enseignant on affiche liste des apprenants de la region
