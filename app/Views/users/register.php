@@ -14,7 +14,7 @@ $this->layout('layout', ['title' => 'Inscription']);
 <div class="row">
   <div class="col-12">
     <p id="titleinscription" class="policetitre">Rejoignez la communauté des Tilters !</p>
-    <p class="center">Pssst ! Cela ne prend qu'une minute !</p>
+    <p class="center policejosefin">Pssst ! Cela ne prend qu'une minute !</p>
     <p class="center">Tous les champs marqués d'un astérisque (*) sont obligatoires.</p>
   </div>
 </div>
