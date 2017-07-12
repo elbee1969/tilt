@@ -57,7 +57,7 @@ class UsersController extends TiltController {
             if ($validation->IsValid($error)) {
 
               $user = $model->getUserByUsernameOrEmail($email);
-              debug($user);
+              //debug($user);
               if (!empty($user)) {
 
                 // Envoie de mail
