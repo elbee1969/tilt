@@ -27,11 +27,11 @@ $this->layout('layout', ['title' => 'Messagerie']);
       echo '<div style="border: 1px solid black;" class="msg">';
       echo '<p>Message de '.$prenom.' : '.$message['message'].' envoyé le : '.$message['created_at'].'</p>';
       echo '</div>';
-      foreach ($selfmessages as $selfmessage) {
-          echo '<div style="border: 1px solid red;" class="msg">';
-          echo 'Message de '.$w_user['pseudo'].' : '.$selfmessage['message'];
-          echo '</div>';
-      }
+    }
+    foreach ($selfmessages as $selfmessage) {
+        echo '<div style="border: 1px solid red;" class="msg">';
+        echo 'Message de '.$w_user['pseudo'].' : '.$selfmessage['message'];
+        echo '</div>';
     }
   }else{
     echo 'Vous n\'avez pas de message !';

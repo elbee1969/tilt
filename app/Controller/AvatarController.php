@@ -48,14 +48,14 @@ class AvatarController extends TiltController {
 
     $sizeMax = 2096000; // 2MO
     $extensions = array('.jpg', '.png', '.jpeg');
-    $extensionsmime = array('image/jpeg', 'image/png' );
+    $extensionsmime = array('image/jpeg', 'image/png','image/jpg' );
 
     $errors['avatar'] = $validation->uploadValid($_FILES['avatar'],$sizeMax,$extensions,$extensionsmime);
 
     if($validation->IsValid($errors)){
-      $path = 'assets/img/avatar/';
+      $path = 'img/avatar/';
 
-      $des = $_SERVER['DOCUMENT_ROOT'] . '/tilt/tilt/public/assets/' . $path;
+      $des = $_SERVER['DOCUMENT_ROOT'] . '/tilt/public/assets/' . $path;
       $ext = $clean->getExtension($_FILES['avatar']['name']);
       $imgname = time().'-'. $clean->slugify( $clean->deleteextension($_FILES['avatar']['name'])).'.'.$ext;
 

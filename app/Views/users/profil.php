@@ -3,28 +3,25 @@
 $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
 ?>
 
-<<<<<<< HEAD
-<?php
 
-
-if ($w_user) {
-
- $this->start('main_content'); ?>
-=======
 <?php $this->start('main_content'); ?>
->>>>>>> a0a461d43e0d144f5a43e0478f7aca2d96677a08
+
 
 
 <div class"container-fluid">
-<div class="row">
-  <div class="col-1">
+  <div class="row">
+    <div class="col-1">
 
-  </div>
+    </div>
     <div class="col-12 col-md-12 col-xl-2 col-sm-12">
       <div class="card">
-<<<<<<< HEAD
+
         <p class="center"><img class="rounded-circle profilepicture" src="<?= $avatar['path'].$avatar['name']; ?>" alt="Card image cap"></p>
-        <span class="center" id="modifavatar" style="color:#3f51b5; font-size:0.70em;" ><a href="<?= $this->url('users_avatar'); ?>">Modifier la photo de profil</a></span>
+        <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin'])){ ?>
+        <span class="center" id="modifavatar" style="color:#3f51b5; font-size:0.70em;" >
+          <a href="<?= $this->url('users_avatar'); ?>">Modifier la photo de profil</a>
+        </span>
+        <?php } ?>
       <div class="card-block">
         <h4 class="center policetitre" ><?= $w_user['pseudo']; ?></h4>
       </div>
@@ -33,109 +30,81 @@ if ($w_user) {
           <li class="list-group-item"><?= $w_user['email']; ?></li>
           <li class="list-group-item"><?= 'Inscrit le '.$w_user['created_at']; ?></li>
           <li class="list-group-item"><?= 'Région : '.$w_user['region_id']; ?></li>
+          <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin'])){ ?>
           <li class="list-group-item"><a href="#">Modifier mes informations</a></li>
+          <?php } ?>
         </ul>
       </div>
-=======
-  <p class="center"><img class="rounded-circle profilepicture" src="./assets/img/profil.jpg" alt="Card image cap"></p>
-  <span class="center" id="modifavatar" style="color:#3f51b5; font-size:0.70em;" ><a href="<?= $this->url('users_avatar'); ?>">Modifier la photo de profil</a></span>
-  <div class="card-block">
-    <h4 class="center policetitre" ><?= $w_user['pseudo']; ?></h4>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">    <?= $w_user['first_name']; ?>   <?= $w_user['last_name']; ?></li>
-    <li class="list-group-item"><?= $w_user['email']; ?></li>
-    <li class="list-group-item"><?= 'Inscrit le '.$w_user['created_at']; ?></li>
-    <li class="list-group-item"><?= 'Région : '.$regionName['name']; ?></li>
-    <li class="list-group-item"><a href="#">Modifier mes informations</a></li>
-  </ul>
-</div>
->>>>>>> a0a461d43e0d144f5a43e0478f7aca2d96677a08
+
     </div>
 
     <div class="col-12   col-md-12 col-xl-8 col-sm-12">
+    <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin'])){ ?>
       <div class="card" >
-    <p id="titleprofil" class="policetitre">Vos statistiques</p>
-  <div class="card-block">
-<div class="row">
-  <div class="col-12 col-md-6 col-xl-6 col-sm-6">
-<p class="center"><b>Cours suivis</b></p>
-if cours suivi = 0 ->  echo "Vous n'avez pas encore suivi de cours" + lien suivre un cours (renvoi vers région)| else : Affiche les cours suivis + Suivre un nouveau cours
+      <p id="titleprofil" class="policetitre">Vos statistiques</p>
+        <div class="card-block">
+          <div class="row">
+            <div class="col-12 col-md-6 col-xl-6 col-sm-6">
+            <p class="center"><b>Cours suivis</b></p>
+            if cours suivi = 0 ->  echo "Vous n'avez pas encore suivi de cours" + lien suivre un cours (renvoi vers région)| else : Affiche les cours suivis + Suivre un nouveau cours
+            </div>
+            <div class="col-12 col-md-6 col-xl-6 col-sm-6">
+            <p class="center"><b>Cours donnés</b></p>
 
-  </div>
-  <div class="col-12 col-md-6 col-xl-6 col-sm-6">
-<p class="center"><b>Cours donnés</b></p>
+            if cours donné = 0 ->  echo "Vous n'avez pas encore donné de cours" + lien donner un cours (renvoi vers région)| else : Affiche les cours donnés + donner un nouveau cours
+            </div>
+          </div>
+          <div class="row">
 
-if cours donné = 0 ->  echo "Vous n'avez pas encore donné de cours" + lien donner un cours (renvoi vers région)| else : Affiche les cours donnés + donner un nouveau cours
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="card" >
+      <p id="titleprofil" class="policetitre">Votre fiche contact</p>
+        <div class="card-block">
+          <div class="row">
 
+            <div class="col-12">
 
-  </div>
-</div>
-<div class="row">
+            <p><b>Adresse :</b>   if adress == null -> echo "Vous n'avez pas encore ajouté votre adresse" -> Lien "Ajouter une adresse" |  else -> echo adress</p>
 
-</div>
-  </div>
-</div>
-<br>
-<div class="card" >
-<p id="titleprofil" class="policetitre">Votre fiche contact</p>
-<div class="card-block">
-<div class="row">
+            <p><b>Numéro de téléphone :</b> if tel == null -> echo "Vous n'avez pas encore ajouté votre numéro de téléphone" Lien "Ajouter un num de tel" |  else -> echo tel</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
 
-<div class="col-12">
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
+      <div class="row">
+        <?php if(in_array($w_user['role'], ['guest'])){ ?>
+        <div class="col-12">
+          <h4>Transmettre son savoir faire :</h4>
+          <p>Vous désirez <b>transmettre</b> votre Savoir, cliquez sur le bouton <b>"Donner un cours"</b> ci-dessous.<br>
+          Vous obtiendrez ainsi, un status d'enseignant "Tilter" dans votre région. Ceci qui vous permettra de proposer votre savoir parmis nos matières référencées ou bien d'en proposer de nouvelles qui vous correspondent...
+          <h4>Aquerir de nouvelles compétences :</h4>
+          <p>Vous avez soif d'<b>apprendre</b>, cliquez sur le  bouton <b>"Suivre un cours"</b> ci-dessous.<br>
+          Vous pourrez, alors en tant qu'apprenant "Tilter", vous mettre en contact avec des enseignants "Tilter" de votre région.<br>
+          Si vous ne trouvez pas votre bonheur ... pas de soucis, proposez votre recherche ! Après validation de notre part, nous la proposerons en ligne afin de trouver l'enseignant "Tilter" adéquat !</p>
 
-<p><b>Adresse :</b>   if adress == null -> echo "Vous n'avez pas encore ajouté votre adresse" -> Lien "Ajouter une adresse" |  else -> echo adress</p>
+        </div>
+      <?php } ?>
+        <div class="col-6">
+          <p class="center" id="profilcours"><a href="<?= $this->url('users_inscrenseignant'); ?>"><button type="button" class="btn btn-primary btn-lg">Donner un cours</button></a></p>
 
-<p><b>Numéro de téléphone :</b> if tel == null -> echo "Vous n'avez pas encore ajouté votre numéro de téléphone" Lien "Ajouter un num de tel" |  else -> echo tel</p>
-</div>
-</div>
-<div class="row">
-<div class="col-12">
+        </div>
+        <div class="col-6">
+          <p class="center" id="profilcours"><a href="<?= $this->url('users_inscrapprenant'); ?>"><button type="button" class="btn btn-primary btn-lg">Suivre un cours</button></a></p>
 
-</div>
-</div>
-</div>
-</div>
-<div class="row">
-  <div class="col-6">
-    <p class="center" id="profilcours"><button type="button" class="btn btn-primary btn-lg">Donner un cours</button></p>
-
-  </div>
-  <div class="col-6">
-    <p class="center" id="profilcours"><button type="button" class="btn btn-primary btn-lg">Suivre un cours</button></p>
-
-  </div>
-</div>
-
-
-
+        </div>
+      </div>
     </div>
-
-
-
-
-
-
-
-</div>
   </div>
-
-
-
-<<<<<<< HEAD
-<?php debug($avatar);
-debug($avatar);
-=======
->>>>>>> a0a461d43e0d144f5a43e0478f7aca2d96677a08
-
-
-
-
-
-
-
-
-
+</div>
 
 <div class="infouser">
   <div class="first_name">
