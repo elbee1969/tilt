@@ -38,6 +38,9 @@ $this->layout('layout', ['title' => 'Login']);
     </div>
     </form>
   </div>
+
+<p class="center"><img id="communaute" src="./assets/img/communaute.png" alt=""></p>
+
   </div>
 
 
