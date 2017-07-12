@@ -44,7 +44,6 @@
 
 
 		['GET|POST', '/logout', 'Users#logout', 'logout'],
-
 		['GET|POST', '/backOffice', 'Back#home', 'back_home'],
 
 	);

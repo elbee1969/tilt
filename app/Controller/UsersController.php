@@ -219,7 +219,7 @@ class UsersController extends TiltController {
         // validation $email
         if (!empty($email)) {
             $errors['email'] = $validation->emailValid($post['email']);
-                if ($validation->IsValid($errors) == false) {
+                if ($validation->IsValid($errors) == false) { //ici il faut enlever le false et inverser la condition (Antoine)
                   if($model->emailExists($email)){
                     $errors['email'] = 'Ce email existe déjà !';
                   }
@@ -230,17 +230,20 @@ class UsersController extends TiltController {
         $errors['nom'] = $validation->textValid($nom,'nom');
         $errors['prenom'] = $validation->textValid($prenom,'prenom');
 
-        $errors['region'] = $validation->textValid($region,'region');
-
         // validation password
         $errors['password'] = $validation->textValid($password,'password',8);
         if ($password !== $password2){
           $errors['password'] = 'Les password sont différents';
         }
+        
+          //pour réafficher la liste des régions dans la liste déroulante
+          $regionsList = new RegionsModel();
+          $allRegions = $regionsList->findAllRegions();
 
-          if($validation->IsValid($errors) == false){
+          if($validation->IsValid($errors) == false){ //ici il faut enlever le false et inverser la condition (Antoine)
             $this->show('users/register', array(
-              'errors'   => $errors
+              'errors'   => $errors,
+              'allRegions' => $allRegions
             ));
           } else {
               $role ='admin';
@@ -263,7 +266,7 @@ class UsersController extends TiltController {
 // debug($data);
 // die();
               $model->insert($data);
-              $this->flash('utilisateur bien enrengistrer');
+              $this->flash('utilisateur bien enregistré');
               $this->redirectToRoute('login');
           }
     }

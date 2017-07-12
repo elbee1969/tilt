@@ -43,19 +43,25 @@
 					</li>
 					<?php } ?>
 		    </ul>
-
-		    <form class="form-inline my-2 my-lg-0">
+		    	<form class="form-inline my-2 my-lg-0">
 					<?php if(in_array($w_user['role'], ['admin','apprenant', 'enseignant'])){ ?>
-					<li>
-						<a class="nav-link" href="<?= $this->url('users_profil'); ?>"><?= ' '.$w_user['pseudo']; ?></a>
-					</li>
-					<?php }
+						<li>
+							<a class="nav-link" href="<?= $this->url('users_profil'); ?>"><?= ' '.$w_user['pseudo']; ?></a>
+						</li>
+						<?php } ?>
+
+						<?php if(in_array($w_user['role'], ['admin'])){ ?>
+							<li>
+								<a class="nav-link" href="<?= $this->url('back_home'); ?>">Back office</a>
+							</li>
+
+
+						<?php }
 					 if($w_user){ ?>
 						<a class= "nav-link" href="<?= $this->url('logout'); ?>  ">
 							<i class="fa fa-sign-out" title="déconnexion" aria-hidden="true">
 							</i>
 						</a>
-
 					<?php }else{ ?>
 						<ul class="navbar-nav mr-auto">
 		        	<li>
@@ -67,7 +73,7 @@
 						</ul>
 					<?php } ?>
 		      <input class="form-control mr-sm-2" type="text" placeholder="Compétences, régions ..."></input>
-					<input class="btn btn-outline-success my-2 my-sm-0 fa fa-search" aria-hidden="true" type="submit" value="GO!"></input>
+					<input class="btn btn-outline-success my-2 my-sm-0 fa fa-search" aria-hidden="true" type="submit" value="&#9906;"></input>
 		    </form>
 		  </div>
 		</nav>
@@ -124,17 +130,17 @@
 						<p class="copyright"><a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><img id="appstore" src="<?= $this->assetUrl('img/download-appstore.png') ?>" alt=""></a> <a target="_blank" href="https://play.google.com/store?hl=fr"><img id="googleplay" src="<?= $this->assetUrl('img/download-googleplay.png') ?>" alt=""></a></p>
 					</div>
 					<div class="col-md-2 col-12 align-self-end hidden-xs-down hidden-sm-down">
-			<img id="mainiphone" src="<?= $this->assetUrl('img/tilt_iphone.png') ?>" alt="">
+						<img id="mainiphone" src="<?= $this->assetUrl('img/tilt_iphone.png') ?>" alt="">
 					</div>
 					<div class="col-md-2 col-12 hidden-xs-down hidden-sm-down"><!-- Collone vide !--></div>
 				</div>
 			</div>
 		</footer>
 
-	<script src="./assets/js/jquery-3.2.1.js" charset="utf-8"></script>
+	<script src="<?= $this->assetUrl('js/jquery-3.2.1.js')?>" charset="utf-8"></script>
 	<script type="text/javascript" src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-	<script src="./assets/js/bootstrap.js" charset="utf-8"></script>
-	<script src="./assets/js/count.js" charset="utf-8"></script>
+	<script src="<?= $this->assetUrl('js/bootstrap.js')?>" charset="utf-8"></script>
+	<script src="<?= $this->assetUrl('js/count.js')?>" charset="utf-8"></script>
 	<?= $this->section('js') ?> <!-- Appel de la section js qui est situé dans home.php - Cela va récupérer les JS de la map  !-->
 
 </body>

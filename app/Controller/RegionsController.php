@@ -28,7 +28,6 @@ class RegionsController extends TiltController
 
 
 
-
 	public function detailRegion($id) {
     $model = new RegionsModel();
     $region = $model->find($id);
