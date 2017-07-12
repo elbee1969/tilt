@@ -35,13 +35,13 @@ class MessagesModel extends Model {
   } //ferme la méthode findAllmessages
 
   // méthode pour trouver les messages d'un appreant
-  public function findMessage() {
+  public function findMessageApprenant($id,$userid) {
 
-    $sql = "SELECT m.id, m.id_enseignat, m.id_apprenant, u.id, u.pseudo
-            FROM tilt_messages AS m
-            LEFT JOIN tilt_users AS u
-            ON m.id = u.id_enseignant
-            WHERE u.id = m.id_apprenant";
+        $sql = "SELECT m.message, u.id, m.created_at
+                FROM tilt_messages AS m
+                INNER JOIN tilt_user AS u
+                ON m.id_apprenant = u.id
+                WHERE m.id_enseignant = $id AND  m.id_apprenant = $userid";
 
     $sth = $this->dbh->prepare($sql);
     $sth->execute();
@@ -50,6 +50,6 @@ class MessagesModel extends Model {
 
     return $result;
 
-  } //ferme la méthode findApprenant
+  } //ferme la méthode findMessage
 
 } //ferme la class messagesModel

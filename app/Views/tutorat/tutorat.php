@@ -1,29 +1,26 @@
 <?php
 //hérite du fichier layout.php à la racine de app/Views/
-$this->layout('layout', ['tutorat' => 'Ajout apprenant']);
+$this->layout('layout', ['title' => 'Ajout apprenant']);
 ?>
 
 <?php $this->start('main_content'); ?>
 
-<h1>Page Ajout apprenant</h1>
-
-
-
-
 <?php
 //debug($w_user);
-  //foreach ($apprenants as $apprenant) {
-  //   echo '<div style="border: 1px solid black;" class="msg">';
-  //   //foreach ($users as $user) {
-  //   //  if($message['user_id'] == $user['id']){
-  //   //    echo '<p><span>Message de '.$user['pseudo'].' : </span>';
-  //   //  }
-  //   //}
-    //echo '<p><span>Apprenant : '.$apprenant['pseudo'].' : </span>';
-  //
-  //
-  //   echo '</div>';
-  //}
+if(in_array($w_user['role'], ['admin', 'apprenant', 'enseignant'])){
+  if(in_array($w_user['role'], ['admin', 'apprenant'])){
+    echo '<h3>liste des enseignants</h3>';
+
+  }
+  if(in_array($w_user['role'], ['admin', 'enseignant'])){
+    echo '<h3>liste des apprenants</h3>';
+    debug($apprenants);
+    foreach ($apprenants as $apprenant) {
+      echo '<p>'.$apprenant['pseudo'].' apprenant en : '.$apprenant['name'].' <a href="'. $this->url('messages_messages', ['id' => $user['id'], 'user_id' => $apprenant['user_id']]).'"> vers messagerie</a></p>';
+    }
+  }
+}
+
 
  ?>
 
