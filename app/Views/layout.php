@@ -10,8 +10,7 @@
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.css') ?>">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-	<link rel="icon" type="image/png" href="./assets/img/favicon.png" />
-
+	<link rel="icon" type="image/png" href="<?= $this->assetUrl('img/favicon.png')?>" />
 
 </head>
 <body>
@@ -45,24 +44,30 @@
 					<?php } ?>
 		    </ul>
 
-
-
-
 		    <form class="form-inline my-2 my-lg-0">
 					<?php if(in_array($w_user['role'], ['admin','apprenant', 'enseignant'])){ ?>
-					<li><a class="nav-link" href="<?= $this->url('users_profil'); ?>"><?= ' '.$w_user['pseudo']; ?></a></li>
-					<?php } ?>
-					<?php if($w_user){ ?>
-						<a class= "nav-link" href="<?= $this->url('logout'); ?>  "><i class="fa fa-sign-out" title="déconnexion" aria-hidden="true"></i></a>
+					<li>
+						<a class="nav-link" href="<?= $this->url('users_profil'); ?>"><?= ' '.$w_user['pseudo']; ?></a>
+					</li>
+					<?php }
+					 if($w_user){ ?>
+						<a class= "nav-link" href="<?= $this->url('logout'); ?>  ">
+							<i class="fa fa-sign-out" title="déconnexion" aria-hidden="true">
+							</i>
+						</a>
 
 					<?php }else{ ?>
 						<ul class="navbar-nav mr-auto">
-		        	<li><a class="nav-link" href="<?= $this->url('users_register'); ?>">Inscription</a></li>
-							<li><a class="nav-link" href="<?= $this->url('login'); ?>">Connexion</a></li>
+		        	<li>
+								<a class="nav-link" href="<?= $this->url('users_register'); ?>">Inscription</a>
+							</li>
+							<li>
+								<a class="nav-link" href="<?= $this->url('login'); ?>">Connexion</a>
+							</li>
 						</ul>
 					<?php } ?>
-		      <input class="form-control mr-sm-2" type="text" placeholder="Compétences, régions ..."></input><input class="btn btn-outline-success my-2 my-sm-0 fa fa-search" aria-hidden="true" type="submit"></input>
-
+		      <input class="form-control mr-sm-2" type="text" placeholder="Compétences, régions ..."></input>
+					<input class="btn btn-outline-success my-2 my-sm-0 fa fa-search" aria-hidden="true" type="submit" value="GO!"></input>
 		    </form>
 		  </div>
 		</nav>
@@ -70,22 +75,6 @@
 		<section class="backgroundsection">
 			<?= $this->section('main_content') ?>
 		</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 		<footer>
 			<div class="container-fluid">
@@ -115,79 +104,38 @@
 						</div>
 					</div>
 					<div class="col-md-2 col-12">
-			<div class="container-fluid">
-						<div class="row">
-						<div class="col-12 align-self-start">
-							<p class="copyright">
-								<a target="_blank" href="https://facebook.fr"><i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
-								<a target="_blank" href="https://twitter.fr"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
-							</p>
-						</div>
-						</div>
-						<div class="row align-items-end">
-						<div class="col-12 align-self-end">
-							<p class="copyright" id="copyright"> © 2017 Tilt | Webforce3 </p>
-						</div>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 align-self-start">
+									<p class="copyright">
+										<a target="_blank" href="https://facebook.fr"><i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
+										<a target="_blank" href="https://twitter.fr"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
+									</p>
+								</div>
+							</div>
+							<div class="row align-items-end">
+								<div class="col-12 align-self-end">
+									<p class="copyright" id="copyright"> © 2017 Tilt | Webforce3 </p>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
 					<div class="col-md-2 col-12 align-self-center">
-			<p class="copyright"><a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><img id="appstore" src="./assets/img/download-appstore.png" alt=""></a> <a target="_blank" href="https://play.google.com/store?hl=fr"><img id="googleplay" src="./assets/img/download-googleplay.png" alt=""></a></p>
+						<p class="copyright"><a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><img id="appstore" src="<?= $this->assetUrl('img/download-appstore.png') ?>" alt=""></a> <a target="_blank" href="https://play.google.com/store?hl=fr"><img id="googleplay" src="<?= $this->assetUrl('img/download-googleplay.png') ?>" alt=""></a></p>
 					</div>
 					<div class="col-md-2 col-12 align-self-end hidden-xs-down hidden-sm-down">
-			<img id="mainiphone" src="https://static1.squarespace.com/static/521d05e2e4b04fdb82ede5d4/t/526c0155e4b039ceb7d8986f/1382809949346/rc_hand-phone-main.png" alt="">
+			<img id="mainiphone" src="<?= $this->assetUrl('img/tilt_iphone.png') ?>" alt="">
 					</div>
 					<div class="col-md-2 col-12 hidden-xs-down hidden-sm-down"><!-- Collone vide !--></div>
 				</div>
 			</div>
-
 		</footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	<script src="./assets/js/jquery-3.2.1.js" charset="utf-8"></script>
 	<script type="text/javascript" src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 	<script src="./assets/js/bootstrap.js" charset="utf-8"></script>
 	<script src="./assets/js/count.js" charset="utf-8"></script>
 	<?= $this->section('js') ?> <!-- Appel de la section js qui est situé dans home.php - Cela va récupérer les JS de la map  !-->
-
-
 
 </body>
 </html>

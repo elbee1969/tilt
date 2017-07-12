@@ -20,6 +20,11 @@ animation-duration: 2s;
 	color: white;
 }
 
+
+#bntnewpassword {
+	margin-top: 20px;
+}
+
 #logo_footer {
   font-size: 2em;
   font-family: 'Pacifico', cursive;
