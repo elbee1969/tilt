@@ -10,48 +10,17 @@ use \W\Model\UsersModel as WUsersModel;
 class AvatarModel extends Model
  {
 
-   public function insertAvatar(){
 
-     $imgName = $_FILES['avatar']['name'];
-    //  $des = (dirname(__FILE__).'/public/assets/img/avatar/ ');
-     $des = $_SERVER['PHP_SELF'];
-     $mime = $_FILES['avatar']['type'];
-     $avatarName = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $imgName)));
+   public function checkIfAvatarExists($id)
+   {
 
-     $connectedUser = new AuthentificationModel();
-     $a = $connectedUser->getLoggedUser();
-     $userId = $a['id'];
-
-     $sql = "INSERT INTO tilt_avatar (name_original, name, path, mime_type, created_at, user_id)
-             VALUES ('$imgName', '$avatarName', '$des', '$mime', NOW(), '$userId')";
+     $sql = "SELECT * FROM tilt_avatar WHERE id = '$id' ";
 
      $sth = $this->dbh->prepare($sql);
      $sth->execute();
+     $result = $sth->fetch();
 
-
-   }
-
-   public function checkIfAvatarExists(){
-
-     $connectedUser = new AuthentificationModel();
-     $a = $connectedUser->getLoggedUser();
-     $userId = $a['id'];
-
-     $sql = "SELECT user_id FROM tilt_avatar";
-
-     $sth = $this->dbh->prepare($sql);
-     $sth->execute();
-     $result = $sth->fetchAll();
-
-     if (in_array($userId, $result)) {
-       // L'utilisateur à deja un avatar
-       return "True";
-
-     } else {
-       return "False";
-     }
-
-    //  return $result;
+      return $result;
    }
 
    public function updateAvatar(){

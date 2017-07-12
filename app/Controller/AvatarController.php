@@ -13,58 +13,107 @@ use \W\Model\Model;
 
 class AvatarController extends TiltController {
 
-  public function addAvatar() {
+  public function addAvatar()
+  {
+    $this->allowTo(['admin','apprenant','enseignant']);
+    $user = $this->getUser();
+    $avatar = array();
+      if(!empty($user['avatar'])) {
+            $modelAvatar = new AvatarModel();
+            $avatar = $modelAvatar->checkIfAvatarExists($user['avatar']);
+      }
 
-    $avatarExist = new AvatarModel();
-    $avatarAlreadyExist = $avatarExist->checkIfAvatarExists();
-    
-    $this->show('users/avatar', array(
-      'avatarAlreadyExist' => $avatarAlreadyExist
-    ));
-
+      $this->show('users/avatar', array(
+        'avatar' => $avatar
+      ));
   }
 
   public function addAvatarAction(){
 
-    $errors = array();
-    $validation = new ValidationTool();
-    $model      = new AvatarModel();
+    $this->allowTo(['admin','apprenant','enseignant']);
+    $user = $this->getUser();
+    $avatar = array();
+      if(!empty($user['avatar'])) {
+            $modelAvatar = new AvatarModel();
+            $avatar = $modelAvatar->checkIfAvatarExists($user['avatar']);
+      }
 
-    $avatar = $_FILES['avatar'];
+
+    $errors = array();
+    $validation   = new ValidationTool();
+    $modelavatar  = new AvatarModel();
+    $modeluser    = new UsersModel();
+    $clean        = new CleanTool();
+    $auth         = new AuthentificationModel();
+
     $sizeMax = 2096000; // 2MO
     $extensions = array('.jpg', '.png', '.jpeg');
     $extensionsmime = array('image/jpeg', 'image/png' );
 
-    $file = $_FILES['avatar']['tmp_name'];
-    $image = addslashes(file_get_contents($_FILES['avatar']['tmp_name']));
-    $imgName = addslashes($_FILES['avatar']['name']);
-    $imgSize = getimagesize($_FILES['avatar']['tmp_name']);
-    $des = 'C:\xampp\htdocs\tilt\tilt\public\assets\img\avatar\avatar';
+    $errors['avatar'] = $validation->uploadValid($_FILES['avatar'],$sizeMax,$extensions,$extensionsmime);
+
+    if($validation->IsValid($errors)){
+      $path = 'assets/img/avatar/';
+
+      $des = $_SERVER['DOCUMENT_ROOT'] . '/tilt/tilt/public/assets/' . $path;
+      $ext = $clean->getExtension($_FILES['avatar']['name']);
+      $imgname = time().'-'. $clean->slugify( $clean->deleteextension($_FILES['avatar']['name'])).'.'.$ext;
+
+      $date = new \DateTime();
+
+      if(move_uploaded_file($_FILES['avatar']['tmp_name'],$des.$imgname)) {
+
+        if(!empty($avatar)) {
+              // update
+
+              $data = array(
+                'name_original' => $_FILES['avatar']['name'],
+                'name' => $imgname,
+                'path'  => $path,
+                'mime_type'  => 'image',
+                'modified_at'  => $date->format('Y-m-d H:i:s')
+              );
+
+
+                 $modelavatar->update($data,$avatar['id']);
 
 
 
-    // debug($_FILES);
-    // debug($avatar);
+        } else {
+          $data = array(
+            'name_original' => $_FILES['avatar']['name'],
+            'name' => $imgname,
+            'path'  => $path,
+            'mime_type'  => 'image',
+            'created_at'  => $date->format('Y-m-d H:i:s')
+          );
+
+          $newid = $modelavatar->insert($data);
+          $data_user = array(
+            'avatar'  => $newid['id']
+          );
+          $modeluser->update($data_user,$user['id']);
+          $auth->refreshUser();
 
 
-    $errors['avatar'] = $validation->uploadValid($avatar,$sizeMax,$extensions,$extensionsmime);
 
-    if($validation->IsValid($errors) == false){
+
+        }
+
+        $this->redirectToRoute('users_profil');
+
+      }
+
+
+
+      ///  message flash
+      // redirect to profil
+
+    } else {
       $this->show('users/avatar', array(
         'errors'   => $errors,
       ));
-
-    } else {
-      move_uploaded_file($file,$des.$imgName);
-      debug($_FILES);
-      // debug($_GET);
-      $data = array(
-        'name' => $imgName,
-      );
-
-      $model->insertAvatar();
-      $this->show('users/avatar');
-      }
+    }
 
 
 

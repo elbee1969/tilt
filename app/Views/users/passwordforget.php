@@ -15,7 +15,7 @@
 	</div>
 
 	<div class="col-md-4 col-xl-4 col-12">
-<p class="center">Vous avez oublié votre mot de passe ? Pas d'inquiétude, renseignez juste votre adresse mail et nous vous renverrons un nouveau mot de passe.</p>
+<p class="center policejosefin">Vous avez oublié votre mot de passe ? <br>Pas d'inquiétude, renseignez juste votre adresse mail et nous vous renverrons un nouveau mot de passe.</p>
 
 	<form class="passwordforget" action="" method="post">
 	<label for="email"></label>

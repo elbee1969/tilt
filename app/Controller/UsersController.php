@@ -3,6 +3,7 @@ namespace Controller;
 
 use \Controller\TiltController;
 use \Model\UsersModel;
+use \Model\AvatarModel;
 use \Service\Tools\CleanTool;
 use \Service\Tools\ValidationTool;
 use \W\Security\AuthentificationModel;
@@ -25,18 +26,29 @@ class UsersController extends TiltController {
       $this->show('users/passwordforget');
     }
 
+
+
     public function profil()
-      {
-        $connectedUser = new AuthentificationModel();
-        $a = $connectedUser->getLoggedUser();
+    {
+      $this->allowTo(['admin','apprenant','enseignant']);
 
-        $regionId = $a['region_id'];
+      $user = $this->getUser();
+      $avatar = array();
 
-        $regionNamefromId = new RegionsModel();
-        $regionName = $regionNamefromId->findRegionName($regionId);
+        if(!empty($user['avatar'])) {
+              $modelAvatar = new AvatarModel();
+              $avatar = $modelAvatar->checkIfAvatarExists($user['avatar']);
+        }
 
-        $this->show('users/profil', ['regionName' => $regionName]);
-      }
+
+      $regionNamefromId = new RegionsModel();
+      $regionName = $regionNamefromId->findRegionName($user['region_id']);
+
+      $this->show('users/profil', ['regionName' => $regionName,'avatar'  => $avatar]);
+    }
+
+
+
 
   public function passwordForgetAction(){
 
@@ -57,19 +69,20 @@ class UsersController extends TiltController {
             if ($validation->IsValid($error)) {
 
               $user = $model->getUserByUsernameOrEmail($email);
-              debug($user);
               if (!empty($user)) {
 
                 // Envoie de mail
                 $to = 'laurent.berthelot1969@gmail.com';
                 $subject = 'Génération de votre nouveau mot de passe';
-                $html = '<a href="'. $this->generateUrl('newpassword').'?email='.urlencode($user['email']).'&token='.$user['token'].'">Click ici</a>';
+                $html = '<a href="'. $this->generateUrl('newpassword').'?email='.urlencode($user['email']).'&token='.$user['token'].'">
+                 <p class="center">Simulation d\'envoi de mail avec lien de création d\'un nouveau mot de passe</p>
+                </a>';
                 $header = "From: ".$user['first_name'].' '.$user['last_name']. " <" . $email . ">\r\n"; //optional headerfields
                 echo $html;
 
                 ini_set("SMTP",'localhost' );
 		            ini_set('sendmail_from', $email);
-		            $mail = mail($to,$subject, $html, $header);
+		          //  $mail = mail($to,$subject, $html, $header);
                 die();
 
                 $message = 'le mail à bien été envoyé';
@@ -130,7 +143,7 @@ class UsersController extends TiltController {
 
 
                   if ($password1 == $password2) { $error['password'] = $validation->textValid($_POST['newpassword'], 'newpassword', 3, 50);
-                  } else {   $error['password'] = 'les mot de passe sont différents ';  }
+                  } else {   $error['password'] = 'les mots de passe sont différents ';  }
 
                   if ($validation->IsValid($error)) {
 
@@ -320,6 +333,17 @@ class UsersController extends TiltController {
       //   $this->show('users/profil');
       // }
 
+
+
+      public function addAdress()
+    	{
+    		$loggedUser = $this->getUser();
+    		$this->show('Users/adresse');
+    	}
+
+
+
+
       public function addAdressAction() {
 
 
@@ -328,7 +352,7 @@ class UsersController extends TiltController {
         $validation = new ValidationTool();
         $auth       = new AuthentificationModel();
         $model      = new UsersModel();
-        debug($_POST);
+        // debug($_POST);
           $post = $clean->cleanPost($_POST);
           $number = $post['number'];
           $street = $post['street'];

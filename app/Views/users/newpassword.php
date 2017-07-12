@@ -10,6 +10,24 @@
 	</div>
 
 
+<div class="row">
+<div class="col-4">
+
+</div>
+<div class="col-4">
+
+	<form class="newpassword" action="<?php $this->url('newpassword_action'); ?>" method="post">
+
+		<label for="newpassword"></label><br>
+		<span style= "color: red"><?php if(!empty($error['password'])) { echo $error['password']; } ?></span>
+		<input type="text" class="form-controlall" placeholder="Nouveau mot de passe" name="newpassword" value=""><br>
+
+		<label for="confpassword"></label><br>
+		<input type="text" class="form-controlall" placeholder="Confirmation du nouveau mot de passe" name="confpassword" value=""><br>
+
+		<input class="btn btn-primary btn-lg btn-block" id="bntnewpassword" type="submit" name="submit" value="Envoyer">
+	</form>
+</div>
 
 
 
@@ -20,16 +38,19 @@
 
 
 
-    <form class="newpassword" action="<?php $this->url('newpassword_action'); ?>" method="post">
 
-      <label for="newpassword">Nouveau mot de passe</label><br>
-      <span style= "color: red"><?php if(!empty($error['password'])) { echo $error['password']; } ?></span>
-      <input type="text" name="newpassword" value=""><br>
 
-      <label for="confpassword">Confirmation du nouveau mot de passe</label><br>
-      <input type="text" name="confpassword" value=""><br>
 
-      <input type="submit" name="submit" value="Envoyer">
-    </form>
+
+</div>
+
+
+
+
+
+
+
+
+
 
   <?php $this->stop('main_content') ?>
