@@ -84,7 +84,7 @@ $this->layout('layout', ['title' => 'Inscription']);
   </div>
 </div>
 
-
+<?php  debug($_POST);  ?>
 
 
 <?php $this->stop('main_content'); ?>
