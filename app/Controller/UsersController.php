@@ -226,9 +226,14 @@ class UsersController extends TiltController {
           $errors['password'] = 'Les password sont différents';
         }
 
+          //pour réafficher la liste des régions dans la liste déroulante
+          $regionsList = new RegionsModel();
+          $allRegions = $regionsList->findAllRegions();
+
           if($validation->IsValid($errors) == false){
             $this->show('users/register', array(
-              'errors'   => $errors
+              'errors'   => $errors,
+              'allRegions' => $allRegions
             ));
           } else {
               $role ='admin';
@@ -251,7 +256,7 @@ class UsersController extends TiltController {
 // debug($data);
 // die();
               $model->insert($data);
-              $this->flash('utilisateur bien enrengistrer');
+              $this->flash('utilisateur bien enregistré');
               $this->redirectToRoute('login');
           }
     }

@@ -84,7 +84,7 @@ $this->layout('layout', ['title' => 'Inscription']);
   </div>
 </div>
 
-<!-- Pour Baptiste, de la part de Nicolas: select à mettre à la place du input des régions  -->
+
 
 
 <?php $this->stop('main_content'); ?>
