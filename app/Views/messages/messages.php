@@ -20,6 +20,7 @@ $this->layout('layout', ['title' => 'Messagerie']);
 <div class="msgs">
 
   <?php
+
   if(!empty($messages)){
 
     foreach ($messages as $message) {

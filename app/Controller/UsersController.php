@@ -27,6 +27,7 @@ class UsersController extends TiltController {
 
     public function profil()
       {
+        $this->allowTo(['admin','apprenant','enseignant']);
         $connectedUser = new AuthentificationModel();
         $a = $connectedUser->getLoggedUser();
 
@@ -57,19 +58,20 @@ class UsersController extends TiltController {
             if ($validation->IsValid($error)) {
 
               $user = $model->getUserByUsernameOrEmail($email);
-              //debug($user);
               if (!empty($user)) {
 
                 // Envoie de mail
                 $to = 'laurent.berthelot1969@gmail.com';
                 $subject = 'Génération de votre nouveau mot de passe';
-                $html = '<a href="'. $this->generateUrl('newpassword').'?email='.urlencode($user['email']).'&token='.$user['token'].'">Click ici</a>';
+                $html = '<a href="'. $this->generateUrl('newpassword').'?email='.urlencode($user['email']).'&token='.$user['token'].'">
+                 <p class="center">Simulation d\'envoi de mail avec lien de création d\'un nouveau mot de passe</p>
+                </a>';
                 $header = "From: ".$user['first_name'].' '.$user['last_name']. " <" . $email . ">\r\n"; //optional headerfields
                 echo $html;
 
                 ini_set("SMTP",'localhost' );
 		            ini_set('sendmail_from', $email);
-		            $mail = mail($to,$subject, $html, $header);
+		          //  $mail = mail($to,$subject, $html, $header);
                 die();
 
                 $message = 'le mail à bien été envoyé';
@@ -226,9 +228,14 @@ class UsersController extends TiltController {
           $errors['password'] = 'Les password sont différents';
         }
 
+          //pour réafficher la liste des régions dans la liste déroulante
+          $regionsList = new RegionsModel();
+          $allRegions = $regionsList->findAllRegions();
+
           if($validation->IsValid($errors) == false){
             $this->show('users/register', array(
-              'errors'   => $errors
+              'errors'   => $errors,
+              'allRegions' => $allRegions
             ));
           } else {
               $role ='admin';
@@ -251,7 +258,7 @@ class UsersController extends TiltController {
 // debug($data);
 // die();
               $model->insert($data);
-              $this->flash('utilisateur bien enrengistrer');
+              $this->flash('utilisateur bien enregistré');
               $this->redirectToRoute('login');
           }
     }
@@ -321,6 +328,17 @@ class UsersController extends TiltController {
       //   $this->show('users/profil');
       // }
 
+
+
+      public function addAdress()
+    	{
+    		$loggedUser = $this->getUser();
+    		$this->show('Users/adresse');
+    	}
+
+
+
+
       public function addAdressAction() {
 
 
@@ -329,7 +347,7 @@ class UsersController extends TiltController {
         $validation = new ValidationTool();
         $auth       = new AuthentificationModel();
         $model      = new UsersModel();
-        debug($_POST);
+        // debug($_POST);
           $post = $clean->cleanPost($_POST);
           $number = $post['number'];
           $street = $post['street'];

@@ -13,7 +13,7 @@ use \Model\RegionsModel;
 class AvatarController extends TiltController {
 
   public function addAvatar() {
-
+    $this->allowTo(['admin','apprenant','enseignant']);
     $this->show('users/avatar');
 
   }
