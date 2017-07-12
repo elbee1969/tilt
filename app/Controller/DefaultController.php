@@ -7,6 +7,7 @@ use \Controller\TiltController;
 use \Model\UsersModel;
 use \Model\CompetencesModel;
 use \Model\RegionsModel;
+use \Model\AvatarModel;
 
 class DefaultController extends TiltController
 {
@@ -53,6 +54,11 @@ class DefaultController extends TiltController
 		// $nomRegion = new RegionsModel();
 		// $i = $nomRegion->findRegionName(9);
 		// debug($i);
+
+		// $allUserId = new AvatarModel();
+		// $a = $allUserId->getAllUserIdInAvatar();
+		//
+		// debug($a);
 
 		$this->show('default/home');
 	}

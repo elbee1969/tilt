@@ -9,12 +9,18 @@ use \Service\Tools\ValidationTool;
 use \W\Security\AuthentificationModel;
 use \W\Security\StringUtils;
 use \Model\RegionsModel;
+use \W\Model\Model;
 
 class AvatarController extends TiltController {
 
   public function addAvatar() {
 
-    $this->show('users/avatar');
+    $avatarExist = new AvatarModel();
+    $avatarAlreadyExist = $avatarExist->checkIfAvatarExists();
+    
+    $this->show('users/avatar', array(
+      'avatarAlreadyExist' => $avatarAlreadyExist
+    ));
 
   }
 
@@ -35,10 +41,12 @@ class AvatarController extends TiltController {
     $imgSize = getimagesize($_FILES['avatar']['tmp_name']);
     $des = 'C:\xampp\htdocs\tilt\tilt\public\assets\img\avatar\avatar';
 
-    echo $imgName;
+
 
     // debug($_FILES);
-// debug($avatar);
+    // debug($avatar);
+
+
     $errors['avatar'] = $validation->uploadValid($avatar,$sizeMax,$extensions,$extensionsmime);
 
     if($validation->IsValid($errors) == false){
@@ -57,6 +65,8 @@ class AvatarController extends TiltController {
       $model->insertAvatar();
       $this->show('users/avatar');
       }
+
+
 
 
   }

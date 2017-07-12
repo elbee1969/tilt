@@ -128,13 +128,9 @@ class UsersController extends TiltController {
                   $post = $clean->cleanPost($_POST); $password1 = $post['newpassword']; $password2 = $post['confpassword'];
                   $error['password'] = $validation->textValid($_POST['newpassword'], 'newpassword', 8, 50);
 
-<<<<<<< HEAD
+
                   if ($password1 == $password2) { $error['password'] = $validation->textValid($_POST['newpassword'], 'newpassword', 3, 50);
                   } else {   $error['password'] = 'les mot de passe sont différents ';  }
-=======
-                  if ($password1 == $password2) {
-                  } else {   $error['password'] = 'les mot de passe sont différents';  }
->>>>>>> 9a8f4eda84b9561117f1775eab2af0b1f1b3796d
 
                   if ($validation->IsValid($error)) {
 
