@@ -18,7 +18,7 @@ class MessagesController extends TiltController
 	{
 		$modelmsg 	= new MessagesModel();
 		$modeluser 	= new UsersModel();
-				$messages = $modelmsg->findMessage($id,$user_id);
+				$messages = $modelmsg->findMessageApprenant($id,$user_id);
 				if(!empty($messages)){
 					$this->show('messages/messages', array(
 						'messages' => $messages
