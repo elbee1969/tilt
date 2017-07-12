@@ -79,31 +79,6 @@ class UsersModel extends  WUsersModel
 
   } // ferme la méthode findApprenantsInRegion
 
-  public function findApprenantsInRegionById($region_id) {
-
-    // on stocke dans une variable $regionslug le slug de la région récupérée
-    // quand l'utilisateur a cliqué sur la carte
-
-    $sql = "SELECT r.id, r.name, i.user_id, i.competences_id, c.name, u.pseudo, u.role
-            FROM tilt_regions AS r
-            LEFT JOIN tilt_interm AS i
-            ON r.id = i.regions_id
-            LEFT JOIN tilt_competences AS c
-            ON i.competences_id = c.id
-            LEFT JOIN tilt_user AS u
-            ON i.user_id = u.id
-            WHERE r.id = :region_id AND u.role = 'apprenant'";
-
-    $sth = $this->dbh->prepare($sql);
-    $sth->bindValue(':region_id', $region_id);
-    $sth->execute();
-
-    $result = $sth->fetchAll();
-
-    return $result;
-
-  } // ferme la méthode findApprenantsInRegion
-
   public function findEnseignantsinRegion($regionslug) {
 
     // idem que findApprenantsInRegion mais pour les Enseignants
@@ -127,5 +102,54 @@ class UsersModel extends  WUsersModel
     return $result;
 
   } // ferme la méthode findEnseignantsinRegion
+
+  public function findApprenantsInRegionById($region_id) {
+
+    // on stocke dans une variable $regionslug le slug de la région récupérée
+    // quand l'utilisateur a cliqué sur la carte
+
+    $sql = "SELECT r.id, r.name, i.user_id, i.competences_id, c.name, u.pseudo, u.role
+            FROM tilt_regions AS r
+            LEFT JOIN tilt_interm AS i
+            ON r.id = i.regions_id
+            LEFT JOIN tilt_competences AS c
+            ON i.competences_id = c.id
+            LEFT JOIN tilt_user AS u
+            ON i.user_id = u.id
+            WHERE r.id = :region_id AND u.role = 'apprenant'";
+
+    $sth = $this->dbh->prepare($sql);
+    $sth->bindValue(':region_id', $region_id);
+    $sth->execute();
+
+    $result = $sth->fetchAll();
+
+    return $result;
+
+  } // ferme la méthode findApprenantsInRegionById
+
+  public function findEnseignantsinRegionById($region_id) {
+
+    // idem que findApprenantsInRegion mais pour les Enseignants
+
+    $sql = "SELECT r.id, r.name, i.user_id, i.competences_id, c.name, u.pseudo, u.role
+            FROM tilt_regions AS r
+            LEFT JOIN tilt_interm AS i
+            ON r.id = i.regions_id
+            LEFT JOIN tilt_competences AS c
+            ON i.competences_id = c.id
+            LEFT JOIN tilt_user AS u
+            ON i.user_id = u.id
+            WHERE r.slug = :region_id AND u.role = 'enseignant'";
+
+    $sth = $this->dbh->prepare($sql);
+    $sth->bindValue(':region_id', $region_id);
+    $sth->execute();
+
+    $result = $sth->fetchAll();
+
+    return $result;
+
+  } // ferme la méthode findEnseignantsinRegionById
 
 } // ferme la classe UserModel

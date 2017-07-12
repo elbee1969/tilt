@@ -35,13 +35,8 @@ class MessagesModel extends Model {
   } //ferme la méthode findAllmessages
 
   // méthode pour trouver les messages d'un appreant
-  public function findMessage($id,$userid) {
+  public function findMessageApprenant($id,$userid) {
 
-    // $sql = "SELECT m.message, m.id_enseignant, m.id_apprenant, u.id, m.created_at, u.role
-    //         FROM tilt_user AS u
-    //         RIGHT JOIN tilt_messages AS m
-    //         ON m.id_apprenant = u.id
-    //         WHERE u.role = 'apprenant' ";
         $sql = "SELECT m.message, u.id, m.created_at
                 FROM tilt_messages AS m
                 INNER JOIN tilt_user AS u
@@ -55,6 +50,6 @@ class MessagesModel extends Model {
 
     return $result;
 
-  } //ferme la méthode findApprenant
+  } //ferme la méthode findMessage
 
 } //ferme la class messagesModel

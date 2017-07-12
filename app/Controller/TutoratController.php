@@ -26,13 +26,14 @@ class TutoratController extends TiltController
 				$region_id = $user['region_id'] ;
 
 				$apprenants = $model->findApprenantsInRegionById($region_id);
+				$enseignant = $model->findEnseignantsInRegionById($region_id);
 				//debug($user);
 				// debug($apprenants);
 
 					$this->show('tutorat/tutorat', array(
 						'apprenants' => $apprenants,
 						'user'			 =>	$user
-					));				
+					));
 	}
 
 	/**
