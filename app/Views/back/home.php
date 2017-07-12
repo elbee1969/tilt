@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Accueil BackOffice']) ?>
+<?php $this->layout('layoutback', ['title' => 'Accueil BackOffice']) ?>
 
 <?php $this->start('main_content') ?>
 <h1>page Home BackOffice</h1>
