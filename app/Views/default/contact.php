@@ -67,14 +67,14 @@ $this->layout('layout', ['title' => 'Contact']);
 
   <div class="col-md-4 col-lg-4 col-12">
     <p id="titleconnexion" class="policetitre">Tilt</p>
-    <p class="center">3 Rue Saint Jean, 27400 Louviers</p>
-    <p class="center">02.32.40.00.00 | contact@tilt.fr</p><br>
+    <p class="center policejosefin">3 Rue Saint Jean, 27400 Louviers</p>
+    <p class="center policejosefin">02.32.40.00.00 | contact@tilt.fr</p><br>
     <p class="center"><a href="#"><img id="messenger" src="./assets/img/tilt_messenger.png" alt="contact via messenger"></a></p><br>
 </div>
 </div>
 
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1303.244702657093!2d1.1744434727753725!3d49.21023066061527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e124dbb30a9d43%3A0xd4e0921c30a0d51!2s3+Rue+Saint-Jean%2C+27400+Louviers%2C+France!5e0!3m2!1sfr!2sus!4v1499675934298" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1303.244702657093!2d1.1744434727753725!3d49.21023066061527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e124dbb30a9d43%3A0xd4e0921c30a0d51!2s3+Rue+Saint-Jean%2C+27400+Louviers%2C+France!5e0!3m2!1sfr!2sus!4v1499675934298" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
 
 
 <?php $this->stop('main_content'); ?>

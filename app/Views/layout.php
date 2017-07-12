@@ -53,7 +53,7 @@
 					<li><a class="nav-link" href="<?= $this->url('users_profil'); ?>"><?= ' '.$w_user['pseudo']; ?></a></li>
 					<?php } ?>
 					<?php if($w_user){ ?>
-						<a class= "nav-link" href="<?= $this->url('logout'); ?>"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+						<a class= "nav-link" href="<?= $this->url('logout'); ?>  "><i class="fa fa-sign-out" title="déconnexion" aria-hidden="true"></i></a>
 
 					<?php }else{ ?>
 						<ul class="navbar-nav mr-auto">
@@ -61,7 +61,7 @@
 							<li><a class="nav-link" href="<?= $this->url('login'); ?>">Connexion</a></li>
 						</ul>
 					<?php } ?>
-		      <input class="form-control mr-sm-2" type="text" placeholder="Compétences, régions ..."><button class="btn btn-outline-success my-2 my-sm-0 fa fa-search" aria-hidden="true" type="submit"></button></input>
+		      <input class="form-control mr-sm-2" type="text" placeholder="Compétences, régions ..."></input><input class="btn btn-outline-success my-2 my-sm-0 fa fa-search" aria-hidden="true" type="submit"></input>
 
 		    </form>
 		  </div>
@@ -70,6 +70,21 @@
 		<section class="backgroundsection">
 			<?= $this->section('main_content') ?>
 		</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 		<footer>
@@ -104,8 +119,8 @@
 						<div class="row">
 						<div class="col-12 align-self-start">
 							<p class="copyright">
-								<a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
-								<a target="_blank" href="https://search.itunes.apple.com/WebObjects/MZContentLink.woa/wa/link?mt=8&path=appstore"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
+								<a target="_blank" href="https://facebook.fr"><i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
+								<a target="_blank" href="https://twitter.fr"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
 							</p>
 						</div>
 						</div>
@@ -127,6 +142,44 @@
 			</div>
 
 		</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<script src="./assets/js/jquery-3.2.1.js" charset="utf-8"></script>
 	<script type="text/javascript" src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
