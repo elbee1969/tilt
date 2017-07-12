@@ -16,8 +16,8 @@
 
 		['POST', '/profil', 'Users#addAdressAction', 'users_profil_action'],
 
-		['GET', '/avatar', 'Users#addAvatar', 'users_avatar'],
-		['POST', '/avatar', 'Users#addAvatarAction', 'users_avatar_action'],
+		['GET', '/avatar', 'Avatar#addAvatar', 'users_avatar'],
+		['POST', '/avatar', 'Avatar#addAvatarAction', 'users_avatar_action'],
 
 
 		['GET', '/regions', 'Regions#regions', 'regions_regions'],

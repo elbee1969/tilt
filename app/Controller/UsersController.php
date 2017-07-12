@@ -112,7 +112,7 @@ class UsersController extends TiltController {
                   $post = $clean->cleanPost($_POST); $password1 = $post['newpassword']; $password2 = $post['confpassword'];
 
                   if ($password1 == $password2) { $error['password'] = $validation->textValid($_POST['newpassword'], 'newpassword', 3, 50);
-                  } else {   $error['password'] = 'les mot de passe sont diffreents ';  }
+                  } else {   $error['password'] = 'les mot de passe sont différents ';  }
 
                   if ($validation->IsValid($error)) {
 
@@ -341,41 +341,6 @@ class UsersController extends TiltController {
           }
 
       }
-
-      public function addAvatar() {
-
-        $this->show('users/avatar');
-
-      }
-
-      public function addAvatarAction(){
-
-        $errors = array();
-        $validation = new ValidationTool();
-
-        $avatar = $_FILES['avatar'];
-        $sizeMax = 2096000; // 2MO
-        $extensions = array('.jpg', '.png', '.jpeg');
-        $extensionsmime = array('image/jpeg', 'image/png' );
-        $tmp_name = $_FILES['avatar']['tmp_name'];
-        $installavatar = '\public\assets\img\avatar';
-  // debug($avatar);
-        $errors['avatar'] = $validation->uploadValid($avatar,$sizeMax,$extensions,$extensionsmime);
-
-        if (count($errors) == 0) {
-          move_uploaded_file($tmp_name, $installavatar);
-          echo "Image téléchargé";
-        } else {
-          $this->show('users/avatar', array(
-            'errors' => $errors,
-          ));
-        }
-
-
-
-      }
-
-
 
 
   }

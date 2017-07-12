@@ -6,7 +6,7 @@
     <form class="newpassword" action="" method="post">
 
       <label for="newpassword">Nouveau mot de passe</label><br>
-      <span style= "color: red"><?php if(!empty($error['newpassword'])) { echo $error['newpassword']; } ?></span>
+      <span style= "color: red"><?php if(!empty($error['password'])) { echo $error['password']; } ?></span>
       <input type="text" name="newpassword" value=""><br>
 
       <label for="confpassword">Confirmation du nouveau mot de passe</label><br>
