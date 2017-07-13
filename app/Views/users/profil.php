@@ -1,9 +1,11 @@
 <?php
 //hérite du fichier layout.php à la racine de app/Views/
 $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
-?>
 
-<?php $this->start('main_content'); ?>
+
+
+ $this->start('main_content'); ?>
+
 
 
 <div class"container-fluid">
@@ -102,38 +104,5 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="infouser">
-  <div class="first_name">
-    <?= $w_user['first_name']; ?>
-  </div>
-  <div class="last_name">
-    <?= $w_user['last_name']; ?>
-  </div>
-  <div class="mail">
-    <?= $w_user['email']; ?>
-  </div>
-  <div class="role">
-    <?= $w_user['role']; ?>
-  </div>
-  <div class="created_at">
-    <?= $w_user['created_at']; ?>
-  </div>
-</div>
-
-
-
-
-
-
-<?php $this->stop('main_content'); ?>
+<?php }
+ $this->stop('main_content'); ?>

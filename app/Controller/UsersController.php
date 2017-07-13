@@ -5,7 +5,7 @@ use \Controller\TiltController;
 use \Model\CompetencesModel;
 use \Model\UsersModel;
 use \Model\AvatarModel;
-use \Model\AdressModel;
+use \Model\AdresseModel;
 use \Service\Tools\CleanTool;
 use \Service\Tools\ValidationTool;
 use \W\Security\AuthentificationModel;
@@ -353,15 +353,21 @@ class UsersController extends TiltController {
         $errors = array();
         $clean      = new CleanTool();
         $validation = new ValidationTool();
+        $modeluser  = new UsersModel();
         $auth       = new AuthentificationModel();
-        $add        = new AdressModel();
+        $add        = new AdresseModel();
         // debug($_POST);
+          $user = $this->getUser();
           $post = $clean->cleanPost($_POST);
           $number = $post['number'];
           $street = $post['street'];
           $city = $post['city'];
           $postal = $post['postal'];
+          $first_name = $post['prenom'];
+          $last_name = $post['nom'];
 
+          $errors['nom'] = $validation->textValid($last_name, 'nom', 3, 30);
+          $errors['prenom'] = $validation->textValid($first_name, 'prenom', 3, 30);
           $errors['number'] = $validation->textValid($number, 'numéro de rue', 1, 7);
           $errors['street'] = $validation->textValid($street, 'nom de rue', 3, 30);
           $errors['city'] = $validation->textValid($city, 'nom de ville', 3, 30);
@@ -375,6 +381,9 @@ class UsersController extends TiltController {
           } else {
 
             $data = array(
+              'id_user' => $user['id'],
+              'nom' => $last_name,
+              'prenom' => $first_name,
               'num_rue' => $number,
               'nom_voie' => $street,
               'ville'    => $city,
@@ -382,6 +391,7 @@ class UsersController extends TiltController {
             );
 
             $add->insert($data);
+            $this->redirectToRoute('users_profil');
 
           }
 
