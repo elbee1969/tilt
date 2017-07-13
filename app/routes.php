@@ -44,12 +44,15 @@
 
 
 		['GET|POST', '/logout', 'Users#logout', 'logout'],
-		['GET|POST', '/backOffice', 'Back#home', 'back_home'],
+
+		['GET', '/backoffice', 'Back#home', 'back_home'],
+		['GET', '/backoffice/utilisateurs', 'back#users', 'back_users'],
+		['GET', '/backoffice/support', 'back#support', 'back_support'],
+		['GET', '/backoffice/cours', 'back#cours', 'back_cours'],
+		['GET', '/backoffice/messages', 'back#messages', 'back_messages'],
+		['GET', '/backoffice/ameliorations', 'back#ameliorations', 'back_ameliorations'],
 
 		['GET', '/inscrapprenant', 'Users#inscrapprenant', 'users_inscrapprenant'],
 
 		['GET', '/inscrenseignant', 'Users#inscrenseignant', 'users_inscrenseignant'],
-
-
-
 	);

@@ -43,8 +43,10 @@
 					</li>
 					<?php } ?>
 		    </ul>
+
 		    	<form class="form-inline my-2 my-lg-0">
 					<?php if(in_array($w_user['role'], ['admin','apprenant', 'enseignant','guest'])){ ?>
+
 						<li>
 							<a class="nav-link" href="<?= $this->url('users_profil'); ?>"><?= ' '.$w_user['pseudo']; ?></a>
 						</li>
@@ -52,10 +54,8 @@
 
 						<?php if(in_array($w_user['role'], ['admin'])){ ?>
 							<li>
-								<a class="nav-link" href="<?= $this->url('back_home'); ?>">Back office</a>
+								<a class="nav-link" href="<?= $this->url('back_home'); ?>">Backoffice</a>
 							</li>
-
-
 						<?php }
 					 if($w_user){ ?>
 						<a class= "nav-link" href="<?= $this->url('logout'); ?>  ">
@@ -72,6 +72,7 @@
 							</li>
 						</ul>
 					<?php } ?>
+
 		      <input class="form-control mr-sm-2" type="text" placeholder="Compétences, régions ..."></input>
 					<input class="btn btn-outline-success my-2 my-sm-0 fa fa-search" aria-hidden="true" type="submit" value="&#9906;"></input>
 		    </form>
