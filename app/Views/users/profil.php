@@ -1,18 +1,12 @@
 <?php
 //hérite du fichier layout.php à la racine de app/Views/
 $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
-?>
-
-<<<<<<< HEAD
-<?php
-
 
 if ($w_user) {
 
  $this->start('main_content'); ?>
-=======
-<?php $this->start('main_content'); ?>
->>>>>>> a0a461d43e0d144f5a43e0478f7aca2d96677a08
+
+
 
 
 <div class"container-fluid">
@@ -22,7 +16,6 @@ if ($w_user) {
   </div>
     <div class="col-12 col-md-12 col-xl-2 col-sm-12">
       <div class="card">
-<<<<<<< HEAD
         <p class="center"><img class="rounded-circle profilepicture" src="<?= $avatar['path'].$avatar['name']; ?>" alt="Card image cap"></p>
         <span class="center" id="modifavatar" style="color:#3f51b5; font-size:0.70em;" ><a href="<?= $this->url('users_avatar'); ?>">Modifier la photo de profil</a></span>
       <div class="card-block">
@@ -36,21 +29,7 @@ if ($w_user) {
           <li class="list-group-item"><a href="#">Modifier mes informations</a></li>
         </ul>
       </div>
-=======
-  <p class="center"><img class="rounded-circle profilepicture" src="./assets/img/profil.jpg" alt="Card image cap"></p>
-  <span class="center" id="modifavatar" style="color:#3f51b5; font-size:0.70em;" ><a href="<?= $this->url('users_avatar'); ?>">Modifier la photo de profil</a></span>
-  <div class="card-block">
-    <h4 class="center policetitre" ><?= $w_user['pseudo']; ?></h4>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">    <?= $w_user['first_name']; ?>   <?= $w_user['last_name']; ?></li>
-    <li class="list-group-item"><?= $w_user['email']; ?></li>
-    <li class="list-group-item"><?= 'Inscrit le '.$w_user['created_at']; ?></li>
-    <li class="list-group-item"><?= 'Région : '.$regionName['name']; ?></li>
-    <li class="list-group-item"><a href="#">Modifier mes informations</a></li>
-  </ul>
-</div>
->>>>>>> a0a461d43e0d144f5a43e0478f7aca2d96677a08
+
     </div>
 
     <div class="col-12   col-md-12 col-xl-8 col-sm-12">
@@ -121,43 +100,6 @@ if cours donné = 0 ->  echo "Vous n'avez pas encore donné de cours" + lien don
   </div>
 
 
+<?php }
 
-<<<<<<< HEAD
-<?php debug($avatar);
-debug($avatar);
-=======
->>>>>>> a0a461d43e0d144f5a43e0478f7aca2d96677a08
-
-
-
-
-
-
-
-
-
-
-<div class="infouser">
-  <div class="first_name">
-    <?= $w_user['first_name']; ?>
-  </div>
-  <div class="last_name">
-    <?= $w_user['last_name']; ?>
-  </div>
-  <div class="mail">
-    <?= $w_user['email']; ?>
-  </div>
-  <div class="role">
-    <?= $w_user['role']; ?>
-  </div>
-  <div class="created_at">
-    <?= $w_user['created_at']; ?>
-  </div>
-</div>
-
-
-
-
-
-
-<?php $this->stop('main_content'); ?>
+ $this->stop('main_content'); ?>

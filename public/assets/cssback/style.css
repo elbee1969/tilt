@@ -1,209 +1,19 @@
 
-html,body{
-  height:100% !important;
-  margin:0;
-  padding:0;
-}
-
-#div{
-width: 100%;
-min-height: 100%;
-}
-
-
-footer {
-	border-top: 2px solid #bdbdbd;
-	margin-top: 100px;
-}
-
-.hello:hover {
-animation-name:swing;
-animation-duration: 2s;
-}
-
-#modifavatar {
-	margin-top: 10px;
-}
-
 #logo_navbar {
-
-
   font-size: 2em;
   text-align: center;
   font-family: 'Pacifico', cursive;
-	color: white;
-}
-
-
-#bntnewpassword {
-	margin-top: 20px;
-}
-
-#logo_footer {
-  font-size: 2em;
-  font-family: 'Pacifico', cursive;
-	color: black;
-	margin-bottom: 0px;
-}
-
-.testiconcept {
-	width: 200px;
-	height: 200px;
-	margin-top: 20px;
-	box-shadow: 5px 5px 5px #888888;
-}
-
-.iconhomepage {
-	margin-top: 20px;
-}
-
-.chiffresapropos {
-		font-family: 'Josefin Sans', sans-serif;
-		font-size: 8em;
-		color: #3f51b5;
-}
-
-.profilepicture {
-	width: 150px;
-	height: 150px;
-	margin-top: 20px;
-	border: 4px solid #3f51b5;
-}
-
-
-
-.iconcategory {
-	margin-top: 50%;
-}
-
-.separator {
-	width: 300px;
-	margin-top: -25px;
-}
-
-.categoryicon{
-	width: 50px;
-	height: 50px;
-	margin-top: 20px;
-}
-
-.categoryspace {
-	margin-bottom: 100px;
-}
-
-#titleprofil {
-	margin-top: 20px;
-}
-
-#titleapropos {
-	margin-top: 50px;
-}
-
-
-#messenger {
-	width: 50px;
-	height: 50px;
-}
-
-/* Categories de la homepage */
-
-#rechercheparregion {
-	margin-top: 50px;
-}
-
-#noustrouver {
-	margin-top: 50px;
-}
-
-#toutunconcept {
-
-}
-
-#erreur {
-	margin-top: 50px;
-}
-
-
-#btninscription {
-	margin-top: 20px;
-}
-
-#btnlostpassword {
-	margin-top: 20px;
-}
-
-
-#titleinscription {
-	margin-top: 50px;
-}
-
-#titleconnexion {
-	margin-top: 50px;
-}
-
-
-#categoriesproposees {
-	margin-top: 50px;
-}
-
-#testimonials {
-
-}
-
-#etvousdixdoigts {
-margin-top: 50px;
-}
-
-#francemap {
-	margin-top: -10px;
-	align-items: center;
-	align-self: center;
-	align-content: center;
-}
-
-#communaute {
-	width: 200px;
-	height: 200px;
-	margin-top: 20px;
-	margin-bottom: -40px;
-}
-
-#addAdress {
-	margin-top: 20px;
-}
-
-#profilcours {
-	margin-top: 20px;
-}
-
-#propcomp {
-	margin-top: 50px;
-}
-
-#coeurplateau {
-	margin-top: 50px;
-}
-
-.subtitle_icon {
-	margin-top: 20px;
+	color: #3f51b5;
 }
 
 .slogan {
 	font-family: 'Josefin Sans', sans-serif;
 	text-align: center;
   font-size: 1em;
+  font-weight: bold;
 	margin-top: -25px;
-	color: white;
+	color: #3f51b5;
 	margin-bottom: 5px;
-}
-
-.foo {
-	margin-bottom: 0px;
-}
-
-.rs {
-  text-decoration: none;
-  color: #616161;
 }
 
 .center {
@@ -211,48 +21,10 @@ margin-top: 50px;
 	margin-bottom: 0px;
 }
 
-.copyright {
-	text-align: center;
-}
-
-.fa-facebook {
-	margin-top: 30px;
-	margin-right: 20px;
-	color :#3f51b5
-}
-
-.fa-facebook:hover {
-	margin-top: 30px;
-	margin-right: 20px;
-	color :#9fa8da
-}
-
-.fa-twitter {
-	margin-top: 30px;
-	margin-left: 20px;
-	color :#3f51b5
-}
-
-.fa-twitter:hover {
-	margin-top: 30px;
-	margin-left: 20px;
-	color :#9fa8da
-}
-
-
-#copyright {
-	padding-top: 30px;
-}
-
 .policetitre {
 	font-size: 2em;
 	font-family: 'Pacifico', cursive;
 	text-align: center;
-}
-
-.border {
-	width: 100%;
-
 }
 
 .backgroundsection {
@@ -262,10 +34,10 @@ margin-top: 50px;
 
 .nav-link {
 	text-decoration: none;
-	color: white !important ;
+	color: #3f51b5 !important ;
 	padding-left: 20px !important;
 	padding-right: 20px !important;
-	font-size: 1.5em !important;
+	font-size: 2em !important;
 	font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -276,39 +48,76 @@ margin-top: 50px;
 		margin-bottom: 0;
 }
 
-.courspicture {
-	width: 100px;
-	height: 100px;
-}
-
-.espacement_card {
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
 
 .nav-link:hover {
 	text-decoration: none;
-	color: #9fa8da !important ;
+	color: white !important ;
 }
 
-#mainiphone {
-	width: 200px;
-	height: 200px;
+.pageTitle {
+  border-bottom: 1px solid #eee;
+  font-weight: 500;
+  padding-bottom: 10px;
 }
 
-#appstore {
-	width: 116px;
-	height: 34.5px;
+.panel {
+  display: flex;
+  color: white;
+  border-radius: 8px;
+  margin-top: 20px;
+  padding: 10px 15px;
+  width: 350px;
+}
+.panel.blue {
+  background-color: #337ab7;
+  margin-left: 30px;
+}
+.panel.green {
+  background-color: #5cb85c;
+      margin-left: 30px;
+}
+.panel.orange {
+  background-color: #f0ad4e;
+    margin-left: 30px;
+}
+.panel.red {
+  background-color: #d9534f;
+  margin-left: 30px;
+}
+  .panel.red:hover {
+background-color: #3f51b5;
+  }
+
+  .panel.orange:hover {
+background-color: #3f51b5;
+  }
+
+  .panel.blue:hover {
+background-color: #3f51b5;
+  }
+
+  .panel.green:hover {
+background-color: #3f51b5;
+  }
+
+.textWrapper {
+  flex: 1;
+  text-align: right;
+}
+.huge {
+  font-size: 40px;
+  padding: 8px 0;
 }
 
-#googleplay {
-	width: 116px;
-	height: 34.5px;
+a:link:hover {
+  text-decoration: none;
 }
 
 
-ul, li {
-	list-style: none;
-	margin-left:0;
-	padding-left:0;
+.backfront {
+  float: right !important;
+}
+
+li {
+  list-style-type: none;
 }
