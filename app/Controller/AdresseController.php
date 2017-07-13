@@ -10,13 +10,13 @@ use \Model\CompetencesModel;
 class AdresseController extends TiltController
 {
 
-	public function addAdress()
+	public function addAdresse()
 	{
 		$this->allowTo(['admin','apprenant','enseignant']);
 		$this->show('users/adresse');
 	}
 
-	public function addAdressAction() {
+	public function addAdresseAction() {
 
 		$this->allowTo(['admin','apprenant','enseignant']);
 		$errors = array();

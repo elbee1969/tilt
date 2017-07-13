@@ -4,9 +4,9 @@ namespace Model;
 use \W\Model\Model;
 use \W\Model\ConnectionModel;
 
-class AdressModel extends Model {
+class AdresseModel extends Model {
 
-  public function InsertAdress(){
+  public function InsertAdresse(){
 
     $connectedUser = new AuthentificationModel();
     $a = $connectedUser->getLoggedUser();
