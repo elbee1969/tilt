@@ -25,4 +25,20 @@ class AdresseModel extends Model {
   //   // $sth = $this->dbh->prepare($sql);
   //   // $sth->execute();
   // }
-}
+
+
+  public function getUserAdresse($userId) {
+
+    $sql = "SELECT * FROM `tilt_adresse` WHERE id_user = :userId";
+
+    $sth = $this->dbh->prepare($sql);
+    $sth->bindValue(':userId', $userId);
+    $sth->execute();
+
+    $result = $sth->fetchAll();
+
+    return $result;
+
+  }
+
+} // ferme la classe AdresseModel

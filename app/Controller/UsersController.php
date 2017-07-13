@@ -46,7 +46,12 @@ class UsersController extends TiltController {
       $regionNamefromId = new RegionsModel();
       $regionName = $regionNamefromId->findRegionName($user['region_id']);
 
-      $this->show('users/profil', ['regionName' => $regionName,'avatar'  => $avatar]);
+      $adresseFromId = new AdresseModel();
+      $adresse = $adresseFromId->getUserAdresse($user['id']);
+
+      $this->show('users/profil', ['regionName' => $regionName,
+                                    'avatar'  => $avatar,
+                                    'adresse' => $adresse]);
     }
 
 
@@ -261,7 +266,7 @@ class UsersController extends TiltController {
                 'last_name'   => $nom,
                 'role'        => $role,
                 'region_id'   => $region,
-                'avatar'      => 0,
+                'avatar_id'      => 0,
                 'created_at'  => $datenow->format('Y-m-d H:i:s'),
                 'status'      => 1,
               );
