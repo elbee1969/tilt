@@ -2,4 +2,3 @@
 /phpDocumentor.phar
 *.log
 /app/config.php
-/public/assets/img/avatar
