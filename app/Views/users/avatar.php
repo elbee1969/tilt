@@ -36,5 +36,4 @@ if(!empty($avatar)) {
     </div>
     </div>
   </div>
- <?php echo $avatarAlreadyExist; ?>
 <?php $this->stop('main_content'); ?>

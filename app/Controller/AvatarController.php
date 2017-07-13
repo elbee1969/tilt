@@ -55,7 +55,7 @@ class AvatarController extends TiltController {
     if($validation->IsValid($errors)){
       $path = 'assets/img/avatar/';
 
-      $des = $_SERVER['DOCUMENT_ROOT'] . '/tilt/tilt/public/assets/' . $path;
+      $des = $_SERVER['DOCUMENT_ROOT'] . '/tilt/tilt/public/' . $path;
       $ext = $clean->getExtension($_FILES['avatar']['name']);
       $imgname = time().'-'. $clean->slugify( $clean->deleteextension($_FILES['avatar']['name'])).'.'.$ext;
 
