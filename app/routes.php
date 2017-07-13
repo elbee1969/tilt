@@ -19,13 +19,8 @@
 
 		['GET', '/profil', 'Users#profil', 'users_profil'],
 
-<<<<<<< HEAD
 		['GET', '/profil/adresse', 'Users#addAdresse', 'users_adresse'],
 		['POST', '/profil', 'Users#addAdresseAction', 'users_profil_action'],
-=======
-		['GET', '/profil/adresse', 'Users#addAdress', 'users_adresse'],
-		['POST', '/profil/adresse', 'Users#addAdressAction', 'users_adresse_action'],
->>>>>>> 3db56dcc60eaf456894bab7de9ff105bee92533b
 
 		['GET', '/profil/avatar', 'Avatar#addAvatar', 'users_avatar'],
 		['POST', '/profil/avatar', 'Avatar#addAvatarAction', 'users_avatar_action'],
