@@ -3,9 +3,7 @@
 $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
 ?>
 
-
 <?php $this->start('main_content'); ?>
-
 
 
 <div class"container-fluid">
@@ -15,7 +13,6 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
     </div>
     <div class="col-12 col-md-12 col-xl-2 col-sm-12">
       <div class="card">
-
         <p class="center"><img class="rounded-circle profilepicture" src="<?= $avatar['path'].$avatar['name']; ?>" alt="Card image cap"></p>
         <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin'])){ ?>
         <span class="center" id="modifavatar" style="color:#3f51b5; font-size:0.70em;" >
@@ -35,7 +32,6 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
           <?php } ?>
         </ul>
       </div>
-
     </div>
 
     <div class="col-12   col-md-12 col-xl-8 col-sm-12">
@@ -104,7 +100,18 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
       </div>
     </div>
   </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="infouser">
   <div class="first_name">

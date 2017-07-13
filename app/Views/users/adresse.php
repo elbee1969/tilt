@@ -16,7 +16,7 @@ $this->start('main_content'); ?>
   </div>
   <div class="col-4">
     <section>
-      <form class="adress" action="<?php echo $this->url('users_profil_action'); ?>" method="POST">
+      <form class="adress" action="" method="POST">
         <label for="number"></label>
         <span><?php if(!empty($errors['number'])){ echo $errors['number']; }; ?></span>
         <input class="form-controlall" placeholder ="N° de rue" type="number" min="1" name="number" value="">

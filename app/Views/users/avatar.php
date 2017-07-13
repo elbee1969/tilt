@@ -6,9 +6,9 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
 <?php $this->start('main_content'); ?>
 
 <?php
-if(!empty($avatar)) {
-  debug($avatar);
-}
+// if(!empty($avatar)) {
+//   debug($avatar);
+// }
 ?>
 <div class="container-fluid">
   <div class="row">
@@ -36,5 +36,4 @@ if(!empty($avatar)) {
     </div>
     </div>
   </div>
- <?php //echo $avatarAlreadyExist; ?>
 <?php $this->stop('main_content'); ?>
