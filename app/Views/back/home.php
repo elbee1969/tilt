@@ -34,8 +34,8 @@
 	<div class="panel orange">
 		<i class="fa fa-envelope fa-5x"></i>
 		<div class="textWrapper">
-			<div class="huge">0</div>
-			<div>messages</div>
+			<div class="huge">3</div>
+			<div>messages échangés</div>
 		</div>
 	</div>
 			</a>

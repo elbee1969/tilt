@@ -11,7 +11,7 @@ class AvatarModel extends Model
  {
 
 
-   public function checkIfAvatarExists()
+   public function checkIfAvatarExists($id)
    {
 
      $sql = "SELECT * FROM tilt_avatar WHERE id = '$id' ";

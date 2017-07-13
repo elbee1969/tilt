@@ -15,7 +15,7 @@ class AvatarController extends TiltController {
 
   public function addAvatar()
   {
-    $this->allowTo(['admin','apprenant','enseignant']);
+    $this->allowTo(['admin','apprenant','enseignant','guest']);
     $user = $this->getUser();
     $avatar = array();
       if(!empty($user['avatar'])) {
@@ -30,7 +30,7 @@ class AvatarController extends TiltController {
 
   public function addAvatarAction(){
 
-    $this->allowTo(['admin','apprenant','enseignant']);
+    $this->allowTo(['admin','apprenant','enseignant','guest']);
     $user = $this->getUser();
     $avatar = array();
       if(!empty($user['avatar'])) {
@@ -56,7 +56,7 @@ class AvatarController extends TiltController {
       $path = 'assets/img/avatar/';
 
 
-      $des = $_SERVER['DOCUMENT_ROOT'] . '/tilt/tilt/public/' . $path;
+      $des = $_SERVER['DOCUMENT_ROOT'] . '/tilt/public/' . $path;
       $ext = $clean->getExtension($_FILES['avatar']['name']);
       $imgname = time().'-'. $clean->slugify( $clean->deleteextension($_FILES['avatar']['name'])).'.'.$ext;
 

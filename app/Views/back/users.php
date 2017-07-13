@@ -1,4 +1,4 @@
-<?php $this->layout('layoutback', ['title' => 'Users']) ?>
+<?php $this->layout('layoutback', ['title' => 'Utilisateurs']) ?>
 
 <?php $this->start('main_content') ?>
 
@@ -13,7 +13,7 @@
 foreach
 
   <li class="list-group-item justify-content-between">
-    <b><span>Pseudo de l'user</span></b>  <b><span>nom prénom </span></b> <b><span>inscrit le </span></b>
+    <b><span>Pseudo :</span></b>  <b><span>Région : </span></b> <b><span>inscrit le : </span></b>
     <span class="badge badge-default badge-pill"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></span>
   </li>
 </ul>
