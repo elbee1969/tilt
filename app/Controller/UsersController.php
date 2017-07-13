@@ -5,7 +5,7 @@ use \Controller\TiltController;
 use \Model\CompetencesModel;
 use \Model\UsersModel;
 use \Model\AvatarModel;
-use \Model\AdressModel;
+use \Model\AdresseModel;
 use \Service\Tools\CleanTool;
 use \Service\Tools\ValidationTool;
 use \W\Security\AuthentificationModel;
@@ -46,7 +46,13 @@ class UsersController extends TiltController {
       $regionNamefromId = new RegionsModel();
       $regionName = $regionNamefromId->findRegionName($user['region_id']);
 
-      $this->show('users/profil', ['regionName' => $regionName,'avatar'  => $avatar]);
+      $adresseFromId = new AdresseModel();
+      $adresse = $adresseFromId->getUserAdresse($user['id']);
+
+      $this->show('users/profil', ['regionName' => $regionName,
+                                    'avatar'  => $avatar,
+                                    'adresse' => $adresse]);
+
     }
 
 
