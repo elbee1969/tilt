@@ -15,7 +15,7 @@ class AvatarController extends TiltController {
 
   public function addAvatar()
   {
-    $this->allowTo(['admin','apprenant','enseignant']);
+    $this->allowTo(['admin','apprenant','enseignant','guest']);
     $user = $this->getUser();
     $avatar = array();
       if(!empty($user['avatar'])) {
@@ -30,7 +30,7 @@ class AvatarController extends TiltController {
 
   public function addAvatarAction(){
 
-    $this->allowTo(['admin','apprenant','enseignant']);
+    $this->allowTo(['admin','apprenant','enseignant','guest']);
     $user = $this->getUser();
     $avatar = array();
       if(!empty($user['avatar'])) {

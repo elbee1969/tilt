@@ -16,7 +16,7 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
     <div class="col-12 col-md-12 col-xl-2 col-sm-12">
       <div class="card">
         <p class="center"><img class="rounded-circle profilepicture" src="<?= $avatar['path'].$avatar['name']; ?>" alt="Card image cap"></p>
-        <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin'])){ ?>
+        <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin','guest'])){ ?>
         <span class="center" id="modifavatar" style="color:#3f51b5; font-size:0.70em;" >
           <a href="<?= $this->url('users_avatar'); ?>">Modifier la photo de profil</a>
         </span>
@@ -103,7 +103,6 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
     </div>
   </div>
 
-<?php  debug($adresse); ?>
 
 <?php
  $this->stop('main_content'); ?>

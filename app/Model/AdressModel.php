@@ -4,7 +4,7 @@ namespace Model;
 use \W\Model\Model;
 use \W\Model\ConnectionModel;
 
-class AdresseModel extends Model {
+class AdressModel extends Model {
 
   // public function InsertAdress(){
   //
@@ -25,20 +25,4 @@ class AdresseModel extends Model {
   //   // $sth = $this->dbh->prepare($sql);
   //   // $sth->execute();
   // }
-
-
-  public function getUserAdresse($userId) {
-
-    $sql = "SELECT * FROM `tilt_adresse` WHERE id_user = :userId";
-
-    $sth = $this->dbh->prepare($sql);
-    $sth->bindValue(':userId', $userId);
-    $sth->execute();
-
-    $result = $sth->fetchAll();
-
-    return $result;
-
-  }
-
-} // ferme la classe AdresseModel
+}

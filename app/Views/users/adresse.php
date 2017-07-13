@@ -17,14 +17,6 @@ $this->start('main_content'); ?>
   <div class="col-4">
     <section>
       <form class="adress" action="" method="POST">
-        <label for="nom"></label>
-        <span><?php if(!empty($errors['nom'])){ echo $errors['nom']; }; ?></span>
-        <input class="form-controlall" placeholder ="Nom" type="text" min="1" name="nom" value="">
-
-        <label for="prenom"></label>
-        <span><?php if(!empty($errors['prenom'])){ echo $errors['prenom']; }; ?></span>
-        <input class="form-controlall" placeholder ="Prénom" type="text" min="1" name="prenom" value="">
-
         <label for="number"></label>
         <span><?php if(!empty($errors['number'])){ echo $errors['number']; }; ?></span>
         <input class="form-controlall" placeholder ="N° de rue" type="number" min="1" name="number" value="">

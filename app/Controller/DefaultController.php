@@ -8,7 +8,6 @@ use \Model\UsersModel;
 use \Model\CompetencesModel;
 use \Model\RegionsModel;
 use \Model\AvatarModel;
-use \Model\AdresseModel;
 
 class DefaultController extends TiltController
 {
@@ -60,10 +59,6 @@ class DefaultController extends TiltController
 		// $a = $allUserId->checkIfAvatarExists();
 		//
 		// echo $a;
-
-		// $userAdresse = new AdresseModel();
-		// $a = $userAdresse->getUserAdresse(5);
-		// debug($a);
 
 		$this->show('default/home');
 	}
