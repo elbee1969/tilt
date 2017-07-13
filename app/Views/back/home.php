@@ -30,7 +30,7 @@
 			</a>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12 col-md-6 col-xl-3">
-			<a href="<?= $this->url('back_messages'); ?>">
+			<a href="localhost:1080" target="_blank">
 	<div class="panel orange">
 		<i class="fa fa-envelope fa-5x"></i>
 		<div class="textWrapper">

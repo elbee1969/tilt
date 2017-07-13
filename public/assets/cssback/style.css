@@ -110,9 +110,24 @@ background-color: #3f51b5;
 }
 
 a:link:hover {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
+a:link:active {
+  text-decoration: none !important;
+}
+
+a:active {
+  text-decoration: none !important;
+}
+
+a:visited {
+  text-decoration: none !important;
+}
+
+a::after {
+  text-decoration: none !important;
+}
 
 .backfront {
   float: right !important;
