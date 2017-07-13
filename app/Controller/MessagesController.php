@@ -44,12 +44,13 @@ class MessagesController extends TiltController
 	public function messagesAdd($id,$user_id)
 	{
 		$errors = array();
-		$user 			= new UsersModel();
-		$message 		= new MessagesModel();
-		$clean   		= new CleanTool();
-		$validation = new ValidationTool();
-		$post       = $clean->cleanPost($_POST);
-			$pseudo    = $post['message'];
+		$user 					= new UsersModel();
+		$newmessage 		= new MessagesModel();
+		$clean   				= new CleanTool();
+		$validation 		= new ValidationTool();
+		$auth         = new AuthentificationModel();
+			$post      = $clean->cleanPost($_POST);
+			$message    = $post['message'];
 			$errors['message'] = $validation->textValid($message,'message',2,500);
 
 			if($validation->IsValid($errors) == false){
@@ -63,12 +64,13 @@ class MessagesController extends TiltController
 						'id_apprenant' 	=> $user_id,
 						'id_enseignant' => $id,
 						'message'				=> $message,
-						'updated_at'  => $datenow->format('Y-m-d H:i:s'),
-						'status'      => 1
+						'updated_at'  	=> $datenow->format('Y-m-d H:i:s'),
+						'status'      	=> 1
 						);
 
-            $message->insert($data);
-
+            $newmessage->insert($data);
+						//$auth->refreshUser();
+						$this->show('messages/messages');
 			}
 		}
 

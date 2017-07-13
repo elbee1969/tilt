@@ -15,7 +15,7 @@
 
 
 		['GET', '/messages/[i:id]/[i:user_id]', 'Messages#messages', 'messages_messages'],
-		['POST', '/messages/[i:id]/[i:user_id]', 'Messages#messagesAdd', 'messages_messages_action'],
+		['GET|POST', '/messages/[i:id]/[i:user_id]', 'Messages#messagesAdd', 'messages_messages_action'],
 
 		['GET', '/profil', 'Users#profil', 'users_profil'],
 
@@ -45,5 +45,11 @@
 
 		['GET|POST', '/logout', 'Users#logout', 'logout'],
 		['GET|POST', '/backOffice', 'Back#home', 'back_home'],
+
+		['GET', '/inscrapprenant', 'Users#inscrapprenant', 'users_inscrapprenant'],
+
+		['GET', '/inscrenseignant', 'Users#inscrenseignant', 'users_inscrenseignant'],
+
+
 
 	);

@@ -32,7 +32,7 @@ class UsersController extends TiltController {
 
     public function profil()
     {
-      $this->allowTo(['admin','apprenant','enseignant']);
+      $this->allowTo(['admin','apprenant','enseignant', 'guest']);
 
       $user = $this->getUser();
       $avatar = array();
@@ -248,7 +248,7 @@ class UsersController extends TiltController {
               'allRegions' => $allRegions
             ));
           } else {
-              $role ='admin';
+              $role ='guest';
               $passwd = $auth->hashPassword($password);
               $token =  StringUtils::randomString();
               $datenow = new \DateTime;
@@ -386,6 +386,42 @@ class UsersController extends TiltController {
           }
 
       }
+//méthodes pour l'affichage et l'inscription des apprenants
+//
+//
+/**
+ * Page d'accueil par défaut
+ */
+  public function inscrapprenant()
+  {
+
+
+    $this->show('users/inscrapprenant');
+  }
+
+//fin méthodes pour l'affichage et l'inscription des apprenants
+
+////méthodes pour l'affichage et l'inscription des enseignants
+
+public function inscrenseignant()
+{
+
+
+  $this->show('users/inscrenseignant');
+}
+
+////méthodes pour l'affichage et l'inscription des enseignants
+
+
+
+
+
+
+
+
+
+
+
 
 
   }

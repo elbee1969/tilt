@@ -55,10 +55,10 @@ class DefaultController extends TiltController
 		// $i = $nomRegion->findRegionName(9);
 		// debug($i);
 
-	 	$allUserId = new AvatarModel();
-		$a = $allUserId->checkIfAvatarExists();
-
-		echo $a;
+		// 	$allUserId = new AvatarModel();
+		// $a = $allUserId->checkIfAvatarExists();
+		//
+		// echo $a;
 
 		$this->show('default/home');
 	}
