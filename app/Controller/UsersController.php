@@ -2,8 +2,10 @@
 namespace Controller;
 
 use \Controller\TiltController;
+use \Model\CompetencesModel;
 use \Model\UsersModel;
 use \Model\AvatarModel;
+use \Model\AdressModel;
 use \Service\Tools\CleanTool;
 use \Service\Tools\ValidationTool;
 use \W\Security\AuthentificationModel;
@@ -30,7 +32,7 @@ class UsersController extends TiltController {
 
     public function profil()
     {
-      $this->allowTo(['admin','apprenant','enseignant']);
+      $this->allowTo(['admin','apprenant','enseignant', 'guest']);
 
       $user = $this->getUser();
       $avatar = array();
@@ -235,7 +237,7 @@ class UsersController extends TiltController {
         if ($password !== $password2){
           $errors['password'] = 'Les password sont différents';
         }
-        
+
           //pour réafficher la liste des régions dans la liste déroulante
           $regionsList = new RegionsModel();
           $allRegions = $regionsList->findAllRegions();
@@ -246,7 +248,7 @@ class UsersController extends TiltController {
               'allRegions' => $allRegions
             ));
           } else {
-              $role ='admin';
+              $role ='guest';
               $passwd = $auth->hashPassword($password);
               $token =  StringUtils::randomString();
               $datenow = new \DateTime;
@@ -332,9 +334,7 @@ class UsersController extends TiltController {
       }
 
 
-      // public function addAdress() {
-      //   $this->show('users/profil');
-      // }
+
 
 
 
@@ -354,7 +354,7 @@ class UsersController extends TiltController {
         $clean      = new CleanTool();
         $validation = new ValidationTool();
         $auth       = new AuthentificationModel();
-        $model      = new UsersModel();
+        $add        = new AdressModel();
         // debug($_POST);
           $post = $clean->cleanPost($_POST);
           $number = $post['number'];
@@ -362,30 +362,66 @@ class UsersController extends TiltController {
           $city = $post['city'];
           $postal = $post['postal'];
 
-          $errors['number'] = $validation->textValid($number, 'numéro de rue', 3, 7);
+          $errors['number'] = $validation->textValid($number, 'numéro de rue', 1, 7);
           $errors['street'] = $validation->textValid($street, 'nom de rue', 3, 30);
           $errors['city'] = $validation->textValid($city, 'nom de ville', 3, 30);
           $errors['postal'] = $validation->textValid($postal, 'code postal', 3, 5);
 
           if($validation->IsValid($errors) == false){
-            $this->show('users/profil', array(
+            $this->show('users/adresse', array(
               'errors'   => $errors,
             ));
 
           } else {
 
             $data = array(
-              'number' => $number,
-              'street' => $street,
-              'city'    => $city,
-              'postal' => $postal,
+              'num_rue' => $number,
+              'nom_voie' => $street,
+              'ville'    => $city,
+              'code_postal' => $postal,
             );
 
-            $model->insert($data);
+            $add->insert($data);
 
           }
 
       }
+//méthodes pour l'affichage et l'inscription des apprenants
+//
+//
+/**
+ * Page d'accueil par défaut
+ */
+  public function inscrapprenant()
+  {
+
+
+    $this->show('users/inscrapprenant');
+  }
+
+//fin méthodes pour l'affichage et l'inscription des apprenants
+
+////méthodes pour l'affichage et l'inscription des enseignants
+
+public function inscrenseignant()
+{
+
+
+  $this->show('users/inscrenseignant');
+}
+
+////méthodes pour l'affichage et l'inscription des enseignants
+
+
+
+
+
+
+
+
+
+
+
 
 
   }

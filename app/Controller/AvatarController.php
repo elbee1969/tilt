@@ -48,14 +48,15 @@ class AvatarController extends TiltController {
 
     $sizeMax = 2096000; // 2MO
     $extensions = array('.jpg', '.png', '.jpeg');
-    $extensionsmime = array('image/jpeg', 'image/png' );
+    $extensionsmime = array('image/jpeg', 'image/png','image/jpg' );
 
     $errors['avatar'] = $validation->uploadValid($_FILES['avatar'],$sizeMax,$extensions,$extensionsmime);
 
     if($validation->IsValid($errors)){
       $path = 'assets/img/avatar/';
 
-      $des = $_SERVER['DOCUMENT_ROOT'] . '/tilt/tilt/public/assets/' . $path;
+
+      $des = $_SERVER['DOCUMENT_ROOT'] . '/tilt/tilt/public/' . $path;
       $ext = $clean->getExtension($_FILES['avatar']['name']);
       $imgname = time().'-'. $clean->slugify( $clean->deleteextension($_FILES['avatar']['name'])).'.'.$ext;
 
@@ -74,9 +75,7 @@ class AvatarController extends TiltController {
                 'modified_at'  => $date->format('Y-m-d H:i:s')
               );
 
-
                  $modelavatar->update($data,$avatar['id']);
-
 
 
         } else {
@@ -95,19 +94,11 @@ class AvatarController extends TiltController {
           $modeluser->update($data_user,$user['id']);
           $auth->refreshUser();
 
-
-
-
         }
 
         $this->redirectToRoute('users_profil');
 
       }
-
-
-
-      ///  message flash
-      // redirect to profil
 
     } else {
       $this->show('users/avatar', array(

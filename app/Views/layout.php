@@ -29,7 +29,7 @@
 					<li>
 						<a class="nav-link" href="<?= $this->url('default_home'); ?>">......</a>
 					</li>
-					<?php if($w_user){ ?>
+					<?php if(in_array($w_user['role'], ['apprenant', 'enseignant'])){ ?>
 					<li>
 						<a class="nav-link" href="<?= $this->url('tutorat_tutorat'); ?>">Tutorat</a>
 					</li>
@@ -43,8 +43,10 @@
 					</li>
 					<?php } ?>
 		    </ul>
-				<form class="form-inline my-2 my-lg-0">
-					<?php if(in_array($w_user['role'], ['admin','apprenant', 'enseignant'])){ ?>
+
+		    	<form class="form-inline my-2 my-lg-0">
+					<?php if(in_array($w_user['role'], ['admin','apprenant', 'enseignant','guest'])){ ?>
+
 						<li>
 							<a class="nav-link" href="<?= $this->url('users_profil'); ?>"><?= ' '.$w_user['pseudo']; ?></a>
 						</li>

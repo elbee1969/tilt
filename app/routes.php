@@ -15,12 +15,12 @@
 
 
 		['GET', '/messages/[i:id]/[i:user_id]', 'Messages#messages', 'messages_messages'],
-		['POST', '/messages/[i:id]/[i:user_id]', 'Messages#messagesAdd', 'messages_messages_action'],
+		['GET|POST', '/messages/[i:id]/[i:user_id]', 'Messages#messagesAdd', 'messages_messages_action'],
 
 		['GET', '/profil', 'Users#profil', 'users_profil'],
 
 		['GET', '/profil/adresse', 'Users#addAdress', 'users_adresse'],
-		['POST', '/profil', 'Users#addAdressAction', 'users_profil_action'],
+		['POST', '/profil/adresse', 'Users#addAdressAction', 'users_adresse_action'],
 
 		['GET', '/profil/avatar', 'Avatar#addAvatar', 'users_avatar'],
 		['POST', '/profil/avatar', 'Avatar#addAvatarAction', 'users_avatar_action'],
@@ -51,4 +51,8 @@
 		['GET', '/backoffice/cours', 'back#cours', 'back_cours'],
 		['GET', '/backoffice/messages', 'back#messages', 'back_messages'],
 		['GET', '/backoffice/ameliorations', 'back#ameliorations', 'back_ameliorations'],
+
+		['GET', '/inscrapprenant', 'Users#inscrapprenant', 'users_inscrapprenant'],
+
+		['GET', '/inscrenseignant', 'Users#inscrenseignant', 'users_inscrenseignant'],
 	);
