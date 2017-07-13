@@ -30,6 +30,7 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
           <li class="list-group-item"><?= 'Inscrit le '.$w_user['created_at']; ?></li>
           <li class="list-group-item"><?= 'Région : '.$regionName['name']; ?></li>
           <li class="list-group-item">Adresse : blablabla</li>
+
           <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin'])){ ?>
           <li class="list-group-item"><a href="#">Modifier mes informations</a></li>
           <?php } ?>
@@ -105,6 +106,7 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
     </div>
   </div>
 
+<?php  debug($adresse); ?>
 
 <?php
  $this->stop('main_content'); ?>
