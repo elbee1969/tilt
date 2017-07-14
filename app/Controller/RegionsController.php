@@ -31,8 +31,13 @@ class RegionsController extends TiltController
 	public function detailRegion($id) {
     $model = new RegionsModel();
     $region = $model->find($id);
+
+		$enseignantInRegion = new UsersModel();
+		$allEnseignantsInRegion = $enseignantInRegion->findEnseignantsinRegion($region['name']);
+
     $this->show('regions/region',array(
-      'region'   => $region
+      'region'   => $region,
+			'allEnseignantsInRegion' => $allEnseignantsInRegion
     ));
 		debug($region);
   }
