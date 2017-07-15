@@ -25,8 +25,26 @@ class AvatarModel extends Model
 
    public function updateAvatar(){
 
-
    }
 
+   public function getAvatarFromIntermUserId($intermUserId) {
 
- }
+     $sql = "SELECT i.user_id, u.id, u.avatar, a.id, a.path, a.name
+             FROM tilt_interm AS i
+             LEFT JOIN tilt_user AS u
+             ON i.user_id = u.id
+             LEFT JOIN tilt_avatar AS a
+             ON u.avatar = a.id
+             WHERE u.id = :intermUserId";
+
+     $sth = $this->dbh->prepare($sql);
+     $sth->bindValue(':intermUserId', $intermUserId);
+     $sth->execute();
+
+     $result = $sth->fetchAll();
+
+     return $result;
+
+   } // ferme la méthode getAvatarFromIntermUserId 
+
+ } // ferme la classe AvatarModel

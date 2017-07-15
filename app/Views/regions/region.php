@@ -37,7 +37,7 @@ $this->layout('layout', ['title' => '$this->w_']);
                 echo '<div class="card-block">
                         <div class="row">
                           <div class="col-1">
-                            <img class="courspicture rounded-circle" src="./assets/img/profil.jpg" alt="Photo de profil">
+                            <img class="courspicture rounded-circle" src=" '.$avatarFromIntermId[0]['path'].$avatarFromIntermId[0]['name'].' " alt="Photo de profil">
                           </div>
                           <div class="col-9">
                             <h4 class="card-title">Le Tilter '.$enseignant['pseudo'].'</h4>

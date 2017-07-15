@@ -6,6 +6,7 @@ use \Controller\TiltController;
 use \Model\RegionsModel;
 use \Model\UsersModel;
 use \Model\CompetencesModel;
+use \Model\AvatarModel;
 
 class RegionsController extends TiltController
 {
@@ -35,9 +36,13 @@ class RegionsController extends TiltController
 		$enseignantInRegion = new UsersModel();
 		$allEnseignantsInRegion = $enseignantInRegion->findEnseignantsinRegion($region['name']);
 
+		$avatarFromId = new AvatarModel();
+		$avatarFromIntermId = $avatarFromId->getAvatarFromIntermUserId($allEnseignantsInRegion[0]['user_id']);
+
     $this->show('regions/region',array(
       'region'   => $region,
-			'allEnseignantsInRegion' => $allEnseignantsInRegion
+			'allEnseignantsInRegion' => $allEnseignantsInRegion,
+			'avatarFromIntermId' => $avatarFromIntermId
     ));
 		debug($region);
   }
