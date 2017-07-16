@@ -8,11 +8,6 @@ $this->layout('layout', ['title' => 'Envoyer un message']);
 
 <?php $this->start('main_content'); ?>
 
-<<<<<<< HEAD
-<h1>Page message</h1>
-<?php
-=======
-<div class="container-fluid">
 
   <div class="row">
     <div class="col-12">
@@ -26,7 +21,7 @@ $this->layout('layout', ['title' => 'Envoyer un message']);
     <div class="col-12 col-md-8 offset-md-2 offset-0">
 
 
->>>>>>> 5a23ba34f9e7bb4b5efc0fe1053186640575fdb5
+
 
 <div class="form-group">
   <form id="tchat_form" action="<?= $this->url('messages_message_action', ['id' => $id, 'user_id' => $user_id]); ?>" method="post">
