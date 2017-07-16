@@ -25,7 +25,6 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
         <h4 class="center policetitre" ><?= $w_user['pseudo']; ?></h4>
       </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">    <?= $w_user['first_name']; ?>   <?= $w_user['last_name']; ?></li>
           <li class="list-group-item"><?= $w_user['email']; ?></li>
           <li class="list-group-item"><?= 'Inscrit le '.$w_user['created_at']; ?></li>
           <li class="list-group-item"><?= 'Région : '.$regionName['name']; ?></li>
