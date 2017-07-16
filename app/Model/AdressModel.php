@@ -4,7 +4,7 @@ namespace Model;
 use \W\Model\Model;
 use \W\Model\ConnectionModel;
 
-class AdresseModel extends Model {
+class AdressModel extends Model {
 
   // public function InsertAdress(){
   //
