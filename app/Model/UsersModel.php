@@ -54,7 +54,7 @@ class UsersModel extends  WUsersModel
 
   } // ferme la méthode findFiveLastApprenants
 
-  public function findApprenantsInRegion($regionslug) {
+  public function findApprenantsInRegion($regionname) {
 
     // on stocke dans une variable $regionslug le slug de la région récupérée
     // quand l'utilisateur a cliqué sur la carte
@@ -67,10 +67,10 @@ class UsersModel extends  WUsersModel
             ON i.competences_id = c.id
             LEFT JOIN tilt_user AS u
             ON i.user_id = u.id
-            WHERE r.slug = :regionslug AND u.role = 'apprenant'";
+            WHERE r.name = :regionname AND u.role = 'apprenant'";
 
     $sth = $this->dbh->prepare($sql);
-    $sth->bindValue(':regionslug', $regionslug);
+    $sth->bindValue(':regionname', $regionname);
     $sth->execute();
 
     $result = $sth->fetchAll();
@@ -79,7 +79,7 @@ class UsersModel extends  WUsersModel
 
   } // ferme la méthode findApprenantsInRegion
 
-  public function findEnseignantsinRegion($regionslug) {
+  public function findEnseignantsinRegion($regionname) {
 
     // idem que findApprenantsInRegion mais pour les Enseignants
 
@@ -91,10 +91,10 @@ class UsersModel extends  WUsersModel
             ON i.competences_id = c.id
             LEFT JOIN tilt_user AS u
             ON i.user_id = u.id
-            WHERE r.slug = :regionslug AND u.role = 'enseignant'";
+            WHERE r.name = :regionname AND u.role = 'enseignant'";
 
     $sth = $this->dbh->prepare($sql);
-    $sth->bindValue(':regionslug', $regionslug);
+    $sth->bindValue(':regionname', $regionname);
     $sth->execute();
 
     $result = $sth->fetchAll();
