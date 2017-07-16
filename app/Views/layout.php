@@ -96,10 +96,10 @@
 						<div class="row">
 							<div class="col-md-7 col-6">
 								<ul>
-									<li>Mentions légales</li>
-									<li>Contact</li>
-									<li>CGU</li>
-									<li>FAQ</li>
+									<li><a href="<?= $this->url('mentions_mentions'); ?>">Mentions légales</a></li>
+									<li><a href="<?= $this->url('default_contact'); ?>">Contact</a></li>
+									<li><a href="<?= $this->url('cgu_cgu'); ?>">CGU</a></li>
+									<li><a href="<?= $this->url('faq_faq'); ?>">FAQ</a></li>
 							</div>
 							<div class="col-md-5 col-6 ">
 								<li>Top enseignants</li>

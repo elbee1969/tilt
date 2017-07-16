@@ -64,4 +64,11 @@
 		['GET', '/inscrapprenant', 'Users#inscrapprenant', 'users_inscrapprenant'],
 
 		['GET', '/inscrenseignant', 'Users#inscrenseignant', 'users_inscrenseignant'],
+
+
+
+		['GET', '/cgu', 'Cgu#cgu', 'cgu_cgu'],
+		['GET', '/mentions-legales', 'Mentions#mentions', 'mentions_mentions'],
+		['GET', '/recherche', 'Recherche#recherche', 'recherche_recherche'],
+		['GET', '/foire-aux-questions', 'Faq#faq', 'faq_faq'],
 	);
