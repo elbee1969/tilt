@@ -106,7 +106,7 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
     </div>
   </div>
 
-<?php  debug($adresse); ?>
+<?php  //debug($adresse); ?>
 
 <?php
  $this->stop('main_content'); ?>

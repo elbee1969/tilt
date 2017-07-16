@@ -1,84 +1,84 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<title><?= $this->e($title) ?></title>
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/font-awesome.css') ?>">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/normalize.css') ?>">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/animate.css') ?> ">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.css') ?>">
-	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-	<link rel="icon" type="image/png" href="<?= $this->assetUrl('img/favicon.png')?>" />
+	<head>
+		<meta charset="UTF-8">
+		<title><?= $this->e($title) ?></title>
+		<link rel="stylesheet" href="<?= $this->assetUrl('css/font-awesome.css') ?>">
+		<link rel="stylesheet" href="<?= $this->assetUrl('css/normalize.css') ?>">
+		<link rel="stylesheet" href="<?= $this->assetUrl('css/animate.css') ?> ">
+		<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
+		<link rel="stylesheet" href="<?= $this->assetUrl('css/bootstrap.css') ?>">
+		<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+		<link rel="icon" type="image/png" href="<?= $this->assetUrl('img/favicon.png')?>" />
 
-</head>
-<body>
-	<header>
-		<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top" style="background-color:#3f51b5">
-		  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-		  <a class="navbar-brand" href="<?= $this->url('default_home'); ?>"><p id="logo_navbar">Tilt</p>
-			<p class="slogan">Teach it learn that !</p></a>
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		    <ul class="navbar-nav mr-auto">
-					<li>
-						<a class="nav-link" href="<?= $this->url('default_apropos'); ?>">A propos</a>
-					</li>
-					<li>
-						<a class="nav-link" href="<?= $this->url('default_home'); ?>">......</a>
-					</li>
-					<?php if(in_array($w_user['role'], ['apprenant', 'enseignant'])){ ?>
-					<li>
-						<a class="nav-link" href="<?= $this->url('tutorat_tutorat'); ?>">Tutorat</a>
-					</li>
-					<?php } ?>
-					<li>
-						<a class="nav-link" href="<?= $this->url('default_home'); ?>">......</a>
-					</li>
-					<?php if(!$w_user){ ?>
-					<li>
-						<a class="nav-link" href="<?= $this->url('default_contact'); ?>">Contact</a>
-					</li>
-					<?php } ?>
-		    </ul>
-
-		    	<form class="form-inline my-2 my-lg-0">
-					<?php if(in_array($w_user['role'], ['admin','apprenant', 'enseignant','guest'])){ ?>
-
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top" style="background-color:#3f51b5">
+			  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <a class="navbar-brand" href="<?= $this->url('default_home'); ?>"><p id="logo_navbar">Tilt</p>
+				<p class="slogan">Teach it learn that !</p></a>
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto">
 						<li>
-							<a class="nav-link" href="<?= $this->url('users_profil'); ?>"><?= ' '.$w_user['pseudo']; ?></a>
+							<a class="nav-link" href="<?= $this->url('default_apropos'); ?>">A propos</a>
+						</li>
+						<li>
+							<a class="nav-link" href="<?= $this->url('default_home'); ?>">......</a>
+						</li>
+						<?php if(in_array($w_user['role'], ['apprenant', 'enseignant'])){ ?>
+						<li>
+							<a class="nav-link" href="<?= $this->url('tutorat_tutorat'); ?>">Tutorat</a>
 						</li>
 						<?php } ?>
+						<li>
+							<a class="nav-link" href="<?= $this->url('default_home'); ?>">......</a>
+						</li>
+						<?php if(!$w_user){ ?>
+						<li>
+							<a class="nav-link" href="<?= $this->url('default_contact'); ?>">Contact</a>
+						</li>
+						<?php } ?>
+			    </ul>
 
-						<?php if(in_array($w_user['role'], ['admin'])){ ?>
-							<li>
-								<a class="nav-link" href="<?= $this->url('back_home'); ?>">Backoffice</a>
-							</li>
-						<?php }
-					 if($w_user){ ?>
-						<a class= "nav-link" href="<?= $this->url('logout'); ?>  ">
-							<i class="fa fa-sign-out" title="déconnexion" aria-hidden="true">
-							</i>
-						</a>
-					<?php }else{ ?>
-						<ul class="navbar-nav mr-auto">
-		        	<li>
-								<a class="nav-link" href="<?= $this->url('users_register'); ?>">Inscription</a>
-							</li>
-							<li>
-								<a class="nav-link" href="<?= $this->url('login'); ?>">Connexion</a>
-							</li>
-						</ul>
-					<?php } ?>
+			    	<form class="form-inline my-2 my-lg-0">
+						<?php if(in_array($w_user['role'], ['admin','apprenant', 'enseignant','guest'])){ ?>
 
-		      <input class="form-control mr-sm-2" type="text" placeholder="Compétences, régions ..."></input>
-					<input class="btn btn-outline-success my-2 my-sm-0 fa fa-search" aria-hidden="true" type="submit" value="&#9906;"></input>
-		    </form>
-		  </div>
-		</nav>
-	</header>
+							<li>
+								<a class="nav-link" href="<?= $this->url('users_profil'); ?>"><?= ' '.$w_user['pseudo']; ?></a>
+							</li>
+							<?php } ?>
+
+							<?php if(in_array($w_user['role'], ['admin'])){ ?>
+								<li>
+									<a class="nav-link" href="<?= $this->url('back_home'); ?>">Backoffice</a>
+								</li>
+							<?php }
+						 if($w_user){ ?>
+							<a class= "nav-link" href="<?= $this->url('logout'); ?>  ">
+								<i class="fa fa-sign-out" title="déconnexion" aria-hidden="true">
+								</i>
+							</a>
+						<?php }else{ ?>
+							<ul class="navbar-nav mr-auto">
+			        	<li>
+									<a class="nav-link" href="<?= $this->url('users_register'); ?>">Inscription</a>
+								</li>
+								<li>
+									<a class="nav-link" href="<?= $this->url('login'); ?>">Connexion</a>
+								</li>
+							</ul>
+						<?php } ?>
+
+			      <input class="form-control mr-sm-2" type="text" placeholder="Compétences, régions ..."></input>
+						<input class="btn btn-outline-success my-2 my-sm-0 fa fa-search" aria-hidden="true" type="submit" value="&#9906;"></input>
+			    </form>
+			  </div>
+			</nav>
+		</header>
 		<section class="backgroundsection">
 			<?= $this->section('main_content') ?>
 		</section>
@@ -138,11 +138,11 @@
 			</div>
 		</footer>
 
-	<script src="<?= $this->assetUrl('js/jquery-3.2.1.js')?>" charset="utf-8"></script>
-	<script type="text/javascript" src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-	<script src="<?= $this->assetUrl('js/bootstrap.js')?>" charset="utf-8"></script>
-	<script src="<?= $this->assetUrl('js/count.js')?>" charset="utf-8"></script>
-	<?= $this->section('js') ?> <!-- Appel de la section js qui est situé dans home.php - Cela va récupérer les JS de la map  !-->
+		<script src="<?= $this->assetUrl('js/jquery-3.2.1.js')?>" charset="utf-8"></script>
+		<script type="text/javascript" src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+		<script src="<?= $this->assetUrl('js/bootstrap.js')?>" charset="utf-8"></script>
+		<script src="<?= $this->assetUrl('js/count.js')?>" charset="utf-8"></script>
+		<?= $this->section('js') ?> <!-- Appel de la section js qui est situé dans home.php - Cela va récupérer les JS de la map  !-->
 
-</body>
+	</body>
 </html>

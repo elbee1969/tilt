@@ -19,42 +19,42 @@ class TutoratController extends TiltController
 	public function tutorat()
 	{
 
-		$model 	= new UsersModel();
+		$model 	= new TutoratModel();
 		$modelregion = new RegionsModel();
 		//recupératuin du user connecté
 		$user = $this->getUser();
 		// récupération de la région du user connecté
 		$region = $modelregion->findRegionName($user['region_id']);
-		// si enseignant on utilise $userE
-		if($user['role'] == 'enseignant'){
-			$userE = $this->getUser();
-		}
-		// si apprenant on utilise $userA
-		if($user['role'] == 'apprenant'){
-			$userA = $this->getUser();
-		}
+
 		//
 				$region_id = $user['region_id'] ;
+				// if($user['role'] == 'enseignant' ){
+					$msgapprenants = $model->findMsgApprenantByEnseignant($user['id']);
+					//debug ($msgapprenants);
+					if(!empty($msgapprenants)){
+						$id = $msgapprenants[0]['id_enseignant'];
+						$user_id = $msgapprenants[0]['id'];
+					}
+				// 	debug($user);
+				// 	$id = $user['id'];
+				// 	$user_id =
+				// }
+				$msgenseignants = $model->findMsgEnseignantByApprenant($user['id']);
 
-				$enseignants = $model->findEnseignantsInRegionById($region_id);
-				$apprenants = $model->findApprenantsInRegionById($region_id);
-
-				//debug($user);
 				if(in_array($user['role'], ['apprenant', 'enseignant'])){
-//si enseignant renvoi la liste de appreants:
+//si enseignant renvoi la liste des messages de ses apprenants:
 					  if(in_array($user['role'], ['enseignant'])){
 							//debug($apprenants);
 							$this->show('tutorat/tutorat', array(
-								'apprenants' => $apprenants,
-								'user'			 =>	$user,
-								'region'     => $region
+								'msgapprenants' => $msgapprenants,
+								'id'						=> $id,
+								'user_id'				=> $user_id
 							));
 						}
-//si apprenant renvoi liste des enseignants:
+//si apprenant renvoi liste des message de ses enseignants:
 						if(in_array($user['role'], ['apprenant'])){
-							//debug($enseignants);
 							$this->show('tutorat/tutorat', array(
-								'enseignants' => $enseignants,
+								'msgenseignants' => $msgenseignants,
 								'user'			 =>	$user,
 								'region'     => $region
 							));
@@ -71,7 +71,7 @@ class TutoratController extends TiltController
 	 */
 	public function messagesAdd()
 	{
-		$user 			= new UsersModel();
+
 		$message 		= new MessagesModel();
 		$clean   		= new CleanTool();
 		$validation = new ValidationTool();
@@ -91,8 +91,21 @@ class TutoratController extends TiltController
 
 			}
 		}
+//methode affichant l'existance des enseignants ou des apprenants
+	public function disponibilites($region_id){
 
+				$users 	= new UsersModel();
+				$apprenants = $users->findApprenantsInRegionById($region_id);
 
+				$this->show('tutorat/disponibilites', array(
+																								'apprenants'  => $apprenants
+																							));
 
+	}//fin methode disponibilites
+
+	//methode pour associer enseignants et apprenants
+	public function associer(){
+
+	}//fin methode associer
 
 }
