@@ -181,14 +181,19 @@
 				<p class="policetitre" id="etvousdixdoigts">Et vous, que savez-vous faire de vos 10 doigts ?</p>
 				<p class="center policejosefin">Devenez Tilters et révélez toutes vos compétences auprès de la communauté !</p>
 				<p class="center" id="propcomp">
+
+					<?php if ($w_user) { ?>
+					<a href="<?= $this->url('users_profil'); ?>" >
+						<button type="button" class="btn btn-primary btn-lg">Proposer mes compétences</button>
+					</a>
+		<?php		} else { ?>
 					<a href="<?= $this->url('users_register'); ?>" >
 						<button type="button" class="btn btn-primary btn-lg">Proposer mes compétences</button>
 					</a>
+			<?php	} ?>
 				</p>
 			</div>
 	</div>
-		IF : USER CONNECTE -> VA L'ENVOYER SUR LA PAGE "DONNER UN COURS" / IF : USER NON CONNECTE -> INSCRIPTION ?
-
 </div>
 
 
