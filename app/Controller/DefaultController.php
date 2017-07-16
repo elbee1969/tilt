@@ -18,48 +18,6 @@ class DefaultController extends TiltController
 	public function home()
 	{
 
-		// test de la méthode pour trouver les 5 derniers enseignants inscrits
-		// $enseignants = new UsersModel();
-		// $b = $enseignants->findFiveLastEnseignants();
-		// debug($b);
-
-		// test de la méthode pour trouver les 5 derniers apprenants inscrits
-		// $apprenants = new UsersModel();
-		// $c = $apprenants->findFiveLastApprenants();
-		// debug($c);
-
-		// test de la méthode pour les icones de la page d'accueil
-		// $icon = new CompetencesModel();
-		// $e = $icon->findCompetencesFromCategory('arts');
-		// debug($e);
-
-		//test de la méthode pour alimenter la liste déroulante des régions
-		// $regions = new RegionsModel();
-		// $f = $regions->findAllRegions();
-		// debug($f);
-
-		//test de la méthode pour trouver les apprenants dans une région donnée
-		// avec leurs compétences
-		//$apprenants = new UsersModel();
-		//$g = $apprenants->findApprenantsInRegion('normandie');
-		//debug($g);
-
-		//test de la méthode pour trouver les enseignants dans uen région donnée
-		// avec leurs compétences
-		// $enseignants = new UsersModel();
-		// $h = $enseignants->findEnseignantsinRegion('ile-de-france');
-		// debug($h);
-
-		//test de la méthode pour trouver le nom d'une région à partir de $w_user['region_id']
-		// $nomRegion = new RegionsModel();
-		// $i = $nomRegion->findRegionName(9);
-		// debug($i);
-
-		// 	$allUserId = new AvatarModel();
-		// $a = $allUserId->checkIfAvatarExists();
-		//
-		// echo $a;
-
 		$this->show('default/home');
 	}
 
