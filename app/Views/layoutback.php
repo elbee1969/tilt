@@ -31,7 +31,7 @@
 					<a class="nav-link" href="<?= $this->url('back_cours'); ?>">Cours</a>
 				</li>
 				<li>
-					<a class="nav-link" href="https://mail.google.com/mail/u/2/#inbox" target="_blank">Messages</a>
+					<a class="nav-link" href="localhost:1080" target="_blank">Messages</a>
 				</li>
 				<li>
 					<a class="nav-link" href="<?= $this->url('back_ameliorations'); ?>">Améliorations</a>

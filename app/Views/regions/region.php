@@ -21,7 +21,7 @@ $this->layout('layout', ['title' => '$this->w_']);
         <div class="card-header">
           <div class="row">
             <div class="col-9">
-              <p class="policejosefin">Le nom du cours demandé ! (le nom de l'annonce ?)</p>
+              <p class="policejosefin">Le nom de la matière : <?php ?></p>
             </div>
             <div class="col-3">
               <p class="policejosefin" style="text-align:right;">Date de création</p>
