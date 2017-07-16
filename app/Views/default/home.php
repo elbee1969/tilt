@@ -143,9 +143,7 @@
 				<p class="center iconhomepage">
 					<img class="testiconcept rounded-circle" src="<?= $this->assetUrl('img/testi1.jpg') ?>" alt="">
 				</p>
-				<a href="#">
 					<p class="center subtitle_icon policejosefin">Franck R.</p>
-				</a>
 				<p class="center iconhomepage"><img class="separator" src="<?= $this->assetUrl('img/separator.png') ?>" alt=""></p>
 				<p class="center policejosefin" style="font-size: 1.5em;"><i>Se site est tou simpleument extra !<br> Je viens de m'inscrire et j'ai déjà un<br> cour de français prévu dans deux jour ! </i></p>
 			</div>
@@ -153,9 +151,7 @@
 				<p class="center iconhomepage">
 					<img class="testiconcept rounded-circle" src="<?= $this->assetUrl('img/testi4.jpg') ?>" alt="">
 				</p>
-				<a href="#">
 					<p class="center subtitle_icon policejosefin">Madonna Louise C.</p>
-				</a>
 				<p class="center iconhomepage"><img class="separator" src="<?= $this->assetUrl('img/separator.png') ?>" alt=""></p>
 				<p class="center policejosefin" style="font-size: 1.5em;"><i>Superbe plateforme d'entraide !<br> Je suis agréablement surprise par l'amabilité des tilters !<br> J'ai envoyé le lien à Snoop Dogg !</i></p>
 			</div>
@@ -164,9 +160,7 @@
 				<p class="center iconhomepage">
 					<img class="testiconcept rounded-circle" src="<?= $this->assetUrl('img/testi2.jpg') ?>" alt="">
 				</p>
-				<a href="#">
 					<p class="center subtitle_icon policejosefin">Albert E.</p>
-				</a>
 				<p class="center iconhomepage"><img class="separator" src="<?= $this->assetUrl('img/separator.png') ?>" alt=""></p>
 				<p class="center policejosefin" style="font-size: 1.5em;"><i>J'ai vu ce site sur e=m6,<br> Je n'en reviens pas que mon voisin Isaac<br> donne des cours de maths à 5km de chez moi ! </i></p>
 			</div>

@@ -22,19 +22,19 @@ $this->layout('layout', ['title' => 'Contact']);
       <form class="formu" action="<?= $this->url('default_contact_action'); ?>" method="post">
         <div class="col-12">
           <label for="prenom"></label>
-          <input id="prenom" type="text" placeholder="Prénom" class="form-controlall" name="prenom" value="<?php if(!empty($_POST['prenom'])){ echo $_POST['prenom'];};  ?>">
+          <input id="prenom" type="text" placeholder="Prénom *" class="form-controlall" name="prenom" value="<?php if(!empty($_POST['prenom'])){ echo $_POST['prenom'];};  ?>">
           <span style="margin-left :20px; color:red; font-size:0.70em;" ><?php if(!empty($errors['prenom'])){ echo $errors['prenom']; }; ?></span>
 
           <label for="nom"></label>
-          <input id="nom" type="text" placeholder="Nom" class="form-controlall" name="nom" value="<?php if(!empty($_POST['nom'])){ echo $_POST['nom'];}; ?>">
+          <input id="nom" type="text" placeholder="Nom *" class="form-controlall" name="nom" value="<?php if(!empty($_POST['nom'])){ echo $_POST['nom'];}; ?>">
           <span style="margin-left :20px; color:red; font-size:0.70em;" ><?php if(!empty($errors['nom'])){ echo $errors['nom']; }; ?></span>
 
           <label for="email"></label>
-          <input id="email" type="email" placeholder="Email" class="form-controlall"  name="email" value="<?php if(!empty($_POST['email'])){ echo $_POST['email'];}; ?>">
+          <input id="email" type="email" placeholder="Email *" class="form-controlall"  name="email" value="<?php if(!empty($_POST['email'])){ echo $_POST['email'];}; ?>">
           <span style="margin-left :20px; color:red; font-size:0.70em;" ><?php if(!empty($errors['email'])){ echo $errors['email']; }; ?></span>
 
           <label for="message"></label>
-          <textarea id="message" placeholder="Message ..." class="form-controlall" name="message" rows="6"><?php if(!empty($_POST['message'])){ echo $_POST['message'];}; ?></textarea>
+          <textarea id="message" placeholder="Message ... *" class="form-controlall" name="message" rows="6"><?php if(!empty($_POST['message'])){ echo $_POST['message'];}; ?></textarea>
           <span style="margin-left :20px; color:red; font-size:0.70em;" ><?php if(!empty($errors['message'])){ echo $errors['message']; }; ?></span>
           <input class="btn btn-primary btn-lg btn-block" title="contact" type="submit" name="btnSubmit" value="Envoyer à l'équipe Tilt !"/>
         </div>

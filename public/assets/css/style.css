@@ -16,6 +16,10 @@ footer {
 	margin-top: 100px;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .hello:hover {
 animation-name:swing;
 animation-duration: 2s;

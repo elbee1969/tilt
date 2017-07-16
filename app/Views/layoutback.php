@@ -31,9 +31,6 @@
 					<a class="nav-link" href="<?= $this->url('back_cours'); ?>">Cours</a>
 				</li>
 				<li>
-					<a class="nav-link" href="localhost:1080" target="_blank">Messages</a>
-				</li>
-				<li>
 					<a class="nav-link" href="<?= $this->url('back_ameliorations'); ?>">Améliorations</a>
 				</li>
 			</ul>
