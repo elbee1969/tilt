@@ -35,7 +35,9 @@ class IntermController extends TiltController
 				}
 
 
-		$this->show('tutorat/disponibilites');
+		$this->show('tutorat/disponibilites', array(
+																								'region_id' => $region_id
+																							));
 	}
 
 
