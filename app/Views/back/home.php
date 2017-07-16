@@ -64,5 +64,4 @@ Idées : Personne qui a donné le plus de cours ? <br>
 
 </div>
 
-
 <?php $this->stop('main_content') ?>

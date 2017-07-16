@@ -25,11 +25,14 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
         <h4 class="center policetitre" ><?= $w_user['pseudo']; ?></h4>
       </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">    <?= $w_user['first_name']; ?>   <?= $w_user['last_name']; ?></li>
           <li class="list-group-item"><?= $w_user['email']; ?></li>
           <li class="list-group-item"><?= 'Inscrit le '.$w_user['created_at']; ?></li>
           <li class="list-group-item"><?= 'Région : '.$regionName['name']; ?></li>
-          <li class="list-group-item">Adresse : blablabla</li>
+          <li class="list-group-item"><?= 'Nom: '.$adresse[0]['nom']; ?></li>
+          <li class="list-group-item"><?= 'Prénom: '.$adresse[0]['prenom']; ?></li>
+          <li class="list-group-item"><?= 'Adresse: '.$adresse[0]['num_rue'].' '.$adresse[0]['nom_voie']; ?></li>
+          <li class="list-group-item"><?= 'Code Postal: '.$adresse[0]['code_postal']; ?></li>
+          <li class="list-group-item"><?= 'Ville: '.$adresse[0]['ville']; ?></li>
 
           <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin'])){ ?>
           <li class="list-group-item"><a href="#">Modifier mes informations</a></li>
@@ -106,7 +109,11 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
     </div>
   </div>
 
-<?php  debug($adresse); ?>
+<<<<<<< HEAD
+<?php  //debug($adresse); ?>
+=======
+
+>>>>>>> d7bcca05255e17c59aa576b383069c33a82ea3a7
 
 <?php
  $this->stop('main_content'); ?>

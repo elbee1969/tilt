@@ -59,13 +59,24 @@ class ContactController extends TiltController
 		         'errors'  => $errors,
 		       ));
 		     }else{
-			  ini_set("SMTP",'localhost' );
-			  ini_set('sendmail_from', $email);
-			  $mail = mail($to,$subject, $message, $header);
+			  // ini_set("SMTP",'localhost' );
+			  // ini_set('sendmail_from', $email);
+			  // $mail = mail($to,$subject, $message, $header);
+				$mail = new \PHPMailer;
+				$mail->setFrom($email, $prenom.' '.$nom);
+				$mail->addAddress($to, 'My Friend');
+				$mail->Subject  = $subject;
+				$mail->Body     = $message;
+				if(!$mail->send()) {
+					echo 'Message was not sent.';
+					echo 'Mailer error: ' . $mail->ErrorInfo;
+				} else {
+								$this->flash('mail bien envoyé');
+				}
 			  }
 			}
 
-			$this->flash('mail bien envoyé');
+
 			$this->redirectToRoute('default_home');
 
 		}
