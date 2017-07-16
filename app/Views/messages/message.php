@@ -10,8 +10,6 @@ $this->layout('layout', ['title' => 'Mes message']);
 
 <h1>Page message</h1>
 <?php
-echo $id;
-echo $user_id;
 
  ?>
 <div class="form-group">
