@@ -28,15 +28,11 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
           <li class="list-group-item"><?= $w_user['email']; ?></li>
           <li class="list-group-item"><?= 'Inscrit le '.$w_user['created_at']; ?></li>
           <li class="list-group-item"><?= 'Région : '.$regionName['name']; ?></li>
-<<<<<<< HEAD
           <li class="list-group-item"><?= 'Nom: '.$adresse[0]['nom']; ?></li>
           <li class="list-group-item"><?= 'Prénom: '.$adresse[0]['prenom']; ?></li>
           <li class="list-group-item"><?= 'Adresse: '.$adresse[0]['num_rue'].' '.$adresse[0]['nom_voie']; ?></li>
           <li class="list-group-item"><?= 'Code Postal: '.$adresse[0]['code_postal']; ?></li>
           <li class="list-group-item"><?= 'Ville: '.$adresse[0]['ville']; ?></li>
-=======
-          <li class="list-group-item">Adresse : blablabla</li>
->>>>>>> 5520d60444d4efee53c53bc2461c1beb5f0a78ee
 
           <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin'])){ ?>
           <li class="list-group-item"><a href="#">Modifier mes informations</a></li>
