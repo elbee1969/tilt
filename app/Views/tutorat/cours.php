@@ -8,7 +8,7 @@ $this->layout('layout', ['title' => 'Cours']);
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <p id="titleconnexion" class="policetitre">Liste des cours à suivre</p><br>
+      <p id="titleconnexion" class="policetitre">Liste des matières</p><br>
     <!--  <p>Manque la pagination, le foreach ...</p><br> -->
     </div>
   </div>
@@ -25,19 +25,14 @@ $this->layout('layout', ['title' => 'Cours']);
   $a = 0;
 
 ?>
-
 <div class="container-fluid">
   <div class="row">
-
-
-
 <?php
 
   foreach ($categories as $key => $value) {
     ?> <div class="col-md-3 col-12">
 
 <?php
-
       echo '<p class="policejosefin center bold">'.$cat[$i++].'</p> '.$key[0]; ?> <br> <?php
       foreach ($value as $key => $val) {
         echo '<p class="center"><input type="checkbox" id="cbox'.++$a.'" name="'.$val['name'].'" value="'.$a.'"><label for="cbox'.$a.'">'.$val['name'].'</label><p>';# code...
