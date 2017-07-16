@@ -34,6 +34,9 @@ class TutoratController extends TiltController
 					if(!empty($msgapprenants)){
 						$id = $msgapprenants[0]['id_enseignant'];
 						$user_id = $msgapprenants[0]['id'];
+					} else {
+						$id = '';
+						$user_id = '';
 					}
 				// 	debug($user);
 				// 	$id = $user['id'];
