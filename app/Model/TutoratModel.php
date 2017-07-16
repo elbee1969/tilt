@@ -43,7 +43,7 @@ class TutoratModel extends Model {
 
   } // ferme la méthode findApprenantsInRegionById
 
-  public function findEnseignantsinRegionById($regionid) {
+  public function findEnseignantsinRegionById($region_id,$id) {
 
     // idem que findApprenantsInRegionById mais pour les Enseignants
 
@@ -55,7 +55,9 @@ class TutoratModel extends Model {
             ON i.competences_id = c.id
             LEFT JOIN tilt_user AS u
             ON i.user_id = u.id
-            WHERE r.id = :regionid AND u.role = 'enseignant'";
+            LEFT JOIN tilt_tutorat AS t
+            ON i.user_id = t.id_enseignant
+            WHERE r.id = :regionid AND u.role = 'enseignant'AND t.id_enseignant = $id";
 
     $sth = $this->dbh->prepare($sql);
     $sth->bindValue(':regionid', $regionid);
@@ -106,7 +108,7 @@ class TutoratModel extends Model {
           RIGHT JOIN tilt_competences AS c
           ON t.id_competence = c.id
           RIGHT JOIN tilt_regions AS r
-          ON t.id_region = r.id          
+          ON t.id_region = r.id
           WHERE  t.id_apprenant = $id
           ";
 

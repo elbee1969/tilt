@@ -17,6 +17,8 @@ if(in_array($w_user['role'], ['apprenant', 'enseignant'])){
         echo '<p>'.$msg['pseudo'].' formateur en  <b>'.$msg['matiere'].'</b> dans la région '.$msg['region'].' <a href="'. $this->url('messages_messages', ['id' => $msg['id_apprenant'], 'user_id' => $msg['id']]).'"> vers messagerie</a></p>';
     }
   }
+
+
   //si enseignant on affiche liste des apprenants de la region
   if(in_array($w_user['role'], ['enseignant'])){
     //debug($w_user);
@@ -34,9 +36,6 @@ if(in_array($w_user['role'], ['apprenant', 'enseignant'])){
 
 </div>
   <?php
-
-
-
     foreach ($msgapprenants as $msg) {
       echo '<p>'.$msg['pseudo'].' apprenant en  <b>'.$msg['matiere'].'</b> dans la région '.$msg['region'].'<a href="'. $this->url('messages_messages', ['id' => $msg['id_enseignant'], 'user_id' => $msg['id']]).'"> vers messagerie</a></p>';
     }

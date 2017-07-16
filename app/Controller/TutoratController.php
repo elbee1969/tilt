@@ -9,11 +9,14 @@ use \Model\UsersModel;
 use \Model\TutoratModel;
 use \Model\RegionsModel;
 use \Model\CompetencesModel;
+use W\Security\AuthentificationModel;
 
 class TutoratController extends TiltController
 {
 
-	/**
+
+
+/**
 	 * Page d'accueil par défaut
 	 */
 	public function tutorat()
@@ -34,9 +37,6 @@ class TutoratController extends TiltController
 					if(!empty($msgapprenants)){
 						$id = $msgapprenants[0]['id_enseignant'];
 						$user_id = $msgapprenants[0]['id'];
-					} else {
-						$id = '';
-						$user_id = '';
 					}
 				// 	debug($user);
 				// 	$id = $user['id'];
@@ -50,8 +50,8 @@ class TutoratController extends TiltController
 							//debug($apprenants);
 							$this->show('tutorat/tutorat', array(
 								'msgapprenants' => $msgapprenants,
-								'id'						=> $id,
-								'user_id'				=> $user_id
+								'user'			 =>	$user,
+								'region'     => $region
 							));
 						}
 //si apprenant renvoi liste des message de ses enseignants:
@@ -67,6 +67,7 @@ class TutoratController extends TiltController
 				}
 
 	}
+
 
 	/**
 	 * [messagesAction description]
@@ -115,4 +116,4 @@ class TutoratController extends TiltController
 
 	}//fin methode associer
 
-}
+}//fin class TutoratController

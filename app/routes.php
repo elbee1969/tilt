@@ -12,8 +12,9 @@
 		['POST', '/contact', 'Contact#contactAction', 'default_contact_action'],
 
 		['GET|POST', '/tutorat', 'Tutorat#tutorat', 'tutorat_tutorat'],
+
 		['GET', '/cours', 'Competences#cours', 'tutorat_cours'],
-		['GET', '/cours/[i:user_id]/[i:region_id]', 'Interm#participation', 'tutorat_cours_action'],
+		['POST|GET', '/cours/[i:user_id]/[i:region_id]', 'Interm#participation', 'tutorat_cours_action'],
 
 		['GET','/disponibilites/[i:region_id]/[:role]', 'Tutorat#disponibilites','tutorat_disponibilites'],
 

@@ -17,7 +17,8 @@ class IntermController extends TiltController
 
 	/**
 	 * Page d'accueil par défaut
-	 */
+	 *///fonction recuperant les chexkboxs pour inscrire dans table Interm
+	//*/// foreach via POST avec evitezment de la value du submit
 
 	public function participation($user_id,$region_id){
 
@@ -26,16 +27,19 @@ class IntermController extends TiltController
 		// $clean   		= new CleanTool();
 		// $post  = $clean->cleanPost($_POST);
 
-		//debug($_POST);
+		// debug($_POST);
+		// echo $user_id;
+		// echo '<br>'.$region_id;
+		// die();
 				foreach ($_POST as $competences_id ) {
-					if($competences_id !== 'Inscription'){
+					if($competences_id !== 'Suivre ces cours'){
 						//echo $key;
 						$model->insertInto($user_id,$region_id,$competences_id);
 					}
 				};
 
 
-		$this->show('tutorat/disponibilites', array(
+		$this->show('tutorat/tutorat', array(
 																					'region_id' => $region_id,
 																					'user_id'		=> $user_id
 																					));
