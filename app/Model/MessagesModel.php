@@ -34,7 +34,7 @@ class MessagesModel extends Model {
 
   } //ferme la méthode findAllmessages
 
-  // méthode pour trouver les messages d'un apprenant
+  // méthode pour trouver les messages reçus
 
   /**
    * [findMessageApprenant description]
@@ -42,13 +42,14 @@ class MessagesModel extends Model {
    * @param  [int] $userid [id apprenant]
    * @return [array]         [messages de apprenant]
    */
-  public function findMessageApprenant($id,$userid) {
+  public function findMessageFrom($id,$userid) {
 
-        $sql = "SELECT m.message, u.id, m.created_at
+        $sql = "SELECT m.message, m.id_emetteur, m.id_recepteur, m.id AS id_msg, u.id, m.created_at
                 FROM tilt_messages AS m
                 INNER JOIN tilt_user AS u
-                ON m.id_apprenant = u.id
-                WHERE m.id_enseignant = $id AND  m.id_apprenant = $userid";
+                ON m.id_emetteur = u.id
+                WHERE m.id_recepteur = $id AND  m.id_emetteur = $userid AND m.status_r = 1
+                ORDER BY created_at DESC";
 
     $sth = $this->dbh->prepare($sql);
     $sth->execute();
@@ -59,7 +60,7 @@ class MessagesModel extends Model {
 
   } //ferme la méthode findMessageApprenant
 
-  // méthode pour trouver les messages d'un enseignant
+  // méthode pour trouver les messages envoyés
 
   /**
    * [findMessageApprenant description]
@@ -67,13 +68,14 @@ class MessagesModel extends Model {
    * @param  [int] $userid [id apprenant]
    * @return [array]         [messages de enseignant]
    */
-  public function findMessageEnseignant($id,$userid) {
+  public function findMessageTo($id,$userid) {
 
-        $sql = "SELECT m.message, u.id, m.created_at
+        $sql = "SELECT m.message, m.id_emetteur, m.id_recepteur, m.id AS id_msg, u.id, m.created_at
                 FROM tilt_messages AS m
                 INNER JOIN tilt_user AS u
-                ON m.id_enseignant = u.id
-                WHERE m.id_enseignant = $id AND  m.id_apprenant = $userid";
+                ON m.id_emetteur = u.id
+                WHERE m.id_emetteur = $id AND  m.id_recepteur = $userid AND m.status_e = 1 
+                ORDER BY created_at DESC";
 
     $sth = $this->dbh->prepare($sql);
     $sth->execute();

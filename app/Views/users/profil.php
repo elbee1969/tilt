@@ -109,7 +109,11 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
     </div>
   </div>
 
+<<<<<<< HEAD
+<?php  //debug($adresse); ?>
+=======
 
+>>>>>>> d7bcca05255e17c59aa576b383069c33a82ea3a7
 
 <?php
  $this->stop('main_content'); ?>

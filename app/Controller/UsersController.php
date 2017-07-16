@@ -267,7 +267,7 @@ class UsersController extends TiltController {
                 'last_name'   => $nom,
                 'role'        => $role,
                 'region_id'   => $region,
-                'avatar'      => 0,
+                'avatar'      => 1,
                 'created_at'  => $datenow->format('Y-m-d H:i:s'),
                 'status'      => 1,
               );
