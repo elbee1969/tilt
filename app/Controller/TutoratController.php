@@ -92,10 +92,14 @@ class TutoratController extends TiltController
 			}
 		}
 //methode affichant l'existance des enseignants ou des apprenants
-	public function disponibilites($region_id){
+	public function disponibilites($region_id,$role){
 
 				$users 	= new UsersModel();
-				$apprenants = $users->findApprenantsInRegionById($region_id);
+				if($role == 'enseignant'){
+					$apprenants = $users->findApprenantsInRegionById($region_id);
+				}else{
+					$apprenants = $users->findEnseignantsInRegionById($region_id);
+				}
 
 				$this->show('tutorat/disponibilites', array(
 																								'apprenants'  => $apprenants
