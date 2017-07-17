@@ -21,21 +21,19 @@ $this->layout('layout', ['title' => 'Envoyer un message']);
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 col-md-8 offset-md-2 offset-0">
-
-
-
-<div class="form-group">
-  <form id="tchat_form" action="<?= $this->url('messages_message_action', ['id' => $id, 'user_id' => $user_id]); ?>" method="post">
-    <!-- <input style=" display:none;" type="text" name="user_id" value="<?php //if(isset($b)){ echo $b;}; ?>">-->
-    <label for="message">votre message</label>
-    <textarea id="message" name="message" rows="2" cols="100"><?php if(!empty($article['message'])){ echo $article['message'];}; ?></textarea>
-    <span id="resultat" style="color:red; font-size:0.70em;" ></span> <!-- Nicolas a ajouté l'id resultat et a supprimé l'affichage classique des messages d'erreurs  -->
-    <input type="submit" name="btnsubmit" value="Envoi message">
-  </form>
+      <div class="form-group">
+        <form id="tchat_form" action="<?= $this->url('messages_message_action', ['id' => $id, 'user_id' => $user_id]); ?>" method="post">
+          <textarea id="message" class="form-controlall" name="message" rows="2" cols="100"><?php if(!empty($article['message'])){ echo $article['message'];}; ?></textarea>
+          <span id="resultat" style="color:red; font-size:0.70em;" ></span> <!-- Nicolas a ajouté l'id resultat et a supprimé l'affichage classique des messages d'erreurs  -->
+          <input class="btn btn-primary btn-lg btn-block" type="submit" name="btnsubmit" value="Envoyer">
+        </form>
+      </div> 
+      <a href="<?= $this->url('messages_messages', ['id' => $id,'user_id' => $user_id]); ?>"><p><i class="fa fa-arrow-left" aria-hidden="true"></i> Retour aux messages</p></a>
+    </div>
+  </div>
 </div>
 
 
-<a href="<?= $this->url('messages_messages', ['id' => $id,'user_id' => $user_id]); ?>"><p><i class="fa fa-arrow-left" aria-hidden="true"></i> Retour aux messages</p></a>
 
 
 <?php $this->stop('main_content'); ?>
