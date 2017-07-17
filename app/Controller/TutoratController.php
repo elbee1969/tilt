@@ -9,11 +9,14 @@ use \Model\UsersModel;
 use \Model\TutoratModel;
 use \Model\RegionsModel;
 use \Model\CompetencesModel;
+use W\Security\AuthentificationModel;
 
 class TutoratController extends TiltController
 {
 
-	/**
+
+
+/**
 	 * Page d'accueil par défaut
 	 */
 	public function tutorat()
@@ -23,6 +26,21 @@ class TutoratController extends TiltController
 		$modelregion = new RegionsModel();
 		//recupératuin du user connecté
 		$user = $this->getUser();
+		//echo '<br><br><br><br><br><br><br><br><br><br><br><br>user id : '.$user['id'].' region : '.$user['region_id'];
+		//debug($user);
+		//debug($GLOBALS);
+		// if(isset($user_id)){
+		// 	echo '<p>$user_id :</p>';
+		// 	echo $user_id;
+		// }
+		// if(isset($region_id)){
+		// echo '<p>$region_id :</p>';
+		// echo $region_id;
+		// }
+		// echo '<p>post:</p>';
+		// debug($_POST);
+		// echo '<br><p>get:</p>';
+		// debug($_GET);
 		// récupération de la région du user connecté
 		$region = $modelregion->findRegionName($user['region_id']);
 
@@ -34,9 +52,6 @@ class TutoratController extends TiltController
 					if(!empty($msgapprenants)){
 						$id = $msgapprenants[0]['id_enseignant'];
 						$user_id = $msgapprenants[0]['id'];
-					} else {
-						$id = '';
-						$user_id = '';
 					}
 				// 	debug($user);
 				// 	$id = $user['id'];
@@ -49,17 +64,17 @@ class TutoratController extends TiltController
 					  if(in_array($user['role'], ['enseignant'])){
 							//debug($apprenants);
 							$this->show('tutorat/tutorat', array(
-								'msgapprenants' => $msgapprenants,
-								'id'						=> $id,
-								'user_id'				=> $user_id
+								'msgapprenants' => $msgapprenants//,
+								// 'user'			 =>	$user,
+								// 'region'     => $region
 							));
 						}
 //si apprenant renvoi liste des message de ses enseignants:
 						if(in_array($user['role'], ['apprenant'])){
 							$this->show('tutorat/tutorat', array(
-								'msgenseignants' => $msgenseignants,
-								'user'			 =>	$user,
-								'region'     => $region
+								'msgenseignants' => $msgenseignants//,
+								// 'user'			 =>	$user,
+								// 'region'     => $region
 							));
 						}
 				} else {
@@ -67,6 +82,7 @@ class TutoratController extends TiltController
 				}
 
 	}
+
 
 	/**
 	 * [messagesAction description]
@@ -115,4 +131,4 @@ class TutoratController extends TiltController
 
 	}//fin methode associer
 
-}
+}//fin class TutoratController

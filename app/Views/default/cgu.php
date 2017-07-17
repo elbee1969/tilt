@@ -31,9 +31,6 @@ $this->layout('layout', ['title' => 'Conditions générales d\'utilisation']);
   <li> •	copier les informations sur des supports de toute nature permettant de reconstituer tout ou partie des fichiers d'origine.</li>
 </ul>
 
-
-
-
  <p>Toute utilisation non expressément autorisée d'éléments du site tilt.fr entraîne une violation des droits d'auteur et constitue une contrefaçon. Elle peut aussi entraîner une violation des droits à l'image, droits des personnes ou de tous autres droits et réglementations en vigueur. Elle peut donc engager la responsabilité civile et/ou pénale de son auteur. TILT France se réserve la possibilité de saisir toutes voies de droit à l'encontre des personnes qui n'auraient pas respecté les interdictions contenues dans le présent article.</p><br>
  <h6>1.2. Droits du producteur de base de données</h6>
  <p>TILT France est le producteur de la base de données constituée par le site tilt.fr, au sens de l'article L 341-1 et suivants du Code de la Propriété Intellectuelle. Toute extraction ou utilisation du contenu de la base non expressément autorisée peut engager la responsabilité civile et/ou pénale de son auteur. TILT France se réserve la possibilité de saisir toutes voies de droit à l'encontre des personnes qui n'auraient pas respecté cette interdiction.</p>

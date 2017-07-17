@@ -35,31 +35,7 @@ class CompetencesController extends TiltController
 																					));
  	}//fin methode cours
 
-	public function participation($id,$user_id){
-
-		debug($_POST);
-		echo $id;
-		echo $user_id;
-		foreach ($_POST as $key ) {
-			if($key !== 'Inscription'){
-				echo $key;
-			}
-		}
-				$model 	= new IntermModel();
-				$user 			= new UsersModel();
-				$clean   		= new CleanTool();
-				$post  = $clean->cleanPost($_POST);
-				//die();
-
-				$sql = "INSERT INTO tilt_interm ( user_id, regions_id, competences_id )
-								VALUES (:id, :region_id, :competence_id)";
-								$sth = $model->dbh->prepare($sql);
-								$sth->bindValue(':id', $id);
-								$sth->bindValue(':region_id', $region_id);
-								$sth->bindValue(':competence_id', 5);
-								$sth->execute();
-
-	}
+	
 
 
 }// fin class CompetencesController

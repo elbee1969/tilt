@@ -38,7 +38,7 @@
 	<div class="row">
 		<div class="col-xl-4 col-12 hidden-xs-down hidden-sm-down">
 		</div>
-		<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12           ">
+		<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 			<div id="francemap" style="width: 100%; height: 600px;">
 			</div>
 		</div>
