@@ -20,25 +20,17 @@ $this->layout('layout', ['title' => 'Envoyer un message']);
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 col-md-8 offset-md-2 offset-0">
-
-
-<div class="form-group">
-  <form id="tchat_form" action="<?= $this->url('messages_message_action', ['id' => $id, 'user_id' => $user_id]); ?>" method="post">
-    <label for="message"></label>
-
-<!-- CODE DE BAPTISTE !-->
-
-    <textarea id="message" class="form-controlall" name="message" placeholder="Votre message ..." rows="2" cols="100"><?php if(!empty($article['message'])){ echo $article['message'];}; ?></textarea>
-    <span style="color:red; font-size:0.70em;" ><?php if(!empty($errors['message'])){ echo $errors['message']; }; ?></span>
-    <input class="btn btn-primary btn-lg btn-block" type="submit" name="btnsubmit" value="Envoyer">
-
-<!-- FIN DU CODE DE BAPTISTE !-->
-
-  </form>
-</div>
-<a href="<?= $this->url('messages_messages', ['id' => $id,'user_id' => $user_id]); ?>"><p><i class="fa fa-arrow-left" aria-hidden="true"></i> Retour aux messages</p></a>
-</div>
-</div>
+      <div class="form-group">
+        <form id="tchat_form" action="<?= $this->url('messages_message_action', ['id' => $id, 'user_id' => $user_id]); ?>" method="post">
+        <label for="message"></label>
+        <textarea id="message" class="form-controlall" name="message" placeholder="Votre message ..." rows="2" cols="100"><?php if(!empty($article['message'])){ echo $article['message'];}; ?></textarea>
+        <span style="color:red; font-size:0.70em;" ><?php if(!empty($errors['message'])){ echo $errors['message']; }; ?></span>
+        <input class="btn btn-primary btn-lg btn-block" type="submit" name="btnsubmit" value="Envoyer">
+        </form>
+      </div>
+      <a href="<?= $this->url('messages_messages', ['id' => $id,'user_id' => $user_id]); ?>"><p><i class="fa fa-arrow-left" aria-hidden="true"></i> Retour aux messages</p></a>
+    </div>
+  </div>
 </div>
 
 <?php $this->stop('main_content'); ?>
