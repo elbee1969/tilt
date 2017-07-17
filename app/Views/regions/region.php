@@ -9,7 +9,7 @@ $this->layout('layout', ['title' => '$this->w_']);
   <div class="row">
     <div class="col-12">
       <p id="titleconnexion" class="policetitre"><?= $region['name']; ?></p><br>
-    <!--  <p>Manque la pagination, le foreach ...</p><br> -->
+    
     </div>
   </div>
 
@@ -18,21 +18,24 @@ $this->layout('layout', ['title' => '$this->w_']);
     </div>
     <div class="col-10">
       <div class="card espacement_card">
-        <div class="card-header">
+
+         <div class="card-header">
           <div class="row">
-            <div class="col-9">
+        <!--    <div class="col-9">
               <p class="policejosefin">Le nom de la matière : <?php ?></p>
-            </div>
-            <div class="col-3">
+            </div> -->
+        <!--    <div class="col-3">
               <p class="policejosefin" style="text-align:right;">Date de création</p>
             </div> -->
+
           </div>
         </div>
 
 
               <?php
-              //<h4 class="card-title">Nom Prénom </h4>
-                //<p class="card-text">J'aimerai faire du sport mais je n'arrive pas à me motiver .............</p>
+              // le foreach ne doit être généré que s'il y a des enseignants dans la région
+              if($allEnseignantsInRegion[0]['user_id'] != '') {
+
                 foreach ($allEnseignantsInRegion as $enseignant) {
                 echo '<div class="card">
                       <div class="card-block">
@@ -50,13 +53,12 @@ $this->layout('layout', ['title' => '$this->w_']);
                         </div>
                       </div>
                       </div>';
-                  } ?>
+                  }
+                } ?>
 
       </div>
     </div>
   </div>
-
-
 </div>
 
 
