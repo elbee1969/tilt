@@ -64,6 +64,6 @@
 	<script src="<?= $this->assetUrl('js/jquery-3.2.1.js')?>" charset="utf-8"></script>
 	<script type="text/javascript" src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 	<script src="<?= $this->assetUrl('js/bootstrap.js')?>" charset="utf-8"></script>
-
+	<?= $this->section('js') ?>
 </body>
 </html>

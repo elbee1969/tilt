@@ -11,11 +11,20 @@
 		['GET', '/contact', 'Contact#contact', 'default_contact'],
 		['POST', '/contact', 'Contact#contactAction', 'default_contact_action'],
 
-		['GET', '/tutorat', 'Tutorat#tutorat', 'tutorat_tutorat'],
+		['GET|POST', '/tutorat', 'Tutorat#tutorat', 'tutorat_tutorat'],
+		['GET', '/cours', 'Competences#cours', 'tutorat_cours'],
+		['GET|POST', '/cours/[i:user_id]/[i:region_id]', 'Interm#participation', 'tutorat_cours_action'],
 
+		['GET','/disponibilites/[i:region_id]', 'Tutorat#disponibilites','tutorat_disponibilites'],
+		['GET','/disponibilites', 'Tutorat#associer','tutorat_disponibilites_action'],
 
 		['GET', '/messages/[i:id]/[i:user_id]', 'Messages#messages', 'messages_messages'],
-		['GET|POST', '/messages/[i:id]/[i:user_id]', 'Messages#messagesAdd', 'messages_messages_action'],
+		['GET', '/messages/messages/[i:id]/[i:status]/[i:ori]/[i:id_r]/[i:id_e]', 'Messages#messageSup', 'messages_messages_sup'],
+
+		['GET', '/message/[i:id]/[i:user_id]', 'Messages#message', 'messages_message'],
+
+		['POST|GET', '/message/[i:id]/[i:user_id]', 'Messages#messageAdd', 'messages_message_action'],
+
 
 		['GET', '/profil', 'Users#profil', 'users_profil'],
 
@@ -53,6 +62,8 @@
 		['GET', '/backoffice/ameliorations', 'back#ameliorations', 'back_ameliorations'],
 
 		['GET', '/inscrapprenant', 'Users#inscrapprenant', 'users_inscrapprenant'],
+		['POST', '/inscrapprenant', 'Users#inscrapprenantAction', 'users_inscrapprenant_action'],
 
 		['GET', '/inscrenseignant', 'Users#inscrenseignant', 'users_inscrenseignant'],
+		['POST', '/inscrenseignant', 'Users#inscrenseignantAction', 'users_inscrenseignant_action'],
 	);

@@ -5,7 +5,7 @@ use \Controller\TiltController;
 use \Model\CompetencesModel;
 use \Model\UsersModel;
 use \Model\AvatarModel;
-use \Model\AdressModel;
+use \Model\AdresseModel;
 use \Service\Tools\CleanTool;
 use \Service\Tools\ValidationTool;
 use \W\Security\AuthentificationModel;
@@ -46,7 +46,13 @@ class UsersController extends TiltController {
       $regionNamefromId = new RegionsModel();
       $regionName = $regionNamefromId->findRegionName($user['region_id']);
 
-      $this->show('users/profil', ['regionName' => $regionName,'avatar'  => $avatar]);
+      $adresseFromId = new AdresseModel();
+      $adresse = $adresseFromId->getUserAdresse($user['id']);
+
+      $this->show('users/profil', ['regionName' => $regionName,
+                                    'avatar'  => $avatar,
+                                    'adresse' => $adresse]);
+
     }
 
 
@@ -261,7 +267,7 @@ class UsersController extends TiltController {
                 'last_name'   => $nom,
                 'role'        => $role,
                 'region_id'   => $region,
-                'avatar'      => 0,
+                'avatar'      => 1,
                 'created_at'  => $datenow->format('Y-m-d H:i:s'),
                 'status'      => 1,
               );
@@ -399,6 +405,23 @@ class UsersController extends TiltController {
     $this->show('users/inscrapprenant');
   }
 
+  public function inscrapprenantAction()
+  {
+
+    $modeluser = new UsersModel();
+    $user = $this->getUser();
+    $id = $user['id'];
+    $apprenant = 'apprenant';
+
+    $data = array(
+      'role' => $apprenant,
+    );
+
+    $modeluser->update($data, $id);
+    $this->show('users/inscrapprenant');
+
+  }
+
 //fin méthodes pour l'affichage et l'inscription des apprenants
 
 ////méthodes pour l'affichage et l'inscription des enseignants
@@ -408,6 +431,24 @@ public function inscrenseignant()
 
 
   $this->show('users/inscrenseignant');
+}
+
+public function inscrenseignantAction()
+{
+
+  $modeluser = new UsersModel();
+  $user = $this->getUser();
+  $id = $user['id'];
+  $enseignant = 'enseignant';
+
+  $data = array(
+    'role' => $enseignant,
+  );
+
+  $modeluser->update($data, $id);
+
+  $this->show('users/inscrenseignant');
+
 }
 
 ////méthodes pour l'affichage et l'inscription des enseignants
