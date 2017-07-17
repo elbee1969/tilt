@@ -4,14 +4,13 @@
 
 <div class="container-fluid">
 
-
 	<div class="row">
 		<div class="col-12 col-lg-6 col-sm-12 col-md-6 col-xl-3">
 			<a href="<?= $this->url('back_users'); ?>">
 				<div class="panel blue">
 					<i class="fa fa-user fa-5x"></i>
 					<div class="textWrapper">
-						<div class="huge">56</div>
+						<div class="huge"><?php echo $countusers ?></div>
 						<div>personnes inscrites </div>
 					</div>
 				</div>
@@ -23,7 +22,7 @@
 			<div class="panel green">
 			<i class="fa fa-tasks fa-5x"></i>
 			<div class="textWrapper">
-			<div class="huge">22</div>
+			<div class="huge"><?php echo $countcours ?></div>
 			<div>cours proposés</div>
 			</div>
 			</div>
@@ -34,7 +33,7 @@
 	<div class="panel orange">
 		<i class="fa fa-envelope fa-5x"></i>
 		<div class="textWrapper">
-			<div class="huge">3</div>
+			<div class="huge"><?php echo $countmessages ?></div>
 			<div>messages échangés</div>
 		</div>
 	</div>
@@ -45,8 +44,8 @@
 			<div class="panel red">
 				<i class="fa fa-sticky-note fa-5x"></i>
 				<div class="textWrapper">
-					<div class="huge">0</div>
-					<div>idées d'amélioration</div>
+					<div class="huge"><?php echo $countmessages ?></div>
+					<div>matières proposées</div>
 				</div>
 			</div>
 			</a>
