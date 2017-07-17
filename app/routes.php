@@ -31,6 +31,9 @@
 
 		['GET', '/profil/adresse', 'Users#addAdress', 'users_adresse'],
 		['POST', '/profil/adresse', 'Users#addAdressAction', 'users_adresse_action'],
+		['GET', '/profil/adresseupdate', 'Users#adressUpdate', 'users_adresse_update'],
+		['POST', '/profil/adresseupdate', 'Users#addAdressUpdate', 'users_adresse_update_action'],
+
 
 		['GET', '/profil/avatar', 'Avatar#addAvatar', 'users_avatar'],
 		['POST', '/profil/avatar', 'Avatar#addAvatarAction', 'users_avatar_action'],

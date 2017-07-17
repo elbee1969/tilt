@@ -13,10 +13,17 @@ $this->layout('layout', ['title' => 'Inscription apprenant']);
 
 <p>si matière recherchée non présente formulaire de contact par mail</p>
 
-<form class="apprenant" action="" method="post">
+<?php if ($w_user['role'] == 'enseignant') { ?>
+      <p style="color: red">Cette fonctionnalité n'est pas encore disponible.</p>
+<?php } else { ?>
+  <form class="apprenant" action="" method="post">
 
-  <input type="submit" name="apprenant" value="Devenir apprenant">
+    <input type="submit" name="apprenant" value="Devenir apprenant">
+    <p>Vous allez être déconnecté</p>
+    
+  </form>
+<?php } ?>
 
-</form>
+
 
 <?php $this->stop('main_content'); ?>

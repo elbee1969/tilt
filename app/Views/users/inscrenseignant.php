@@ -13,10 +13,22 @@ $this->layout('layout', ['title' => 'Inscription enseignant']);
 
 <p>si matière non existante formulaire pour demande par mail</p>
 
-<form class="apprenant" action="" method="post">
+<?php if ($w_user['role'] == 'apprenant'){ ?>
 
-  <input type="submit" name="apprenant" value="Devenir enseignant">
+        <p style="color: red">Cette fonctionnalité n'est pas encore disponible.</p>
 
-</form>
+<?php } else { ?>
+
+  <form class="apprenant" action="" method="post">
+
+    <input type="submit" name="apprenant" value="Devenir enseignant">
+
+  </form>
+
+<?php } ?>
+
+
+
+
 
 <?php $this->stop('main_content'); ?>
