@@ -33,26 +33,28 @@ class IntermController extends TiltController
 		// echo '<br>'.$region_id;
 		// die();
 		//
-			// $inscripts = $model->isInscript();
-		// if(!empty($inscripts)){
-		// 	foreach ($inscripts as $inscipt) {
-		// 		if ($inscipt['competences_id'] == $competences_id){
-		//
-		// 			echo 'vous êtes déjà inscript à une ou des matière(s) selectionnée(s)';
-		// 		 }
-		// 	// 	echo 'val :  '.$inscipt['competences_id'].'<br>';
-		// 	// }
-		// 		die();
-		// }else{
-		//
+		$inscrits = $model->isInscript();
+				// debug($_POST);
+				// die();
 				foreach ($_POST as $competences_id ) {
+					if($inscrits){
+						foreach ($inscrits as $inscrit) {
+							if ($inscrit['competences_id'] == $competences_id[1]){
+								echo 'vous êtes déjà inscript à une ou des matière(s) selectionnée(s)';
+							die();
+							}
 
-					if($competences_id !== 'Suivre ces cours'){
-						//echo $key;
+						}
+
+					}else{
+
+						if($competences_id !== 'Suivre ces cours'){
+							//echo $key;
 							$model->insertInto($user_id,$region_id,$competences_id);
 						}
+					}
 				}
-			// };
+
 
 
 		$this->redirectToRoute('tutorat_tutorat', array(
