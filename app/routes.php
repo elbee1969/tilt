@@ -64,8 +64,10 @@
 		['GET', '/backoffice/ameliorations', 'back#ameliorations', 'back_ameliorations'],
 
 		['GET', '/inscrapprenant', 'Users#inscrapprenant', 'users_inscrapprenant'],
+		['POST', '/inscrapprenant', 'Users#inscrapprenantAction', 'users_inscrapprenant_action'],
 
 		['GET', '/inscrenseignant', 'Users#inscrenseignant', 'users_inscrenseignant'],
+		['POST', '/inscrenseignant', 'Users#inscrenseignantAction', 'users_inscrenseignant_action'],
 
 
 

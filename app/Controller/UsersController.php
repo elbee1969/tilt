@@ -409,6 +409,23 @@ class UsersController extends TiltController {
     $this->show('users/inscrapprenant');
   }
 
+  public function inscrapprenantAction()
+  {
+
+    $modeluser = new UsersModel();
+    $user = $this->getUser();
+    $id = $user['id'];
+    $apprenant = 'apprenant';
+
+    $data = array(
+      'role' => $apprenant,
+    );
+
+    $modeluser->update($data, $id);
+    $this->show('users/inscrapprenant');
+
+  }
+
 //fin méthodes pour l'affichage et l'inscription des apprenants
 
 ////méthodes pour l'affichage et l'inscription des enseignants
@@ -418,6 +435,24 @@ public function inscrenseignant()
 
 
   $this->show('users/inscrenseignant');
+}
+
+public function inscrenseignantAction()
+{
+
+  $modeluser = new UsersModel();
+  $user = $this->getUser();
+  $id = $user['id'];
+  $enseignant = 'enseignant';
+
+  $data = array(
+    'role' => $enseignant,
+  );
+
+  $modeluser->update($data, $id);
+
+  $this->show('users/inscrenseignant');
+
 }
 
 ////méthodes pour l'affichage et l'inscription des enseignants

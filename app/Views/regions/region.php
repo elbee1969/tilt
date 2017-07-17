@@ -20,10 +20,10 @@ $this->layout('layout', ['title' => '$this->w_']);
       <div class="card espacement_card">
         <div class="card-header">
           <div class="row">
-            <!-- <div class="col-9">
+            <div class="col-9">
               <p class="policejosefin">Le nom de la matière : <?php ?></p>
-            </div> -->
-            <!-- <div class="col-3">
+            </div>
+            <div class="col-3">
               <p class="policejosefin" style="text-align:right;">Date de création</p>
             </div> -->
           </div>
