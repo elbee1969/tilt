@@ -25,6 +25,14 @@ class IntermModel extends \W\Model\Model {
           return $result;
 }
 
+public function countCours()
+{
+$sql ="SELECT user_id FROM tilt_interm";
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute();
+        $result = $sth->fetchAll();
+        return count($result);
+}
 
 
   //methode pour inserer dans la table interm les utilisateurs par région et par compétences
