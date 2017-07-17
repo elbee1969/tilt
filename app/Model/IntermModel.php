@@ -15,17 +15,40 @@ class IntermModel extends \W\Model\Model {
     $this->dbh = ConnectionModel::getDbh();
   }
 
+//methode pour trouver les utilisateur déjà inscrit à une matère
+  public function isInscript()
+{
+  $sql ="SELECT * FROM tilt_interm WHERE 1";
+          $sth = $this->dbh->prepare($sql);
+          $sth->execute();
+          $result = $sth->fetchAll();
+          return $result;
+}
+
+public function countCours()
+{
+$sql ="SELECT user_id FROM tilt_interm";
+        $sth = $this->dbh->prepare($sql);
+        $sth->execute();
+        $result = $sth->fetchAll();
+        return count($result);
+}
+
+
   //methode pour inserer dans la table interm les utilisateurs par région et par compétences
   public function insertInto($user_id,$region_id,$competences_id){
 
-				$sql = "INSERT INTO tilt_interm ( user_id, regions_id, competences_id )
-								VALUES (:user_id, :region_id, :competence_id)";
+
+
+
+        $sql = "INSERT INTO tilt_interm ( user_id, regions_id, competences_id )
+								VALUES (:user_id, :region_id, :competences_id)";
 								$sth = $this->dbh->prepare($sql);
 								$sth->bindValue(':user_id', $user_id);
 								$sth->bindValue(':region_id', $region_id);
-								$sth->bindValue(':competence_id',$competences_id);
+								$sth->bindValue(':competences_id',$competences_id);
 								$sth->execute();
-
+                return true;
 	}//fin methode insertInto
 
   //methode pour récupérer tous les utilisateurs par région et pas compétences
