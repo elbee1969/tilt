@@ -93,13 +93,35 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
           <p class="center" id="profilcours"><a href="<?= $this->url('users_inscrapprenant'); ?>"><button type="button" class="btn btn-primary btn-lg">Suivre un cours</button></a></p>
         </div>
 
-      <?php } ?>
+      <?php }
+
+      if (in_array($w_user['role'], ['guest', 'admin'])) { ?>
         <div class="col-6">
 
         </div>
         <div class="col-6">
 
         </div>
+    <?php } elseif ($w_user['role'] == 'apprenant') { ?>
+      <div class="col-6">
+        <p class="center" id="profilcours"><a href="<?= $this->url('users_inscrenseignant'); ?>"><button type="button" class="btn btn-primary btn-lg">Donner un cours</button></a></p>
+
+      </div>
+      <div class="col-6">
+        <p class="center" id="profilcours"><a href="<?= $this->url('tutorat_tutorat'); ?>"><button type="button" class="btn btn-primary btn-lg">Suivre un cours</button></a></p>
+
+      </div>
+    <?php } elseif ($w_user['role'] == 'enseignant') { ?>
+      <div class="col-6">
+        <p class="center" id="profilcours"><a href="<?= $this->url('tutorat_tutorat'); ?>"><button type="button" class="btn btn-primary btn-lg">Donner un cours</button></a></p>
+
+      </div>
+      <div class="col-6">
+        <p class="center" id="profilcours"><a href="<?= $this->url('users_inscrapprenant'); ?>"><button type="button" class="btn btn-primary btn-lg">Suivre un cours</button></a></p>
+
+      </div>
+    <?php } ?>
+
       </div>
     </div>
   </div>
