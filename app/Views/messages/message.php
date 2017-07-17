@@ -1,6 +1,6 @@
 <?php
 //hérite du fichier layout.php à la racine de app/Views/
-$this->layout('layout', ['title' => 'Mes messages']);
+$this->layout('layout', ['title' => 'Envoyer un message']);
 // initialisation variable de stockage du $user_id
 // $b = '';
 // $user_id = '';
@@ -8,12 +8,22 @@ $this->layout('layout', ['title' => 'Mes messages']);
 
 <?php $this->start('main_content'); ?>
 
-<h1>Page message</h1>
-<?php
-//echo $id;
-//echo $user_id;
 
- ?>
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      <p id="titleapropos" class="policetitre">Envoyer un message</p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-8 offset-md-2 offset-0">
+
+
+
 <div class="form-group">
   <form id="tchat_form" action="<?= $this->url('messages_message_action', ['id' => $id, 'user_id' => $user_id]); ?>" method="post">
     <!-- <input style=" display:none;" type="text" name="user_id" value="<?php //if(isset($b)){ echo $b;}; ?>">-->
@@ -24,9 +34,9 @@ $this->layout('layout', ['title' => 'Mes messages']);
   </form>
 </div>
 
-<?php
-echo '<a href="'. $this->url('tutorat_tutorat').'"> vers tutorat</a>';
-?>
+
+<a href="<?= $this->url('messages_messages', ['id' => $id,'user_id' => $user_id]); ?>"><p><i class="fa fa-arrow-left" aria-hidden="true"></i> Retour aux messages</p></a>
+
 
 <?php $this->stop('main_content'); ?>
 

@@ -22,9 +22,9 @@ class IntermController extends TiltController
 	public function participation($user_id,$region_id){
 
 		$model 	= new IntermModel();
-		$user 			= new UsersModel();
-		$clean   		= new CleanTool();
-		$post  = $clean->cleanPost($_POST);
+		// $user 			= new UsersModel();
+		// $clean   		= new CleanTool();
+		// $post  = $clean->cleanPost($_POST);
 
 		//debug($_POST);
 				foreach ($_POST as $competences_id ) {
@@ -32,12 +32,13 @@ class IntermController extends TiltController
 						//echo $key;
 						$model->insertInto($user_id,$region_id,$competences_id);
 					}
-				}
+				};
 
 
 		$this->show('tutorat/disponibilites', array(
-																								'region_id' => $region_id
-																							));
+																					'region_id' => $region_id,
+																					'user_id'		=> $user_id
+																					));
 	}
 
 

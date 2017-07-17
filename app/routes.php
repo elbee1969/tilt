@@ -13,7 +13,7 @@
 
 		['GET|POST', '/tutorat', 'Tutorat#tutorat', 'tutorat_tutorat'],
 		['GET', '/cours', 'Competences#cours', 'tutorat_cours'],
-		['GET|POST', '/cours/[i:user_id]/[i:region_id]', 'Interm#participation', 'tutorat_cours_action'],
+		['GET', '/cours/[i:user_id]/[i:region_id]', 'Interm#participation', 'tutorat_cours_action'],
 
 		['GET','/disponibilites/[i:region_id]/[:role]', 'Tutorat#disponibilites','tutorat_disponibilites'],
 
@@ -63,8 +63,10 @@
 		['GET', '/backoffice/ameliorations', 'back#ameliorations', 'back_ameliorations'],
 
 		['GET', '/inscrapprenant', 'Users#inscrapprenant', 'users_inscrapprenant'],
+		['POST', '/inscrapprenant', 'Users#inscrapprenantAction', 'users_inscrapprenant_action'],
 
 		['GET', '/inscrenseignant', 'Users#inscrenseignant', 'users_inscrenseignant'],
+		['POST', '/inscrenseignant', 'Users#inscrenseignantAction', 'users_inscrenseignant_action'],
 
 
 

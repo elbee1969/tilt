@@ -100,13 +100,7 @@
 									<li><a href="<?= $this->url('default_contact'); ?>">Contact</a></li>
 									<li><a href="<?= $this->url('cgu_cgu'); ?>">CGU</a></li>
 									<li><a href="<?= $this->url('faq_faq'); ?>">FAQ</a></li>
-							</div>
-							<div class="col-md-5 col-6 ">
-								<li>Top enseignants</li>
-								<li>Top apprenants</li>
-								<li>Top matières</li>
-								<li>Top régions actives</li>
-							</ul>
+								</ul>
 							</div>
 						</div>
 					</div>

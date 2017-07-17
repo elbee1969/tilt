@@ -13,4 +13,10 @@ $this->layout('layout', ['title' => 'Inscription enseignant']);
 
 <p>si matière non existante formulaire pour demande par mail</p>
 
+<form class="apprenant" action="" method="post">
+
+  <input type="submit" name="apprenant" value="Devenir enseignant">
+
+</form>
+
 <?php $this->stop('main_content'); ?>
