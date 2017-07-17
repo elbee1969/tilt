@@ -90,7 +90,6 @@ class TutoratController extends TiltController
 	 */
 	public function messagesAdd()
 	{
-
 		$message 		= new MessagesModel();
 		$clean   		= new CleanTool();
 		$validation = new ValidationTool();
@@ -112,7 +111,6 @@ class TutoratController extends TiltController
 		}
 //methode affichant l'existance des enseignants ou des apprenants
 	public function disponibilites($region_id,$role){
-
 				$users 	= new UsersModel();
 				if($role == 'enseignant'){
 					$apprenants = $users->findApprenantsInRegionById($region_id);

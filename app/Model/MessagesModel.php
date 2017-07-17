@@ -88,4 +88,14 @@ class MessagesModel extends Model {
 
   } //ferme la méthode findMessageEnseignant
 
+  public function countMessages()
+  {
+  $sql ="SELECT id FROM tilt_messages";
+          $sth = $this->dbh->prepare($sql);
+          $sth->execute();
+          $result = $sth->fetchAll();
+          return count($result);
+  }
+
+
 } //ferme la class messagesModel

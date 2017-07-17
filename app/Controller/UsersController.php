@@ -5,12 +5,12 @@ use \Controller\TiltController;
 use \Model\CompetencesModel;
 use \Model\UsersModel;
 use \Model\AvatarModel;
-use \Model\AdressModel;
 use \Service\Tools\CleanTool;
 use \Service\Tools\ValidationTool;
 use \W\Security\AuthentificationModel;
 use \W\Security\StringUtils;
 use \Model\RegionsModel;
+use \Model\AdresseModel;
 
 class UsersController extends TiltController {
 
@@ -46,7 +46,7 @@ class UsersController extends TiltController {
       $regionNamefromId = new RegionsModel();
       $regionName = $regionNamefromId->findRegionName($user['region_id']);
 
-      $adresseFromId = new AdressModel();
+      $adresseFromId = new AdresseModel();
       $adresse = $adresseFromId->getUserAdresse($user['id']);
 
       $this->show('users/profil', ['regionName' => $regionName,
@@ -359,15 +359,21 @@ class UsersController extends TiltController {
         $errors = array();
         $clean      = new CleanTool();
         $validation = new ValidationTool();
+        $modeluser  = new UsersModel();
         $auth       = new AuthentificationModel();
-        $add        = new AdressModel();
+        $add        = new AdresseModel();
         // debug($_POST);
+          $user = $this->getUser();
           $post = $clean->cleanPost($_POST);
           $number = $post['number'];
           $street = $post['street'];
           $city = $post['city'];
           $postal = $post['postal'];
+          $prenom = $post['prenom'];
+          $nom = $post['nom'];
 
+          $errors['nom'] = $validation->textValid($nom, 'nom', 3, 30);
+          $errors['prenom'] = $validation->textValid($prenom, 'prenom', 3, 30);
           $errors['number'] = $validation->textValid($number, 'numéro de rue', 1, 7);
           $errors['street'] = $validation->textValid($street, 'nom de rue', 3, 30);
           $errors['city'] = $validation->textValid($city, 'nom de ville', 3, 30);
@@ -381,19 +387,101 @@ class UsersController extends TiltController {
           } else {
 
             $data = array(
+              'id_user' => $user['id'],
               'nom' => $nom,
               'prenom' => $prenom,
               'num_rue' => $number,
               'nom_voie' => $street,
               'ville'    => $city,
               'code_postal' => $postal,
-              ''
-
             );
 
             $add->insert($data);
+            $this->redirectToRoute('users_profil');
 
           }
+
+      }
+
+      public function adressUpdate()
+      {
+        $add        = new AdresseModel();
+        $loggedUser = $this->getUser();
+        $adresse = $add->getUserAdresse($loggedUser['id']);
+
+        $this->show('Users/adresseupdate', array(
+          'nom' => $adresse['nom'],
+          'prenom' => $adresse['prenom'],
+          'num_rue' => $adresse['num_rue'],
+          'nom_voie' => $adresse['nom_voie'],
+          'ville'    => $adresse['ville'],
+          'code_postal' => $adresse['code_postal']
+        ));
+      }
+
+      public function addAdressUpdate(){
+
+        $errors = array();
+        $clean      = new CleanTool();
+        $validation = new ValidationTool();
+        $auth       = new AuthentificationModel();
+        $add        = new AdresseModel();
+        $user = $this->getUser();
+        $id = $user['id'];
+
+        $adresse = $add->getUserAdresse($id);
+
+        debug($adresse);
+        // die();
+
+        // $resultat = $add->findAll($id);
+        //
+        // debug($resultat);
+
+        $post = $clean->cleanPost($_POST);
+
+        $nom = $post['nom'];
+        $prenom = $post['prenom'];
+        $number = $post['number'];
+        $street = $post['street'];
+        $city = $post['city'];
+        $postal = $post['postal'];
+
+        $errors['nom'] = $validation->textValid($nom, 'nom', 3, 20);
+        $errors['prenom'] = $validation->textValid($prenom, 'prenom', 3, 20);
+        $errors['number'] = $validation->textValid($number, 'numéro de rue', 1, 7);
+        $errors['street'] = $validation->textValid($street, 'nom de rue', 3, 30);
+        $errors['city'] = $validation->textValid($city, 'nom de ville', 3, 30);
+        $errors['postal'] = $validation->textValid($postal, 'code postal', 3, 5);
+
+        if($validation->IsValid($errors) == false){
+          $this->show('users/adresseupdate', array(
+            'errors'   => $errors,
+          ));
+
+        } else {
+
+          $data = array(
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'num_rue' => $number,
+            'nom_voie' => $street,
+            'ville'    => $city,
+            'code_postal' => $postal
+            );
+
+
+          if(!empty($adresse)) {
+              $add->update($data, $adresse['id']);
+          } else {
+              $add->insert($data);
+          }
+
+
+
+
+          $this->redirectToRoute('users_adresse_update');
+        }
 
       }
 //méthodes pour l'affichage et l'inscription des apprenants
@@ -413,6 +501,7 @@ class UsersController extends TiltController {
   {
 
     $modeluser = new UsersModel();
+    $auth = new AuthentificationModel();
     $user = $this->getUser();
     $id = $user['id'];
     $apprenant = 'apprenant';
@@ -422,6 +511,8 @@ class UsersController extends TiltController {
     );
 
     $modeluser->update($data, $id);
+    $auth->logUserOut();
+    $this->redirectToRoute('login');
     $this->show('users/inscrapprenant');
 
   }
@@ -441,6 +532,7 @@ public function inscrenseignantAction()
 {
 
   $modeluser = new UsersModel();
+  $auth = new AuthentificationModel();
   $user = $this->getUser();
   $id = $user['id'];
   $enseignant = 'enseignant';
@@ -450,6 +542,8 @@ public function inscrenseignantAction()
   );
 
   $modeluser->update($data, $id);
+  $auth->logUserOut();
+  $this->redirectToRoute('login');
 
   $this->show('users/inscrenseignant');
 

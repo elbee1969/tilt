@@ -90,16 +90,16 @@
 					<div class="col-md-3 col-12">
 						<div class="row">
 						<div class="col-md-12">
-							<p id="logo_footer">Tilt</p>
+							<p id="logo_footer" style="margin-top: 20px;" class="center">Tilt</p>
 						</div>
 					</div>
 						<div class="row">
-							<div class="col-md-7 col-6">
-								<ul>
-									<li><a href="<?= $this->url('mentions_mentions'); ?>">Mentions légales</a></li>
-									<li><a href="<?= $this->url('default_contact'); ?>">Contact</a></li>
-									<li><a href="<?= $this->url('cgu_cgu'); ?>">CGU</a></li>
-									<li><a href="<?= $this->url('faq_faq'); ?>">FAQ</a></li>
+							<div class="col-md-12 col-12">
+								<ul style="margin-top: 10px;">
+									<li class="center"><a href="<?= $this->url('mentions_mentions'); ?>">Mentions légales</a></li>
+									<li class="center"><a href="<?= $this->url('default_contact'); ?>">Contact</a></li>
+									<li class="center"><a href="<?= $this->url('cgu_cgu'); ?>">CGU</a></li>
+									<li class="center"><a href="<?= $this->url('faq_faq'); ?>">FAQ</a></li>
 								</ul>
 							</div>
 						</div>

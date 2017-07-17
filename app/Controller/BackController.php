@@ -4,7 +4,9 @@ namespace Controller;
 
 use \Model\UsersModel;
 use \Model\CompetencesModel;
+use \Model\MessagesModel;
 use \W\Security\AuthorizationModel;
+use \Model\IntermModel;
 
 class BackController extends TiltController
 {
@@ -14,11 +16,22 @@ class BackController extends TiltController
 	 */
 	public function home()
 	{
+
+		$nbcours = new IntermModel();
+		$countcours = $nbcours-> countCours();
+
+		$nbusers = new UsersModel();
+		$countusers = $nbusers-> countUsers();
+
+		$nbmessages = new MessagesModel();
+		$countmessages = $nbmessages-> countMessages();
+
+
 	 $auth  = new AuthorizationModel();
 
 		if(!$auth->isGranted('admin')) {	$this->redirectToRoute('default_home');}
 
-		$this->show('back/home');
+		$this->show('back/home', array('countcours'=> $countcours, 'countusers'=>$countusers, 'countmessages'=>$countmessages));
 	}
 
 	public function users()

@@ -152,4 +152,16 @@ class UsersModel extends  WUsersModel
 
   } // ferme la méthode findEnseignantsinRegionById
 
+  public function countUsers()
+  {
+  $sql ="SELECT id FROM tilt_user";
+          $sth = $this->dbh->prepare($sql);
+          $sth->execute();
+          $result = $sth->fetchAll();
+          return count($result);
+  }
+
+
+
+
 } // ferme la classe UserModel
