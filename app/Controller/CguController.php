@@ -6,19 +6,18 @@ use \Controller\TiltController;
 
 use \Model\UsersModel;
 use \Model\CompetencesModel;
-use \Model\RegionsModel;
-use \Model\AvatarModel;
 
-class DefaultController extends TiltController
+class CguController extends TiltController
 {
 
 	/**
 	 * Page d'accueil par défaut
 	 */
-	public function home()
+	public function cgu()
 	{
 
-		$this->show('default/home');
+
+		$this->show('default/cgu');
 	}
 
 }

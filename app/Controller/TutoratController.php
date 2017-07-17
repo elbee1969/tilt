@@ -34,6 +34,9 @@ class TutoratController extends TiltController
 					if(!empty($msgapprenants)){
 						$id = $msgapprenants[0]['id_enseignant'];
 						$user_id = $msgapprenants[0]['id'];
+					} else {
+						$id = '';
+						$user_id = '';
 					}
 				// 	debug($user);
 				// 	$id = $user['id'];
@@ -92,10 +95,14 @@ class TutoratController extends TiltController
 			}
 		}
 //methode affichant l'existance des enseignants ou des apprenants
-	public function disponibilites($region_id){
+	public function disponibilites($region_id,$role){
 
 				$users 	= new UsersModel();
-				$apprenants = $users->findApprenantsInRegionById($region_id);
+				if($role == 'enseignant'){
+					$apprenants = $users->findApprenantsInRegionById($region_id);
+				}else{
+					$apprenants = $users->findEnseignantsInRegionById($region_id);
+				}
 
 				$this->show('tutorat/disponibilites', array(
 																								'apprenants'  => $apprenants

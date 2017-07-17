@@ -49,7 +49,7 @@ class ContactController extends TiltController
 
 					 $error['email']		 = $validation->emailValid($email);
 				 }else{
-					 $errors['email'] = 'Vous devez renseigner un mail';
+					 $errors['email'] = '* Veuillez renseigner un mail.';
 				 }
 
 

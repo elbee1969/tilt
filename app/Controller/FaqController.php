@@ -6,19 +6,18 @@ use \Controller\TiltController;
 
 use \Model\UsersModel;
 use \Model\CompetencesModel;
-use \Model\RegionsModel;
-use \Model\AvatarModel;
 
-class DefaultController extends TiltController
+class FaqController extends TiltController
 {
 
 	/**
 	 * Page d'accueil par défaut
 	 */
-	public function home()
+	public function faq()
 	{
 
-		$this->show('default/home');
+
+		$this->show('default/faq');
 	}
 
 }

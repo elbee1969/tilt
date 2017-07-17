@@ -49,7 +49,8 @@ class MessagesModel extends Model {
                 INNER JOIN tilt_user AS u
                 ON m.id_emetteur = u.id
                 WHERE m.id_recepteur = $id AND  m.id_emetteur = $userid AND m.status_r = 1
-                ORDER BY created_at DESC";
+                ORDER BY created_at DESC
+                LIMIT 5";
 
     $sth = $this->dbh->prepare($sql);
     $sth->execute();
@@ -74,8 +75,9 @@ class MessagesModel extends Model {
                 FROM tilt_messages AS m
                 INNER JOIN tilt_user AS u
                 ON m.id_emetteur = u.id
-                WHERE m.id_emetteur = $id AND  m.id_recepteur = $userid AND m.status_e = 1 
-                ORDER BY created_at DESC";
+                WHERE m.id_emetteur = $id AND  m.id_recepteur = $userid AND m.status_e = 1
+                ORDER BY created_at DESC
+                LIMIT 5";
 
     $sth = $this->dbh->prepare($sql);
     $sth->execute();

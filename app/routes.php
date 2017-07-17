@@ -13,9 +13,10 @@
 
 		['GET|POST', '/tutorat', 'Tutorat#tutorat', 'tutorat_tutorat'],
 		['GET', '/cours', 'Competences#cours', 'tutorat_cours'],
-		['GET|POST', '/cours/[i:user_id]/[i:region_id]', 'Interm#participation', 'tutorat_cours_action'],
+		['GET', '/cours/[i:user_id]/[i:region_id]', 'Interm#participation', 'tutorat_cours_action'],
 
-		['GET','/disponibilites/[i:region_id]', 'Tutorat#disponibilites','tutorat_disponibilites'],
+		['GET','/disponibilites/[i:region_id]/[:role]', 'Tutorat#disponibilites','tutorat_disponibilites'],
+
 		['GET','/disponibilites', 'Tutorat#associer','tutorat_disponibilites_action'],
 
 		['GET', '/messages/[i:id]/[i:user_id]', 'Messages#messages', 'messages_messages'],
@@ -66,4 +67,11 @@
 
 		['GET', '/inscrenseignant', 'Users#inscrenseignant', 'users_inscrenseignant'],
 		['POST', '/inscrenseignant', 'Users#inscrenseignantAction', 'users_inscrenseignant_action'],
+
+
+
+		['GET', '/cgu', 'Cgu#cgu', 'cgu_cgu'],
+		['GET', '/mentions-legales', 'Mentions#mentions', 'mentions_mentions'],
+		['GET', '/recherche', 'Recherche#recherche', 'recherche_recherche'],
+		['GET', '/foire-aux-questions', 'Faq#faq', 'faq_faq'],
 	);
