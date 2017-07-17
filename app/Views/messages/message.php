@@ -1,6 +1,6 @@
 <?php
 //hérite du fichier layout.php à la racine de app/Views/
-$this->layout('layout', ['title' => 'Mes message']);
+$this->layout('layout', ['title' => 'Mes messages']);
 // initialisation variable de stockage du $user_id
 // $b = '';
 // $user_id = '';
@@ -10,8 +10,8 @@ $this->layout('layout', ['title' => 'Mes message']);
 
 <h1>Page message</h1>
 <?php
-echo $id;
-echo $user_id;
+//echo $id;
+//echo $user_id;
 
  ?>
 <div class="form-group">
@@ -19,7 +19,7 @@ echo $user_id;
     <!-- <input style=" display:none;" type="text" name="user_id" value="<?php //if(isset($b)){ echo $b;}; ?>">-->
     <label for="message">votre message</label>
     <textarea id="message" name="message" rows="2" cols="100"><?php if(!empty($article['message'])){ echo $article['message'];}; ?></textarea>
-    <span id="resultat" style="color:red; font-size:0.70em;" ><?php // if(!empty($errors['message'])){ echo $errors['message']; }; ?></span>
+    <span id="resultat" style="color:red; font-size:0.70em;" ></span> <!-- Nicolas a ajouté l'id resultat et a supprimé l'affichage classique des messages d'erreurs  -->
     <input type="submit" name="btnsubmit" value="Envoi message">
   </form>
 </div>
@@ -30,7 +30,7 @@ echo '<a href="'. $this->url('tutorat_tutorat').'"> vers tutorat</a>';
 
 <?php $this->stop('main_content'); ?>
 
-
+<!-- Nicolas a ajouté une section JavaScript pour le traitement en Ajax des messages d'erreur  -->
 <?php $this->start('js'); ?>
 
 

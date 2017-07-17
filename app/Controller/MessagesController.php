@@ -56,7 +56,7 @@ class MessagesController extends TiltController
 	 */
 	public function messageAdd($id,$user_id)
 	{
-
+// refonte de cette méthode par Nicolas pour le fonctionnement en Ajax 
 		$errors = array();$success = false;
 		$user 					= new UsersModel();
 		$newmessage 		= new MessagesModel();
@@ -81,7 +81,7 @@ class MessagesController extends TiltController
 
 	            $newmessage->insert($data);
 							$success = true;
-							
+
 				}
 				$data = array(
 							'errors'   => $errors,
