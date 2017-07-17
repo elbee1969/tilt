@@ -1,53 +1,75 @@
 <?php
-//hérite du fichier layout.php à la racine de app/Views/
 $this->layout('layout', ['title' => 'Ajout apprenant']);
 ?>
 
 <?php $this->start('main_content'); ?>
 <?php
 if(in_array($w_user['role'], ['apprenant', 'enseignant'])){
-  //si apprenant on affiche liste des enseignants
+ //si apprenant on affiche liste des enseignants
 
-  if(in_array($w_user['role'], ['apprenant'])){
-    echo '<p><a href="'. $this->url('tutorat_disponibilites', ['region_id' => $w_user['region_id'],'role' => $w_user['role']]).'">Voir les offres de formations</p>';
-    echo '<p><a href="'. $this->url('tutorat_cours').'">s\'inscrire</a>  à un cours</p>';
-    echo '<h3>liste de mes enseignants</h3>';
+ if(in_array($w_user['role'], ['apprenant'])){ ?>
 
-    foreach ($msgenseignants as $msg) {
-        echo '<p>'.$msg['pseudo'].' formateur en  <b>'.$msg['matiere'].'</b> dans la région '.$msg['region'].' <a href="'. $this->url('messages_messages', ['id' => $msg['id_apprenant'], 'user_id' => $msg['id']]).'"> vers messagerie</a></p>';
-    }
-  }
+   <div class="container-fluid">
+     <div class="row">
+       <div class="col-4">
+<?php     echo '<p class="policetitre" style="margin-top:30px;"><a href="'. $this->url('tutorat_disponibilites', ['region_id' => $w_user['region_id'],'role' => $w_user['role']]).'">Voir les offres de formations</a></p>'; ?>
+       </div>
+       <div class="col-4">
+<?php      echo '<p class="policetitre" style="margin-top:30px;"><a href="'. $this->url('tutorat_cours').'">s\'inscrire à un cours</a></p>'; ?>
+       </div>
+       <div class="col-4">
+<?php echo '          <p  class="policetitre" style="margin-top:30px;">Liste des mes enseignants</p> '  ?>
+<?php     foreach ($msgenseignants as $msg) {
+?>
+           <div class="card">
+             <ul class="list-group list-group-flush">
+               <li class="list-group-item"> <?php     echo '<p>'.$msg['pseudo'].' formateur en  <b>'.$msg['matiere'].'</b> dans la région '.$msg['region'].' <a href="'. $this->url('messages_messages', ['id' => $msg['id_apprenant'], 'user_id' => $msg['id']]).'"><i class="fa fa-commenting" aria-hidden="true"></i></a></p>';
+                 }
+                 }?>
+               </li>
+             </ul>
+           </div>
+       </div>
+     </div>
+   </div>
 
 
-  //si enseignant on affiche liste des apprenants de la region
-  if(in_array($w_user['role'], ['enseignant'])){
-    //debug($w_user);
-    echo '<p><a href="'. $this->url('tutorat_disponibilites', ['region_id' => $w_user['region_id'],'role' => $w_user['role']]).'">Voir les demandeurs</p>';
-    echo '<p><a href="'. $this->url('tutorat_cours').'">Donner  des cours</a></p>';
+<?php if(in_array($w_user['role'], ['enseignant'])){ ?>
 
-?> <div class="container-fluid">
+     <div class="container-fluid">
+       <div class="row">
+         <div class="col-4">
+ <?php     echo '<p class="policetitre" style="margin-top:30px;"><a href="'. $this->url('tutorat_disponibilites', ['region_id' => $w_user['region_id'],'role' => $w_user['role']]).'">Voir les demandeurs</a></p>'; ?>
+         </div>
+         <div class="col-4">
+ <?php      echo '<p class="policetitre" style="margin-top:30px;"><a href="'. $this->url('tutorat_cours').'">Donner des cours</a></p>'; ?>
+         </div>
+         <div class="col-4">
+ <?php echo '          <p  class="policetitre" style="margin-top:30px;">Liste des mes apprenants</p> '  ?>
+ <?php     foreach ($msgapprenants as $msg) {
+ ?>
+             <div class="card">
+               <ul class="list-group list-group-flush">
+                 <li class="list-group-item"> <?php     echo '<p>'.$msg['pseudo'].' apprenant en  <b>'.$msg['matiere'].'</b> dans la région '.$msg['region'].' <a href="'. $this->url('messages_messages', ['id' => $msg['id_enseignant'], 'user_id' => $msg['id']]).'"><i class="fa fa-commenting" aria-hidden="true"></i></a></p>';
+                   }
+                   }?>
+                 </li>
+               </ul>
+             </div>
+         </div>
+       </div>
+     </div>
 
-  <div class="row">
-    <div class="col-12">
-      <p id="titleapropos" class="policetitre">Liste des mes apprenants</p>
-    </div>
-  </div>
-</div>
+<?php
 
-</div>
-  <?php
-    foreach ($msgapprenants as $msg) {
-      echo '<p>'.$msg['pseudo'].' apprenant en  <b>'.$msg['matiere'].'</b> dans la région '.$msg['region'].'<a href="'. $this->url('messages_messages', ['id' => $msg['id_enseignant'], 'user_id' => $msg['id']]).'"> vers messagerie</a></p>';
-    }
-  }
 }else{
-  echo '<p>Données non disponibles avec le rôle "admin" .....</p>';
-  echo '<p>Vers 403</p>';
+ echo '<p>Données non disponibles avec le rôle "admin".</p>';
+ echo '<p>Vers 403</p>';
 
 }
 
 
- ?>
+?>
 
 
 <?php $this->stop('main_content'); ?>
