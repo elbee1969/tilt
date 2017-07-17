@@ -40,8 +40,9 @@ class MessagesController extends TiltController
 					));
 
 
+		}
 
-			}
+
 			/**
 			* Page d'accueil par défaut
 			*/
@@ -55,24 +56,18 @@ class MessagesController extends TiltController
 	 */
 	public function messageAdd($id,$user_id)
 	{
-		$errors = array();
+
+		$errors = array();$success = false;
 		$user 					= new UsersModel();
 		$newmessage 		= new MessagesModel();
 		$clean   				= new CleanTool();
 		$validation 		= new ValidationTool();
 		$auth        		= new AuthentificationModel();
-			$post      	= $clean->cleanPost($_POST);
-
-			if(!empty($_POST['btnsubmit'])){
+		$post      	 = $clean->cleanPost($_POST);
 				$message = $post['message'];
 				$errors['message'] = $validation->textValid($message,'message',2,500);
-				if($validation->IsValid($errors) == false){
-					$this->show('messages/message', array(
-												'errors'  => $errors,
-												'id'						=> $id,
-												'user_id'				=> $user_id
-											));
-				} else {
+				if($validation->IsValid($errors)) {
+
 					// si pas d'error  insert
 						$datenow = new \DateTime;
 					  $data = array(
@@ -85,14 +80,16 @@ class MessagesController extends TiltController
 							);
 
 	            $newmessage->insert($data);
-							//$auth->refreshUser();
+							$success = true;
+							
 				}
-				$this->redirectToRoute('messages_messages', array(
-					'id' => $id,
-					'user_id' => $user_id
-				));
+				$data = array(
+							'errors'   => $errors,
+							'success'  => $success
+				);
+				$this->showJson($data);
 
-		}//fin submit
+
 	}// fin messageAdd
 
 
