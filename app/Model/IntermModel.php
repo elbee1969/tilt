@@ -15,10 +15,10 @@ class IntermModel extends \W\Model\Model {
     $this->dbh = ConnectionModel::getDbh();
   }
 
-//methode pour trouver les utilisateur déjà inscrit à une matère
-  public function isInscript()
+//methode pour trouver si l' utilisateur déjà inscrit à une matère
+  public function isInscript($id)
 {
-  $sql ="SELECT * FROM tilt_interm WHERE 1";
+  $sql ="SELECT * FROM tilt_interm WHERE user_id = $id";
           $sth = $this->dbh->prepare($sql);
           $sth->execute();
           $result = $sth->fetchAll();
