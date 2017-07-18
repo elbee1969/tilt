@@ -23,7 +23,7 @@ class IntermController extends TiltController
 
 		$model 	= new IntermModel();
 		$modelu = new UsersModel();
-		$user = $this->getUser();
+		$user   = $this->getUser();
 		//on verifie la présence d'enreg dans la table tilt_iterm
 		$inscrits = $model->isInscript($user_id);
 		//debug($inscrits); //renvoie un array associatif avec toutes les lignes de la table interm où l'utilisateur apparaît
@@ -50,7 +50,7 @@ class IntermController extends TiltController
 
 					if (!empty($errors)){
 						//message d'erreur à afficher quand une checkbox cochée fait déjà partie des matières dans lesquelles le user est inscrit
-						$error = 'vous êtes déjà inscript à une ou des matière(s) selectionnée(s)';
+						$error = 'vous êtes déjà inscrit à une ou des matière(s) selectionnée(s)';
 						//sera à améliorer pour afficher de façon détaillée le noms des matières
 
 						//récupération des catégories pour afichage de la page cours
@@ -71,25 +71,26 @@ class IntermController extends TiltController
 																								'cat'					=> $cat));
 
 						} else {
-
-
-							//test si apprenant ou enseignant
-							if($user['role'] == 'apprenant'){
-								//on fait un parcours du post pour enreg les matères dans bdd
-								foreach ($_POST as $matiere => $value) {
-									if($value !== 'Suivre des cours'){
-										$model->insertInto($user_id,$region_id,$value);
-									}
-								}
-							}else{
-
-								foreach ($_POST as $matiere => $value) {
-									if($value !== 'Donner des cours'){
-										$model->insertInto($user_id,$region_id,$value);
-									}
+						//on fait un parcours du post pour enreg les matères dans bdd
+						//
+						//
+						//
+						//test si apprenant ou enseignant
+						if($user['role'] == 'apprenant'){
+							//on fait un parcours du post pour enreg les matères dans bdd
+							foreach ($_POST as $matiere => $value) {
+								if($value !== 'Suivre des cours'){
+									$model->insertInto($user_id,$region_id,$value);
 								}
 							}
+						}else{
 
+							foreach ($_POST as $matiere => $value) {
+								if($value !== 'Donner des cours'){
+									$model->insertInto($user_id,$region_id,$value);
+								}
+							}
+						}
 
 
 					}
