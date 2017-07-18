@@ -49,7 +49,7 @@ class IntermController extends TiltController
 
 					if (!empty($errors)){
 						//message d'erreur à afficher quand une checkbox cochée fait déjà partie des matières dans lesquelles le user est inscrit
-						$error = 'vous êtes déjà inscript à une ou des matière(s) selectionnée(s)';
+						$error = 'vous êtes déjà inscrit à une ou des matière(s) selectionnée(s)';
 						//sera à améliorer pour afficher de façon détaillée le noms des matières
 
 						//récupération des catégories pour afichage de la page cours
