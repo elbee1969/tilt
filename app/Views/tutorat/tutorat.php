@@ -20,19 +20,29 @@ if(in_array($w_user['role'], ['apprenant', 'enseignant'])){
        </div>
        <div class="col-4">
 <?php echo '          <p  class="policetitre" style="margin-top:30px;">Liste des mes enseignants</p> '  ?>
+
+
+
+<div class="card">
+  <ul class="list-group list-group-flush">
+
 <?php     foreach ($msgenseignants as $msg) {
 ?>
-           <div class="card">
-             <ul class="list-group list-group-flush">
-               <li class="list-group-item"> <?php     echo '<p>'.$msg['pseudo'].' formateur en  <b>'.$msg['matiere'].'</b> dans la région '.$msg['region'].' <a href="'. $this->url('messages_messages', ['id' => $msg['id_apprenant'], 'user_id' => $msg['id']]).'"><i class="fa fa-commenting" aria-hidden="true"></i></a></p>';
-                 }
-                 }?>
+               <li class="list-group-item">
+                 <?php     echo '<p>'.$msg['pseudo'].' formateur en  <b>'.$msg['matiere'].'</b> dans la région '.$msg['region'].'
+                  <a href="'. $this->url('messages_messages', ['id' => $msg['id_apprenant'], 'user_id' => $msg['id']]).'">
+                    <i class="fa fa-commenting" aria-hidden="true">
+                    </i>
+                    </a>
+                    </p>';
+                 } ?>
                </li>
              </ul>
            </div>
        </div>
      </div>
    </div>
+ <?php }?>
 
 
 <?php if(in_array($w_user['role'], ['enseignant'])){ ?>
@@ -47,19 +57,30 @@ if(in_array($w_user['role'], ['apprenant', 'enseignant'])){
          </div>
          <div class="col-4">
  <?php echo '          <p  class="policetitre" style="margin-top:30px;">Liste des mes apprenants</p> '  ?>
+
+ <div class="card">
+ <ul class="list-group list-group-flush">
  <?php     foreach ($msgapprenants as $msg) {
  ?>
-             <div class="card">
-               <ul class="list-group list-group-flush">
-                 <li class="list-group-item"> <?php     echo '<p>'.$msg['pseudo'].' apprenant en  <b>'.$msg['matiere'].'</b> dans la région '.$msg['region'].' <a href="'. $this->url('messages_messages', ['id' => $msg['id_enseignant'], 'user_id' => $msg['id']]).'"><i class="fa fa-commenting" aria-hidden="true"></i></a></p>';
-                   }
-                   }?>
-                 </li>
+                 <li class="list-group-item">
+                    <?php     echo '<p>'.$msg['pseudo'].' apprenant en  <b>'.$msg['matiere'].'</b> dans la région '.$msg['region'].'
+                      <a href="'. $this->url('messages_messages', ['id' => $msg['id_enseignant'], 'user_id' => $msg['id']]).'">
+                        <i class="fa fa-commenting" aria-hidden="true">
+                        </i>
+                        </p>
+                      </a>
+                        </li>';
+   }; ?>
                </ul>
              </div>
          </div>
        </div>
      </div>
+
+     <?php } ?>
+
+
+<!-- CHANGER LE UL LI POUR NE PAS QUE LES USERS S'IMBRIQUENT !-->
 
 <?php
 
