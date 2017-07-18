@@ -44,7 +44,6 @@ $w_user['created_at']
           <li class="list-group-item"><?= 'Adresse: '.$adresse['num_rue'].' '.$adresse['nom_voie']; ?></li>
           <li class="list-group-item"><?= 'Code Postal: '.$adresse['code_postal']; ?></li>
           <li class="list-group-item"><?= 'Ville: '.$adresse['ville']; ?></li>
-          <li class= "list-group-item"><a href="<?= $this->url('users_adresse'); ?>">Modifier mes informations</a></li>
           <?php  } ?>
           <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin', 'guest'])){ ?>
             <li class= "list-group-item"><a href="<?= $this->url('users_adresse_update'); ?>">Modifier mes informations</a></li>
