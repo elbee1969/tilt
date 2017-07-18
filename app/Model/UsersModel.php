@@ -83,7 +83,7 @@ class UsersModel extends  WUsersModel
 
     // idem que findApprenantsInRegion mais pour les Enseignants
 
-    $sql = "SELECT r.id, r.name, i.user_id, i.competences_id, c.name, u.pseudo, u.role
+    $sql = "SELECT r.id, r.name, i.user_id, i.competences_id, c.name, u.pseudo, u.role, u.avatar, a.path, a.name AS avatarname, a.id
             FROM tilt_regions AS r
             LEFT JOIN tilt_interm AS i
             ON r.id = i.regions_id
@@ -91,6 +91,8 @@ class UsersModel extends  WUsersModel
             ON i.competences_id = c.id
             LEFT JOIN tilt_user AS u
             ON i.user_id = u.id
+            LEFT JOIN tilt_avatar AS a
+            ON u.avatar = a.id
             WHERE r.name = :regionname AND u.role = 'enseignant'";
 
     $sth = $this->dbh->prepare($sql);

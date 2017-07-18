@@ -47,7 +47,7 @@ class RegionsController extends TiltController
 		$avatarFromId = new AvatarModel();
 		$avatarFromIntermId = $avatarFromId->getAvatarFromIntermUserId($allEnseignantsInRegion[0]['user_id']);
 
-		//on passe les données à la page région 
+		//on passe les données à la page région
     $this->show('regions/region',array(
       'region'   => $region,
 			'allEnseignantsInRegion' => $allEnseignantsInRegion,
