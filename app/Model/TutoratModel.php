@@ -141,17 +141,21 @@ class TutoratModel extends Model {
 
   } //ferme la méthode findAllApprenants
 
-  //methode pour trouver les tutorés déjà inscrit en formation
-    public function isBind($id_competence,$id_enseignant,$id_apprenant)
+  //methode pour trouver les tutorés déjà inscrit en formation dans table tilt_tutorat
+    public function isBind($id_competences,$id_region,$id_enseignant,$id_apprenant)
   {
-    $sql ="SELECT * FROM tilt_tutorat WHERE id_competence = $id_competence
-                                      AND  id_enseignant = $id_enseignant
-                                      AND  id_apprenant  = $id_apprenant";
+    $sql ="SELECT id_competence FROM tilt_tutorat WHERE  id_competence = :id_competence
+                                                    AND  id_region     = :id_region
+                                                    AND  id_enseignant = :id_enseignant
+                                                    AND  id_apprenant  = :id_apprenant";
             $sth = $this->dbh->prepare($sql);
+            $sth->bindValue(':id_competence', $id_competences);
+            $sth->bindValue(':id_region'    , $id_region);
+            $sth->bindValue(':id_enseignant', $id_enseignant);
+            $sth->bindValue(':id_apprenant' , $id_apprenant);
             $sth->execute();
-            $result = $sth->fetchAll();
-
-              return $result;
+            $nbr = $sth->fetch();
+            return $nbr;
   }
 
 
