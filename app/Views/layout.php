@@ -27,21 +27,15 @@
 							<a class="nav-link" href="<?= $this->url('default_apropos'); ?>">A propos</a>
 						</li>
 						<li>
-							<a class="nav-link" href="<?= $this->url('default_home'); ?>">......</a>
+							<a class="nav-link" href="<?= $this->url('default_contact'); ?>">Contact</a>
 						</li>
 						<?php if(in_array($w_user['role'], ['apprenant', 'enseignant'])){ ?>
 						<li>
 							<a class="nav-link" href="<?= $this->url('tutorat_tutorat'); ?>">Tutorat</a>
 						</li>
 						<?php } ?>
-						<li>
-							<a class="nav-link" href="<?= $this->url('default_home'); ?>">......</a>
-						</li>
-						<?php if(!$w_user){ ?>
-						<li>
-							<a class="nav-link" href="<?= $this->url('default_contact'); ?>">Contact</a>
-						</li>
-						<?php } ?>
+
+
 			    </ul>
 
 			    	<form class="form-inline my-2 my-lg-0">

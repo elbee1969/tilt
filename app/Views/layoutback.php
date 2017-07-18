@@ -30,9 +30,6 @@
 				<li>
 					<a class="nav-link" href="<?= $this->url('back_cours'); ?>">Cours</a>
 				</li>
-				<li>
-					<a class="nav-link" href="<?= $this->url('back_ameliorations'); ?>">Améliorations</a>
-				</li>
 			</ul>
 				<li >
 					<a class="nav-link backfront" href="<?= $this->url('default_home'); ?>">Frontoffice</a>
