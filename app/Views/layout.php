@@ -80,8 +80,14 @@
 			<?= $this->section('main_content') ?>
 		</section>
 
-		<footer>
+		<img id="footericon" src="<?= $this->assetUrl('img/footericon.png') ?>" alt="">
+		<footer style="background-color:#3f51b5;">
 			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12">
+					</div>
+
+				</div>
 				<div class="row">
 					<div class="col-2 hidden-xs-down hidden-sm-down"><!-- Collone vide !--></div>
 					<div class="col-md-3 col-12">
@@ -93,10 +99,10 @@
 						<div class="row">
 							<div class="col-md-12 col-12">
 								<ul style="margin-top: 10px;">
-									<li class="center"><a href="<?= $this->url('mentions_mentions'); ?>">Mentions légales</a></li>
-									<li class="center"><a href="<?= $this->url('default_contact'); ?>">Contact</a></li>
-									<li class="center"><a href="<?= $this->url('cgu_cgu'); ?>">CGU</a></li>
-									<li class="center"><a href="<?= $this->url('faq_faq'); ?>">FAQ</a></li>
+									<li class="center"><a style="text-decoration:none ; color : white !important;" href="<?= $this->url('mentions_mentions'); ?>">Mentions légales</a></li>
+									<li class="center"><a style="text-decoration:none ; color : white !important;" href="<?= $this->url('default_contact'); ?>">Contact</a></li>
+									<li class="center"><a style="text-decoration:none ; color : white !important;" href="<?= $this->url('cgu_cgu'); ?>">CGU</a></li>
+									<li class="center"><a style="text-decoration:none ; color : white !important;" href="<?= $this->url('faq_faq'); ?>">FAQ</a></li>
 								</ul>
 							</div>
 						</div>
@@ -113,7 +119,7 @@
 							</div>
 							<div class="row align-items-end">
 								<div class="col-12 align-self-end">
-									<p class="copyright" id="copyright"> © 2017 Tilt | Webforce3 </p>
+									<p class="copyright" id="copyright" style="color: white;"> © 2017 Tilt | Webforce3 </p>
 								</div>
 							</div>
 						</div>

@@ -1,6 +1,6 @@
 <?php
 //hérite du fichier layout.php à la racine de app/Views/
-$this->layout('layout', ['title' => '$this->w_']);
+$this->layout('layout', ['title' => 'Région']);
 ?>
 
 <?php $this->start('main_content'); ?>
@@ -9,7 +9,7 @@ $this->layout('layout', ['title' => '$this->w_']);
   <div class="row">
     <div class="col-12">
       <p id="titleconnexion" class="policetitre"><?= $region['name']; ?></p><br>
-    
+
     </div>
   </div>
 
@@ -18,17 +18,7 @@ $this->layout('layout', ['title' => '$this->w_']);
     </div>
     <div class="col-10">
       <div class="card espacement_card">
-
-         <div class="card-header">
-          <div class="row">
-        <!--    <div class="col-9">
-              <p class="policejosefin">Le nom de la matière : <?php ?></p>
-            </div> -->
-        <!--    <div class="col-3">
-              <p class="policejosefin" style="text-align:right;">Date de création</p>
-            </div> -->
-
-          </div>
+        <div class="card-header">
         </div>
 
 
