@@ -45,10 +45,8 @@ $w_user['created_at']
           <li class="list-group-item"><?= 'Adresse: '.$adresse['num_rue'].' '.$adresse['nom_voie']; ?></li>
           <li class="list-group-item"><?= 'Code Postal: '.$adresse['code_postal']; ?></li>
           <li class="list-group-item"><?= 'Ville: '.$adresse['ville']; ?></li>
+          <li class= "list-group-item"><a href="<?= $this->url('users_adresse'); ?>">Modifier mes informations</a></li>
           <?php  } ?>
-          <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin', 'guest'])){ ?>
-            <li class= "list-group-item"><a href="<?php $this->url('users_adresse_update'); ?>">Modifier mes informations</a></li>
-          <?php } ?>
         </ul>
       </div>
     </div>
@@ -83,7 +81,6 @@ $w_user['created_at']
           <div class="row">
             <div class="col-12">
               <p id="titleconnexion" class="policetitre">à vous de jouer !</p>
-              <p id="titleconnexion" class="policetitre">Vos premiers pas en tant qu'invité !</p>
             </div>
           </div>
 </div>

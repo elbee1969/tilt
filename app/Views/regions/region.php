@@ -38,7 +38,7 @@ $this->layout('layout', ['title' => 'Enseignants disponibles']);
                             <p class="card-text">propose de vous enseigner la matière: '.$enseignant['name'].'<p>
                           </div>
                           <div class="col-2">
-                            <p style="text-align:right;"><a href="'. $this->url('messages_messages', ['id' => $msg['id_apprenant'], 'user_id' => $msg['id']]).'" class="btn btn-primary">Entrer en contact</a></p>
+                            <p style="text-align:right;"><a href="" class="btn btn-primary">Entrer en contact</a></p>
                           </div>
                         </div>
                       </div>
