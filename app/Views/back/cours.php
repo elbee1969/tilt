@@ -1,14 +1,12 @@
 <?php $this->layout('layoutback', ['title' => 'Cours']) ?>
 
 <?php $this->start('main_content') ?>
-
-<p>Hello</p>
 <div class="container-fluid">
 <div class="row">
 <div class="col-8 offset-md-2">
 <ul class="list-group">
 
-<h4>Liste des cours proposés</h4>
+<h4 style="margin-top:50px;">Liste des cours proposés</h4>
 <br>
 foreach
 

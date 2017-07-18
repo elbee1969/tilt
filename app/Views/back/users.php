@@ -2,13 +2,20 @@
 
 <?php $this->start('main_content') ?>
 
-<p>Hello</p>
 <div class="container-fluid">
 <div class="row">
 <div class="col-8 offset-md-2">
 <ul class="list-group">
 
-<h4>Liste des utilisateurs</h4>
+<?php
+
+$originalDate = $w_user['created_at'];
+$newDate = date("d/m/Y", strtotime($originalDate));
+
+?>
+
+
+<h4 style="margin-top:50px;">Liste des utilisateurs</h4>
 <br>
 
 

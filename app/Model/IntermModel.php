@@ -15,7 +15,7 @@ class IntermModel extends \W\Model\Model {
     $this->dbh = ConnectionModel::getDbh();
   }
 
-//methode pour trouver si l' utilisateur déjà inscrit à une matère
+//methode pour trouver si l' utilisateur déjà inscrit à une matère dans la table tilt_interm
   public function isInscript($id)
 {
   $sql ="SELECT * FROM tilt_interm WHERE user_id = $id";
@@ -37,9 +37,6 @@ $sql ="SELECT user_id FROM tilt_interm";
 
   //methode pour inserer dans la table interm les utilisateurs par région et par compétences
   public function insertInto($user_id,$region_id,$competences_id){
-
-
-
 
         $sql = "INSERT INTO tilt_interm ( user_id, regions_id, competences_id )
 								VALUES (:user_id, :region_id, :competences_id)";
