@@ -13,6 +13,7 @@ if(in_array($w_user['role'], ['apprenant', 'enseignant'])){
      <div class="row">
        <div class="col-4">
 <?php     echo '<p class="policetitre" style="margin-top:30px;"><a href="'. $this->url('tutorat_disponibilites', ['region_id' => $w_user['region_id'],'role' => $w_user['role']]).'">Voir les offres de formations</a></p>'; ?>
+
        </div>
        <div class="col-4">
 <?php      echo '<p class="policetitre" style="margin-top:30px;"><a href="'. $this->url('tutorat_cours').'">s\'inscrire à un cours</a></p>'; ?>
