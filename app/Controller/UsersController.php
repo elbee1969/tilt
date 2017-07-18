@@ -409,7 +409,7 @@ class UsersController extends TiltController {
         $loggedUser = $this->getUser();
         $adresse = $add->getUserAdresse($loggedUser['id']);
 
-        $this->show('Users/adresseupdate', array(
+        $this->show('users/adresseupdate', array(
           'nom' => $adresse['nom'],
           'prenom' => $adresse['prenom'],
           'num_rue' => $adresse['num_rue'],

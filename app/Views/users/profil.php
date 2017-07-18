@@ -7,7 +7,6 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
  $this->start('main_content'); ?>
 
 
-
 <div class"container-fluid">
   <div class="row">
     <div class="col-1">
@@ -29,7 +28,7 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
           <li class="list-group-item"><?= 'Inscrit le '.$w_user['created_at']; ?></li>
           <li class="list-group-item"><?= 'Région : '.$regionName['name']; ?></li>
 
-          <?php if(isset($adresse)) { ?>
+          <?php if(!empty($adresse)) { ?>
           <li class="list-group-item"><?= 'Nom: '.$adresse['nom']; ?></li>
           <li class="list-group-item"><?= 'Prénom: '.$adresse['prenom']; ?></li>
           <li class="list-group-item"><?= 'Adresse: '.$adresse['num_rue'].' '.$adresse['nom_voie']; ?></li>
@@ -37,7 +36,7 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
           <li class="list-group-item"><?= 'Ville: '.$adresse['ville']; ?></li>
           <?php  } ?>
           <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin', 'guest'])){ ?>
-            <li class= "list-group-item"><a href="<?php $this->url('users_adresse_update'); ?>">Modifier mes informations</a></li>
+            <li class= "list-group-item"><a href="<?= $this->url('users_adresse_update'); ?>">Modifier mes informations</a></li>
           <?php } ?>
         </ul>
       </div>
