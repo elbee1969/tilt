@@ -25,6 +25,7 @@ class IntermController extends TiltController
 
 		$model 	= new IntermModel();
 		$modelu = new UsersModel();
+		$user = $this->getUser();
 		//on verifie la présence d'enreg dans la table tilt_iterm
 		$inscrits = $model->isInscript($user_id);
 
@@ -33,8 +34,9 @@ class IntermController extends TiltController
 				$errors = array();
 				// echo $user_id;
 				// debug($_POST);
+				//debug($user);
 				// debug($inscrits);
-				// die();
+				//die();
 				//le post sera toujours égale à 1 car quand vide retourne la key btnsubmit
 				//donc si < 1 alors vide
 				if($a > 1){
@@ -53,12 +55,32 @@ class IntermController extends TiltController
 						// quand sera améliorer on affichera le noms des matières
 						$this->redirectToRoute('tutorat_cours', ['error' => $error]);
 					}else{
-						//on fait un parcours du post pour enreg les matères dans bdd
-						foreach ($_POST as $matiere => $value) {
-							if($value !== 'Suivre ces cours'){
-								$model->insertInto($user_id,$region_id,$value);
+
+						//test si apprenant ou enseignant
+						if($user['role'] == 'apprenant'){
+							//on fait un parcours du post pour enreg les matères dans bdd
+							foreach ($_POST as $matiere => $value) {
+								if($value !== 'Suivre des cours'){
+									$model->insertInto($user_id,$region_id,$value);
+								}
 							}
+						}else{
+
+							foreach ($_POST as $matiere => $value) {
+								if($value !== 'Donner des cours'){
+									$model->insertInto($user_id,$region_id,$value);
+								}
+							}
+
+
+
+
+
+
 						}
+
+
+
 					}
 				}else{
 

@@ -98,8 +98,10 @@ class TutoratController extends TiltController
 	public function disponibilites($region_id,$role){
 				$users 	= new UsersModel();
 				if($role == 'enseignant'){
+					//renvoi la liste des apprenants inscrits pour suivre un cours
 					$inscrits = $users->findApprenantsInRegionById($region_id);
 				}else{
+					//renvoi la liste des enseignants inscrits	pour donner un cours
 					$inscrits = $users->findEnseignantsInRegionById($region_id);
 				}
 
@@ -118,47 +120,52 @@ class TutoratController extends TiltController
 		$exist = new TutoratModel();
 		//verifier si un cours existe déjà dans la table tilt_tutorat
 		$coursExist = $exist->isBind($id_competences,$id_region,$id_connect,$id_distant);
-//$a = count($coursExist);
-echo '$coursExist : '.$coursExist['id_competence'];
-		var_dump($coursExist);
-		echo '<br>';
-		echo '$id_competences : '.$id_competences;
-		echo '<br>';
-		echo '$id_region : '.$id_region;
-		echo '<br>';
-		echo '$id_connect : '.$id_connect;
-		echo '<br>';
-		echo '$id_distant : '.$id_distant;
-		echo '<br>';
-		die();
+		//$a = count($coursExist);
+		// echo '$coursExist : '.$coursExist['id_competence'];
+		// var_dump($coursExist);
+		// echo '<br>';
+		// echo '$id_competences : '.$id_competences;
+		// echo '<br>';
+		// echo '$id_region : '.$id_region;
+		// echo '<br>';
+		// echo '$id_connect : '.$id_connect;
+		// echo '<br>';
+		// echo '$id_distant : '.$id_distant;
+		// echo '<br>';
+		// die();
 
-	if ($a == 1){
+		if (empty($coursExist)){
 
-	}
-		//enregistrement d'un cours dans la table titl_tutorat
-			if ($role_connect == 'enseignant'){
+			//enregistrement d'un cours dans la table titl_tutorat
+				if ($role_connect == 'enseignant'){
+
+							$data = array(
+								'id_competence'  => $id_competences,
+								'id_region'      => $id_region,
+								'id_enseignant'  => $id_connect,
+								'id_apprenant'   => $id_distant
+							);
+
+				}else{
+
 
 						$data = array(
 							'id_competence'  => $id_competences,
 							'id_region'      => $id_region,
-							'id_enseignant'  => $id_connect,
-							'id_apprenant'   => $id_distant
+							'id_enseignant'  => $id_distant,
+							'id_apprenant'   => $id_connect
 						);
 
-			}else{
+
+				}
 
 
-					$data = array(
-						'id_competence'  => $id_competences,
-						'id_region'      => $id_region,
-						'id_enseignant'  => $id_distant,
-						'id_apprenant'   => $id_connect
-					);
 
-
-			}
- 		$model->insert($data);
-		$this->redirectToRoute('tutorat_tutorat');
+	 		$model->insert($data);
+			$this->redirectToRoute('tutorat_tutorat');
+		}else{
+			$this->redirectToRoute('tutorat_disponibilites');
+		}
 	}//fin methode bindUsers
 
 
