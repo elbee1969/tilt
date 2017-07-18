@@ -80,11 +80,6 @@ class BackController extends TiltController
 	{
 
 
-
-
-
-
-
 	 $auth  = new AuthorizationModel();
 		if(!$auth->isGranted('admin')) {	$this->redirectToRoute('default_home');}
 		$this->show('back/cours');
