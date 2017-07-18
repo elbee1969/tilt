@@ -6,6 +6,15 @@ $this->layout('layout', ['title' => 'Recherche']);
 ?>
 
 
+
+
+
+
+
+
+
+
+
 <?php
 
  $this->stop('main_content'); ?>

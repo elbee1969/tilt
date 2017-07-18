@@ -7,6 +7,7 @@ use \Model\CompetencesModel;
 use \Model\MessagesModel;
 use \W\Security\AuthorizationModel;
 use \Model\IntermModel;
+use \Model\RegionsModel;
 
 class BackController extends TiltController
 {
@@ -26,30 +27,63 @@ class BackController extends TiltController
 		$nbmessages = new MessagesModel();
 		$countmessages = $nbmessages-> countMessages();
 
+		$nbmatieres = new CompetencesModel();
+		$countmatieres = $nbmatieres-> countMatieres();
+
 
 	 $auth  = new AuthorizationModel();
 
 		if(!$auth->isGranted('admin')) {	$this->redirectToRoute('default_home');}
 
-		$this->show('back/home', array('countcours'=> $countcours, 'countusers'=>$countusers, 'countmessages'=>$countmessages));
+		$this->show('back/home', array('countcours'=> $countcours, 'countusers'=>$countusers, 'countmessages'=>$countmessages, 'countmatieres'=>$countmatieres));
 	}
 
 	public function users()
 	{
 	 $auth  = new AuthorizationModel();
+	 $regionNamefromId = new RegionsModel();
+	 $user = $this->getUser();
+
+
+		$regionName = $regionNamefromId->findRegionName($user['region_id']);
+
+		$this->show('back/users', ['regionName' => $regionName]);
+	}
+
+
+	public function usersAction()
+	{
+		$userup = new UsersModel();
+		$auth  = new AuthorizationModel();
+		$regionNamefromId = new RegionsModel();
+		$user = $this->getUser();
+		$status = 0;
 
 		if(!$auth->isGranted('admin')) {	$this->redirectToRoute('default_home');}
 
-		$this->show('back/users');
+		$regionName = $regionNamefromId->findRegionName($user['region_id']);
+
+		$data = array(
+			'status' => $status,
+		);
+
+		$userup->update($data, $user['id']);
+
+		$this->show('back/users', $data);
 	}
 
 
 	public function cours()
 	{
+
+
+
+
+
+
+
 	 $auth  = new AuthorizationModel();
-
 		if(!$auth->isGranted('admin')) {	$this->redirectToRoute('default_home');}
-
 		$this->show('back/cours');
 	}
 
