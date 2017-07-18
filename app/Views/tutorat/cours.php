@@ -46,6 +46,8 @@ $this->layout('layout', ['title' => 'Cours']);
 
 </div>
 </div>
+
+FAIRE UN IF POUR L'ENSEIGNANT : -> DONNER DES COURS // 
   <p class="center" style="margin-top: 50px;"><input class="btn btn-primary btn-lg" type="submit" name="btnsubmit" value="Suivre ces cours"></p>
 </form>
 

@@ -29,7 +29,6 @@
 			</a>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12 col-md-6 col-xl-3">
-			<a href="localhost:1080" target="_blank">
 	<div class="panel orange">
 		<i class="fa fa-envelope fa-5x"></i>
 		<div class="textWrapper">
@@ -37,18 +36,15 @@
 			<div>messages échangés</div>
 		</div>
 	</div>
-			</a>
 		</div>
 		<div class="col-12 col-lg-6 col-sm-12 col-md-6 col-xl-3">
-			<a href="<?= $this->url('back_ameliorations'); ?>">
 			<div class="panel red">
 				<i class="fa fa-sticky-note fa-5x"></i>
 				<div class="textWrapper">
-					<div class="huge"><?php echo $countmessages ?></div>
+					<div class="huge"><?php echo $countmatieres ?></div>
 					<div>matières proposées</div>
 				</div>
 			</div>
-			</a>
 		</div>
 	</div>
 </div>
