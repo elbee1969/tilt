@@ -37,7 +37,7 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
           <li class="list-group-item"><?= 'Ville: '.$adresse[0]['ville']; ?></li>
           <?php  } ?>
           <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin', 'guest'])){ ?>
-            <li class= "list-group-item"><a href="<?php $this->url('users_adresse_update'); ?>">Modifier mes informations</a></li>
+            <li class= "list-group-item"><a href="<?= $this->url('users_adresse_update'); ?>">Modifier mes informations</a></li>
           <?php } ?>
         </ul>
       </div>
