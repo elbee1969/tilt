@@ -35,7 +35,7 @@ class CompetencesController extends TiltController
 																					));
  	}//fin methode cours
 
-	
+
 
 
 }// fin class CompetencesController
