@@ -10,9 +10,9 @@ $this->layout('layout', ['title' => 'Disponibilités']);
     <div class="col-12"> <?php
 
       if($w_user['role'] == 'enseignant'){ ?>
-        <p id="titleconnexion" class="policetitre">Listes des apprenants disponibles</p>
+        <p id="titleconnexion" class="policetitre">Liste des apprenants disponibles</p>
 <?php   }else{ ?>
-  <p id="titleconnexion" class="policetitre">Listes des enseignants disponibles</p>
+  <p id="titleconnexion" class="policetitre">Listes de enseignants disponibles</p>
 
 <?php   } ?>
 

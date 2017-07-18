@@ -72,9 +72,6 @@
 								</li>
 							</ul>
 						<?php } ?>
-
-			      <input class="form-control mr-sm-2" type="text" placeholder="Compétences, régions ..."></input>
-						<input class="btn btn-outline-success my-2 my-sm-0 fa fa-search" aria-hidden="true" type="submit" value="&#9906;"></input>
 			    </form>
 			  </div>
 			</nav>
