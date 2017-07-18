@@ -14,6 +14,8 @@ $this->layout('layout', ['title' => 'Cours']);
   </div>
 </div>
 
+<?php if(!empty($error)) {echo '<div style="color:red">'.$error.'</div>'; } ?>
+
 <form class="" action="<?= $this->url('tutorat_cours_action', ['user_id' => $w_user['id'], 'region_id' => $w_user['region_id']]); ?>" method="post">
 
   <?php
