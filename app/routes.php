@@ -19,7 +19,8 @@
 
 		['GET','/disponibilites/[i:region_id]/[:role]', 'Tutorat#disponibilites','tutorat_disponibilites'],
 
-		['GET','/disponibilites', 'Tutorat#associer','tutorat_disponibilites_action'],
+		['GET','/disponibilites/[i:id_competences]/[i:id_region]/[i:id_connect]/[i:id_distant]/[:role_connect]', 'Tutorat#bindUsers','tutorat_disponibilites_action'],
+
 
 		['GET', '/messages/[i:id]/[i:user_id]', 'Messages#messages', 'messages_messages'],
 		['GET', '/messages/messages/[i:id]/[i:status]/[i:ori]/[i:id_r]/[i:id_e]', 'Messages#messageSup', 'messages_messages_sup'],
