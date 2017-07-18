@@ -11,10 +11,14 @@ min-height: 100%;
 }
 
 
-footer {
-	border-top: 2px solid #bdbdbd;
-	margin-top: 100px;
+
+#footericon {
+  margin-top: 100px;
+  width: 160px;
+  height: 120px;
+  margin-bottom: -1px;
 }
+
 
 .bold {
   font-weight: bold;
@@ -46,7 +50,7 @@ animation-duration: 2s;
 #logo_footer {
   font-size: 2em;
   font-family: 'Pacifico', cursive;
-	color: black;
+	color: white;
 	margin-bottom: 0px;
 }
 
@@ -223,7 +227,7 @@ margin-top: 50px;
 .fa-facebook {
 	margin-top: 30px;
 	margin-right: 20px;
-	color :#3f51b5
+	color : white;
 }
 
 .fa-facebook:hover {
@@ -235,7 +239,7 @@ margin-top: 50px;
 .fa-twitter {
 	margin-top: 30px;
 	margin-left: 20px;
-	color :#3f51b5
+	color : white;
 }
 
 .fa-twitter:hover {
