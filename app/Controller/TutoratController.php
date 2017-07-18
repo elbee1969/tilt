@@ -26,21 +26,6 @@ class TutoratController extends TiltController
 		$modelregion = new RegionsModel();
 		//recupératuin du user connecté
 		$user = $this->getUser();
-		//echo '<br><br><br><br><br><br><br><br><br><br><br><br>user id : '.$user['id'].' region : '.$user['region_id'];
-		//debug($user);
-		//debug($GLOBALS);
-		// if(isset($user_id)){
-		// 	echo '<p>$user_id :</p>';
-		// 	echo $user_id;
-		// }
-		// if(isset($region_id)){
-		// echo '<p>$region_id :</p>';
-		// echo $region_id;
-		// }
-		// echo '<p>post:</p>';
-		// debug($_POST);
-		// echo '<br><p>get:</p>';
-		// debug($_GET);
 		// récupération de la région du user connecté
 		$region = $modelregion->findRegionName($user['region_id']);
 
@@ -62,7 +47,7 @@ class TutoratController extends TiltController
 				if(in_array($user['role'], ['apprenant', 'enseignant'])){
 //si enseignant renvoi la liste des messages de ses apprenants:
 					  if(in_array($user['role'], ['enseignant'])){
-							//debug($apprenants);
+							//debug($inscrits);
 							$this->show('tutorat/tutorat', array(
 								'msgapprenants' => $msgapprenants//,
 								// 'user'			 =>	$user,
@@ -113,20 +98,73 @@ class TutoratController extends TiltController
 	public function disponibilites($region_id,$role){
 				$users 	= new UsersModel();
 				if($role == 'enseignant'){
-					$apprenants = $users->findApprenantsInRegionById($region_id);
+					$inscrits = $users->findApprenantsInRegionById($region_id);
 				}else{
-					$apprenants = $users->findEnseignantsInRegionById($region_id);
+					$inscrits = $users->findEnseignantsInRegionById($region_id);
 				}
 
 				$this->show('tutorat/disponibilites', array(
-																								'apprenants'  => $apprenants
+																								'inscrits'  => $inscrits
 																							));
 
 	}//fin methode disponibilites
 
-	//methode pour associer enseignants et apprenants
-	public function associer(){
+	//methode pour associer enseignants et apprenants dans table tilt_tutorat
+	public function bindUsers($id_competences,$id_region,$id_connect,$id_distant,$role_connect){
+		$model = new TutoratModel();
+		$exist = new TutoratModel();
+		//$a = $exist->isBind($id_competences,$id_connect,$id_distant);
 
-	}//fin methode associer
+			if ($role_connect == 'enseignant'){
+
+						$data = array(
+							'id_competence'  => $id_competences,
+							'id_region'      => $id_region,
+							'id_enseignant'  => $id_connect,
+							'id_apprenant'   => $id_distant
+						);
+
+			}else{
+
+
+					$data = array(
+						'id_competence'  => $id_competences,
+						'id_region'      => $id_region,
+						'id_enseignant'  => $id_distant,
+						'id_apprenant'   => $id_connect
+					);
+
+
+			}
+ 		$model->insert($data);
+		$this->redirectToRoute('tutorat_tutorat');
+	}//fin methode bindUsers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }//fin class TutoratController
