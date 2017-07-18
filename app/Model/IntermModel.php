@@ -4,6 +4,7 @@ namespace Model;
 
 use \W\Model\Model;
 use \W\Model\ConnectionModel;
+use \TutoratModel;
 use \W\Model\UsersModel as WUsersModel;
 use \W\Security\AuthentificationModel;
 
@@ -27,7 +28,7 @@ class IntermModel extends \W\Model\Model {
 
 public function countCours()
 {
-$sql ="SELECT user_id FROM tilt_interm";
+$sql ="SELECT id FROM tilt_tutorat";
         $sth = $this->dbh->prepare($sql);
         $sth->execute();
         $result = $sth->fetchAll();
