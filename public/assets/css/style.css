@@ -1,6 +1,6 @@
 
 html,body{
-  height:100% !important;
+  min-height:100% !important;
   margin:0;
   padding:0;
 }
@@ -13,7 +13,7 @@ min-height: 100%;
 
 
 #footericon {
-  margin-top: 100px;
+  margin-top: 14%;
   width: 160px;
   height: 120px;
   margin-bottom: -1px;
@@ -42,6 +42,9 @@ animation-duration: 2s;
 	color: white;
 }
 
+footer {
+  bottom: 0;
+}
 
 #bntnewpassword {
 	margin-top: 20px;

@@ -4,7 +4,17 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
 
 
 
- $this->start('main_content'); ?>
+ $this->start('main_content');
+
+
+ $originalDate = $w_user['created_at'];
+ $newDate = date("d/m/Y", strtotime($originalDate));
+
+
+$w_user['created_at']
+
+ ?>
+
 
 
 
@@ -26,7 +36,7 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
       </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><?= $w_user['email']; ?></li>
-          <li class="list-group-item"><?= 'Inscrit le '.$w_user['created_at']; ?></li>
+          <li class="list-group-item"><?= 'Inscrit le '.$newDate; ?></li>
           <li class="list-group-item"><?= 'Région : '.$regionName['name']; ?></li>
 
           <?php if(isset($adresse[0])) { ?>
