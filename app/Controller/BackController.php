@@ -42,44 +42,42 @@ class BackController extends TiltController
 	{
 	 $auth  = new AuthorizationModel();
 	 $regionNamefromId = new RegionsModel();
+	 $userup = new UsersModel();
 	 $user = $this->getUser();
+	 $allUser = $userup->allUser();
 
 
-		$regionName = $regionNamefromId->findRegionName($user['region_id']);
 
-		$this->show('back/users', ['regionName' => $regionName]);
+
+
+		$this->show('back/users', ['allUser' => $allUser]);
 	}
 
 
-	public function usersAction()
-	{
-		$userup = new UsersModel();
-		$auth  = new AuthorizationModel();
-		$regionNamefromId = new RegionsModel();
-		$user = $this->getUser();
-		$status = 0;
-
-		if(!$auth->isGranted('admin')) {	$this->redirectToRoute('default_home');}
-
-		$regionName = $regionNamefromId->findRegionName($user['region_id']);
-
-		$data = array(
-			'status' => $status,
-		);
-
-		$userup->update($data, $user['id']);
-
-		$this->show('back/users', $data);
-	}
+	// public function usersAction()
+	// {
+	// 	$userup = new UsersModel();
+	// 	$auth  = new AuthorizationModel();
+	// 	$regionNamefromId = new RegionsModel();
+	// 	$user = $this->getUser();
+	// 	$status = 0;
+	//
+	// 	if(!$auth->isGranted('admin')) {	$this->redirectToRoute('default_home');}
+	//
+	//
+	//
+	// 	$data = array(
+	// 		'status' => $status,
+	// 	);
+	//
+	// 	$userup->update($data, $user['id']);
+	//
+	// 	$this->show('back/users', $data);
+	// }
 
 
 	public function cours()
 	{
-
-
-
-
-
 
 
 	 $auth  = new AuthorizationModel();

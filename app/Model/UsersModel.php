@@ -161,6 +161,16 @@ class UsersModel extends  WUsersModel
           return count($result);
   }
 
+  public function allUser()
+  {
+    $sql ="SELECT pseudo, created_at, status, email, id FROM tilt_user";
+            $sth = $this->dbh->prepare($sql);
+            $sth->execute();
+            $result = $sth->fetchAll();
+
+            return $result;
+  }
+
 
 
 
