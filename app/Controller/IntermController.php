@@ -29,20 +29,6 @@ class IntermController extends TiltController
 		//debug($inscrits); //renvoie un array associatif avec toutes les lignes de la table interm où l'utilisateur apparaît
 		//debug($_POST); //renvoie un array avec en clé le nom de la matière qui a été cochée et en valeur la competences_id
 
-<<<<<<< HEAD
-				//compter le nombre de ligne du post
-				$a = count($_POST);
-				$errors = array();
-				// echo $user_id;
-				// debug($_POST);
-				//debug($user);
-				// debug($inscrits);
-				//die();
-				//le post sera toujours égale à 1 car quand vide retourne la key btnsubmit
-				//donc si < 1 alors vide
-				if($a > 1){
-					//on parcours le post pour recupérer les id des matières
-=======
 		//compter le nombre de ligne du post
 		$countPost = count($_POST);
 
@@ -52,7 +38,6 @@ class IntermController extends TiltController
 		//donc si =< 1 c'est qu'aucune checkbox n'a été cochée
 		if($countPost > 1){
 					//on parcourt le post pour recupérer les id des matières
->>>>>>> 6faa2c3d6da1d8315df5fdf42e063e9b653aad22
 					foreach ($_POST as $matiere => $value) {
 						//on parcourt la table tilt_interm et on vérifie pour éviter les doublons
 						foreach ($inscrits as $inscrit ) {
@@ -64,27 +49,6 @@ class IntermController extends TiltController
 					}
 
 					if (!empty($errors)){
-<<<<<<< HEAD
-						$errors = 'vous êtes déjà inscript à une ou des matière(s) selectionnée(s)';
-						// quand sera améliorer on affichera le noms des matières
-						$this->redirectToRoute('tutorat_cours', ['error' => $error]);
-					}else{
-
-						//test si apprenant ou enseignant
-						if($user['role'] == 'apprenant'){
-							//on fait un parcours du post pour enreg les matères dans bdd
-							foreach ($_POST as $matiere => $value) {
-								if($value !== 'Suivre des cours'){
-									$model->insertInto($user_id,$region_id,$value);
-								}
-							}
-						}else{
-
-							foreach ($_POST as $matiere => $value) {
-								if($value !== 'Donner des cours'){
-									$model->insertInto($user_id,$region_id,$value);
-								}
-=======
 						//message d'erreur à afficher quand une checkbox cochée fait déjà partie des matières dans lesquelles le user est inscrit
 						$error = 'vous êtes déjà inscript à une ou des matière(s) selectionnée(s)';
 						//sera à améliorer pour afficher de façon détaillée le noms des matières
@@ -107,19 +71,24 @@ class IntermController extends TiltController
 																								'cat'					=> $cat));
 
 						} else {
-						//on fait un parcours du post pour enreg les matères dans bdd
-						foreach ($_POST as $matiere => $value) {
-							if($value !== 'Suivre ces cours'){
-								$model->insertInto($user_id,$region_id,$value);
->>>>>>> 6faa2c3d6da1d8315df5fdf42e063e9b653aad22
+
+
+							//test si apprenant ou enseignant
+							if($user['role'] == 'apprenant'){
+								//on fait un parcours du post pour enreg les matères dans bdd
+								foreach ($_POST as $matiere => $value) {
+									if($value !== 'Suivre des cours'){
+										$model->insertInto($user_id,$region_id,$value);
+									}
+								}
+							}else{
+
+								foreach ($_POST as $matiere => $value) {
+									if($value !== 'Donner des cours'){
+										$model->insertInto($user_id,$region_id,$value);
+									}
+								}
 							}
-
-
-
-
-
-
-						}
 
 
 
