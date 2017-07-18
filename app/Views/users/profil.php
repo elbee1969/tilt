@@ -37,7 +37,7 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
           <li class="list-group-item"><?= 'Ville: '.$adresse[0]['ville']; ?></li>
           <?php  } ?>
           <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin', 'guest'])){ ?>
-          <li class="list-group-item"><a href="<?= $this->url('users_adresse_update'); ?>">Modifier mes informations</a></li>
+            <li class= "list-group-item"><a href="<?php $this->url('users_adresse_update'); ?>">Modifier mes informations</a></li>
           <?php } ?>
         </ul>
       </div>
@@ -73,6 +73,7 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
           <div class="row">
             <div class="col-12">
               <p id="titleconnexion" class="policetitre">à vous de jouer !</p>
+              <p id="titleconnexion" class="policetitre">Vos premiers pas en tant qu'invité !</p>
             </div>
           </div>
 </div>
@@ -83,23 +84,25 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
         <div class="col-md-6 col-12">
 <br>
           <p class="policejosefin center" >Transmettre son savoir faire</p><br>
-          <p class="center">Vous désirez <b>transmettre</b> votre Savoir ? Sélectionnez nos matières référencées et partagez vos compétences & connaissances.</p><br>
-          <p class="center" id="profilcours"><a href="<?= $this->url('users_inscrenseignant'); ?>"><button type="button" class="btn btn-primary btn-lg">Donner un cours</button></a></p>
+          <p>Vous désirez <b>transmettre</b> votre Savoir, cliquez sur le bouton <b>"Donner un cours"</b> ci-dessous ! Vous obtiendrez ainsi, un status d'enseignant "Tilter" dans votre région. Ceci qui vous permettra de proposer votre savoir parmis nos matières référencées ou bien d'en proposer de nouvelles qui vous correspondent...</p>
         </div>
         <div class="col-md-6 col-12">
 <br>
           <p class="policejosefin center" >Aquerir de nouvelles compétences</p><br>
-          <p class="center">Vous avez soif d'<b>apprendre</b> de nouvelles compétences/connaissances ? Entrez en contact avec les enseignants "Tilter" de votre région.</p><br>
-          <p class="center" id="profilcours"><a href="<?= $this->url('users_inscrapprenant'); ?>"><button type="button" class="btn btn-primary btn-lg">Suivre un cours</button></a></p>
+          <p>Vous avez soif d'<b>apprendre</b>, cliquez sur le  bouton <b>"Suivre un cours"</b> ci-dessous.
+          Vous pourrez, alors en tant qu'apprenant "Tilter", vous mettre en contact avec des enseignants "Tilter" de votre région.<br>
+          Si vous ne trouvez pas votre bonheur ... pas de soucis, proposez votre recherche ! Après validation de notre part, nous la proposerons en ligne afin de trouver l'enseignant "Tilter" adéquat !</p>
         </div>
 
       <?php }
 
       if (in_array($w_user['role'], ['guest', 'admin'])) { ?>
         <div class="col-6">
+          <p class="center" id="profilcours"><a href="<?= $this->url('users_inscrenseignant'); ?>"><button type="button" class="btn btn-primary btn-lg">Donner un cours</button></a></p>
 
         </div>
         <div class="col-6">
+          <p class="center" id="profilcours"><a href="<?= $this->url('users_inscrapprenant'); ?>"><button type="button" class="btn btn-primary btn-lg">Suivre un cours</button></a></p>
 
         </div>
     <?php } elseif ($w_user['role'] == 'apprenant') { ?>
