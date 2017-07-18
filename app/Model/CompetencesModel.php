@@ -20,7 +20,6 @@ class CompetencesModel extends \W\Model\Model {
     $sql = "SELECT name
             FROM tilt_competences
             WHERE general = :cat";
-
             $sth = $this->dbh->prepare($sql);
             $sth->bindValue(':cat',$iconcategory);
             $sth->execute();
@@ -30,5 +29,17 @@ class CompetencesModel extends \W\Model\Model {
             return $result;
 
   } //ferme la méthode findCompetencesFromCategory
+
+  public function countMatieres()
+  {
+  $sql ="SELECT id FROM tilt_competences";
+          $sth = $this->dbh->prepare($sql);
+          $sth->execute();
+          $result = $sth->fetchAll();
+          return count($result);
+  }
+
+
+
 
 } //ferme la classe CompetencesModel

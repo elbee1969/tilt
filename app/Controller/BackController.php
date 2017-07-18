@@ -26,30 +26,41 @@ class BackController extends TiltController
 		$nbmessages = new MessagesModel();
 		$countmessages = $nbmessages-> countMessages();
 
+		$nbmatieres = new CompetencesModel();
+		$countmatieres = $nbmatieres-> countMatieres();
+
 
 	 $auth  = new AuthorizationModel();
 
 		if(!$auth->isGranted('admin')) {	$this->redirectToRoute('default_home');}
 
-		$this->show('back/home', array('countcours'=> $countcours, 'countusers'=>$countusers, 'countmessages'=>$countmessages));
+		$this->show('back/home', array('countcours'=> $countcours, 'countusers'=>$countusers, 'countmessages'=>$countmessages, 'countmatieres'=>$countmatieres));
 	}
 
 	public function users()
 	{
+
+
+
+
+
 	 $auth  = new AuthorizationModel();
-
 		if(!$auth->isGranted('admin')) {	$this->redirectToRoute('default_home');}
-
 		$this->show('back/users');
 	}
 
 
 	public function cours()
 	{
+
+
+
+
+
+
+
 	 $auth  = new AuthorizationModel();
-
 		if(!$auth->isGranted('admin')) {	$this->redirectToRoute('default_home');}
-
 		$this->show('back/cours');
 	}
 

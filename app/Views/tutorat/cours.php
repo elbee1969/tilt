@@ -46,9 +46,19 @@ $this->layout('layout', ['title' => 'Cours']);
 
 </div>
 </div>
-  <p class="center" style="margin-top: 50px;"><input class="btn btn-primary btn-lg" type="submit" name="btnsubmit" value="Suivre ces cours"></p>
+
+FAIRE UN IF POUR L'ENSEIGNANT : -> DONNER DES COURS //
+<?php
+ if(in_array($w_user['role'], ['apprenant'])){
+?>
+  <p class="center" style="margin-top: 50px;"><input class="btn btn-primary btn-lg" type="submit" name="btnsubmit" value="Suivre des cours"></p>
 </form>
 
+<?php } else { ?>
+
+  <p class="center" style="margin-top: 50px;"><input class="btn btn-primary btn-lg" type="submit" name="btnsubmit" value="Donner des cours"></p>
+
+<?php }
 
 
-<?php $this->stop('main_content'); ?>
+ $this->stop('main_content'); ?>

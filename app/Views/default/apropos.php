@@ -15,16 +15,16 @@ $this->layout('layout', ['title' => 'A propos']);
 
   <div class="row" style="margin-bottom:12%; margin-top:10%">
     <div class="col-12 col-md-4 col-lg-4 col-xl-4">
-      <p class="count center chiffresapropos">853</p>
+      <p class="count center chiffresapropos"><?php echo $countusers ?></p>
       <p class="center policejosefin" ><b>tilters dans toute la France</b></p>
     </div>
     <div class="col-12 col-md-4 col-lg-4 col-xl-4">
-      <p class="count center chiffresapropos">50</p>
-      <p class="center policejosefin" ><b>inscriptions par jour environ</b></p>
+      <p class="count center chiffresapropos"><?php echo $countcours ?></p>
+      <p class="center policejosefin" ><b>cours suivis</b></p>
     </div>
     <div class="col-12 col-md-4 col-lg-4 col-xl-4">
-      <p class="center"><span class="count chiffresapropos">97</span><span class=" chiffresapropos">%</span></p>
-      <p class="center policejosefin" ><b>de Tilters satisfaits </b></p>
+      <p class="center"><span class="count chiffresapropos"><?php echo $countmessages ?></span></p>
+      <p class="center policejosefin" ><b>messages échangés </b></p>
     </div>
   </div>
 
