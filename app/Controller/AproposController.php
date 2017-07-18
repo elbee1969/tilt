@@ -7,6 +7,7 @@ use \Model\MessagesModel;
 use \W\Security\AuthorizationModel;
 use \Model\IntermModel;
 use \Model\UsersModel;
+use \Model\TutoratModel;
 use \Model\CompetencesModel;
 
 class AproposController extends TiltController
