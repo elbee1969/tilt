@@ -19,7 +19,6 @@ $this->layout('layout', ['title' => 'Disponibilités']);
     </div>
   </div>
 </div>
-
 <div class="row">
   <div class="col-8 offset-md-2">
     <ul class="list-group">
@@ -51,6 +50,7 @@ $this->layout('layout', ['title' => 'Disponibilités']);
     </ul>
   </div>
 </div>
+<?php if(!empty($error)) {echo '<div style="color:red">'.$error.'</div>'; } ?>
 <?php
 // debug($w_user);
 // debug($inscrits);

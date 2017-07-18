@@ -116,11 +116,12 @@ class TutoratController extends TiltController
 
 	//methode pour associer enseignants et apprenants dans table tilt_tutorat
 	public function bindUsers($id_competences,$id_region,$id_connect,$id_distant,$role_connect){
-		$model = new TutoratModel();
+
 		$exist = new TutoratModel();
+		$model = new TutoratModel();
 		//verifier si un cours existe déjà dans la table tilt_tutorat
 		$coursExist = $exist->isBind($id_competences,$id_region,$id_connect,$id_distant);
-		//$a = count($coursExist);
+		// $a = count($coursExist);
 		// echo '$coursExist : '.$coursExist['id_competence'];
 		// var_dump($coursExist);
 		// echo '<br>';
@@ -134,8 +135,9 @@ class TutoratController extends TiltController
 		// echo '<br>';
 		// die();
 
+		// si pas de cours déjà créer alors craetion du cours ds bdd tilt_tutorat
 		if (empty($coursExist)){
-
+			$dateNow = new \DateTime;
 			//enregistrement d'un cours dans la table titl_tutorat
 				if ($role_connect == 'enseignant'){
 
@@ -143,28 +145,43 @@ class TutoratController extends TiltController
 								'id_competence'  => $id_competences,
 								'id_region'      => $id_region,
 								'id_enseignant'  => $id_connect,
-								'id_apprenant'   => $id_distant
+								'id_apprenant'   => $id_distant,
+								'created_at'		 => $dateNow->format('Y-m-d H:i:s'),
+								'status'				 =>	1,
 							);
-
 				}else{
-
-
 						$data = array(
 							'id_competence'  => $id_competences,
 							'id_region'      => $id_region,
 							'id_enseignant'  => $id_distant,
-							'id_apprenant'   => $id_connect
+							'id_apprenant'   => $id_connect,
+							'created_at'		 => $dateNow->format('Y-m-d H:i:s'),
+							'status'				 =>	1,
 						);
-
-
 				}
-
-
 
 	 		$model->insert($data);
 			$this->redirectToRoute('tutorat_tutorat');
 		}else{
-			$this->redirectToRoute('tutorat_disponibilites');
+			$users 	= new UsersModel();
+				$user = $this->getUser();
+				$role = $user['role'];
+			//si cours déjà créer on affiche l'erreur
+			$error = 'Vous participé déjà à ce cours  !';
+			//$users 	= new UsersModel();
+			if($role == 'enseignant'){
+				//renvoi la liste des apprenants inscrits pour suivre un cours
+				$inscrits = $users->findApprenantsInRegionById($id_region);
+			}else{
+				//renvoi la liste des enseignants inscrits	pour donner un cours
+				$inscrits = $users->findEnseignantsInRegionById($id_region);
+			}
+
+			$this->show('tutorat/disponibilites', array(
+																							'inscrits'  => $inscrits,
+																							'$error'		=> $error
+																						));
+
 		}
 	}//fin methode bindUsers
 
