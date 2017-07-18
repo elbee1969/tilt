@@ -109,12 +109,33 @@ class TutoratController extends TiltController
 
 	}//fin methode disponibilites
 
+
+
+
 	//methode pour associer enseignants et apprenants dans table tilt_tutorat
 	public function bindUsers($id_competences,$id_region,$id_connect,$id_distant,$role_connect){
 		$model = new TutoratModel();
 		$exist = new TutoratModel();
-		//$a = $exist->isBind($id_competences,$id_connect,$id_distant);
+		//verifier si un cours existe déjà dans la table tilt_tutorat
+		$coursExist = $exist->isBind($id_competences,$id_region,$id_connect,$id_distant);
+//$a = count($coursExist);
+echo '$coursExist : '.$coursExist['id_competence'];
+		var_dump($coursExist);
+		echo '<br>';
+		echo '$id_competences : '.$id_competences;
+		echo '<br>';
+		echo '$id_region : '.$id_region;
+		echo '<br>';
+		echo '$id_connect : '.$id_connect;
+		echo '<br>';
+		echo '$id_distant : '.$id_distant;
+		echo '<br>';
+		die();
 
+	if ($a == 1){
+
+	}
+		//enregistrement d'un cours dans la table titl_tutorat
 			if ($role_connect == 'enseignant'){
 
 						$data = array(
