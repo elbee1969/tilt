@@ -38,8 +38,6 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
           <?php  } ?>
           <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin', 'guest'])){ ?>
             <li class= "list-group-item"><a href="<?php $this->url('users_adresse_update'); ?>">Modifier mes informations</a></li>
-            <li class= "list-group-item"><a href="<?php $this->url('users_adresseupdate'); ?>">Modifier mes informations</a></li>
-          <li class= "list-group-item"><a href="<?php $this->url('users_adresseupdate'); ?>">Modifier mes informations</a></li>
           <?php } ?>
         </ul>
       </div>

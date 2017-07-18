@@ -11,11 +11,22 @@
 <h4>Liste des utilisateurs</h4>
 <br>
 foreach
-
+<?php if ($w_user['status'] == 1) { ?>
   <li class="list-group-item justify-content-between">
-    <b><span>Pseudo :</span></b>  <b><span>Région : </span></b> <b><span>inscrit le : </span></b>
-    <span class="badge badge-default badge-pill"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></span>
+    <b><span><?= $w_user['pseudo']; ?></span></b><b><span><?= $regionName['name']; ?></span></b> <b><span><?= $w_user['created_at']; ?></span></b>
+    <form class="delete" action="" method="post">
+      <span><input class="btn btn-primary btn-lg btn-block" type="submit" name="btnSubmit" value="&#10006;"/></span>
+    </form>
   </li>
+<?php } else { ?>
+  <li class="list-group-item justify-content-between">
+    <b><span>Pseudo : </span></b><b><span>Région : </span></b> <b><span>Date d'inscription :</span></b>
+    <form class="delete" action="" method="post">
+      <span><input class="btn btn-primary btn-lg btn-block" type="submit" name="btnSubmit" value="&#10006;"/></span>
+    </form>
+  </li>
+<?php } ?>
+
 </ul>
 </div>
 </div>

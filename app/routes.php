@@ -61,6 +61,7 @@
 
 		['GET', '/backoffice', 'Back#home', 'back_home'],
 		['GET', '/backoffice/utilisateurs', 'back#users', 'back_users'],
+		['POST', '/backoffice/utilisateurs', 'back#usersAction', 'back_users_action'],
 		['GET', '/backoffice/support', 'back#support', 'back_support'],
 		['GET', '/backoffice/cours', 'back#cours', 'back_cours'],
 		['GET', '/backoffice/messages', 'back#messages', 'back_messages'],
