@@ -4,7 +4,16 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
 
 
 
- $this->start('main_content'); ?>
+ $this->start('main_content');
+
+
+ $originalDate = $w_user['created_at'];
+ $newDate = date("d/m/Y", strtotime($originalDate));
+
+
+$w_user['created_at']
+
+ ?>
 
 
 
@@ -26,18 +35,19 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
       </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><?= $w_user['email']; ?></li>
-          <li class="list-group-item"><?= 'Inscrit le '.$w_user['created_at']; ?></li>
+          <li class="list-group-item"><?= 'Inscrit le '.$newDate; ?></li>
           <li class="list-group-item"><?= 'Région : '.$regionName['name']; ?></li>
 
-          <?php if(isset($adresse[0])) { ?>
-          <li class="list-group-item"><?= 'Nom: '.$adresse[0]['nom']; ?></li>
-          <li class="list-group-item"><?= 'Prénom: '.$adresse[0]['prenom']; ?></li>
-          <li class="list-group-item"><?= 'Adresse: '.$adresse[0]['num_rue'].' '.$adresse[0]['nom_voie']; ?></li>
-          <li class="list-group-item"><?= 'Code Postal: '.$adresse[0]['code_postal']; ?></li>
-          <li class="list-group-item"><?= 'Ville: '.$adresse[0]['ville']; ?></li>
+          <?php if(!empty($adresse)) { ?>
+          <li class="list-group-item"><?= 'Nom: '.$adresse['nom']; ?></li>
+          <li class="list-group-item"><?= 'Prénom: '.$adresse['prenom']; ?></li>
+          <li class="list-group-item"><?= 'Adresse: '.$adresse['num_rue'].' '.$adresse['nom_voie']; ?></li>
+          <li class="list-group-item"><?= 'Code Postal: '.$adresse['code_postal']; ?></li>
+          <li class="list-group-item"><?= 'Ville: '.$adresse['ville']; ?></li>
+          <li class= "list-group-item"><a href="<?= $this->url('users_adresse'); ?>">Modifier mes informations</a></li>
           <?php  } ?>
           <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin', 'guest'])){ ?>
-            <li class= "list-group-item"><a href="<?php $this->url('users_adresse_update'); ?>">Modifier mes informations</a></li>
+            <li class= "list-group-item"><a href="<?= $this->url('users_adresse_update'); ?>">Modifier mes informations</a></li>
           <?php } ?>
         </ul>
       </div>
@@ -73,7 +83,6 @@ $this->layout('layout', ['title' => 'profil de '.$w_user['pseudo']]);
           <div class="row">
             <div class="col-12">
               <p id="titleconnexion" class="policetitre">à vous de jouer !</p>
-              <p id="titleconnexion" class="policetitre">Vos premiers pas en tant qu'invité !</p>
             </div>
           </div>
 </div>
