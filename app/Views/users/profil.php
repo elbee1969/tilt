@@ -60,12 +60,13 @@ $w_user['created_at']
           <div class="row">
             <div class="col-12 col-md-6 col-xl-6 col-sm-6">
             <p class="center"><b>Cours suivis</b></p>
-            if cours suivi = 0 ->  echo "Vous n'avez pas encore suivi de cours" + lien suivre un cours (renvoi vers région)| else : Affiche les cours suivis + Suivre un nouveau cours
+            <!-- if cours suivi = 0 ->  echo "Vous n'avez pas encore suivi de cours" + lien suivre un cours (renvoi vers région)| else : Affiche les cours suivis + Suivre un nouveau cours -->
+            Fonctionnalité à implémenter: affichage des cours suivis ou lien vers "suivre un cours" dans la région de l'utilisateur
             </div>
             <div class="col-12 col-md-6 col-xl-6 col-sm-6">
             <p class="center"><b>Cours donnés</b></p>
-
-            if cours donné = 0 ->  echo "Vous n'avez pas encore donné de cours" + lien donner un cours (renvoi vers région)| else : Affiche les cours donnés + donner un nouveau cours
+            <!-- if cours donné = 0 ->  echo "Vous n'avez pas encore donné de cours" + lien donner un cours (renvoi vers région)| else : Affiche les cours donnés + donner un nouveau cours-->
+            Fonctionnalité à implémenter: affichage des cours donnés ou lien vers "donner un cours" dans la région de l'utilisateur 
             </div>
           </div>
           <div class="row">

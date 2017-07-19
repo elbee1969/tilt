@@ -44,7 +44,9 @@ $this->layout('layout', ['title' => 'Enseignants disponibles']);
                       </div>
                       </div>';
                   }
-                } ?>
+                } else {
+                  echo 'Il n\'y a pas encore d\'enseignants en '.$region['name'].', revenez nous voir bientôt!';
+                }?>
 
       </div>
     </div>
