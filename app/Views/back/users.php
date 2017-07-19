@@ -20,11 +20,30 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
 
   <?php foreach ($allUser as $user) {
-    echo '<li class="list-group-item justify-content-between">
-    <b><span> '. $user['pseudo']. ' </span></b><b><span> '. $user['email']. ' </span></b> <b><span> '. $user['created_at']. ' </span></b>
-    <form class="delete" action="" method="post">
-      <span><input class="btn btn-primary btn-lg btn-block" type="submit" name="btnSubmit" value="&#10006;"/></span>
+      echo '<li class="list-group-item">
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+<b><span> '. $user['pseudo']. ' </span></b>
+    </div>
+    <div class="col-4">
+<b><span> '. $user['email']. ' </span></b>
+    </div>
+    <div class="col-4">
+<b><span> '. $user['created_at']. ' </span></b>
+    </div>
+    <div class="col-1">
     </form>
+    <form class="delete" action="" method="post">
+    <span><input class="btn btn-primary btn-lg btn-block" type="submit" name="btnSubmit" value="&#10006;"/></span>
+    </div>
+
+  </div>
+
+</div>
+
+
+
     </li> ';
   } ?>
 
