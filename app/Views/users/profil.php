@@ -46,6 +46,7 @@ $w_user['created_at']
           <li class="list-group-item"><?= 'Ville: '.$adresse['ville']; ?></li>
           <?php  } ?>
           <?php if(in_array($w_user['role'], ['apprenant', 'enseignant', 'admin', 'guest'])){ ?>
+            <li class= "list-group-item"><a href="<?= $this->url('users_adresse'); ?>">Renseigner mon adresse</a></li>
             <li class= "list-group-item"><a href="<?= $this->url('users_adresse_update'); ?>">Modifier mes informations</a></li>
           <?php } ?>
         </ul>
@@ -66,7 +67,7 @@ $w_user['created_at']
             <div class="col-12 col-md-6 col-xl-6 col-sm-6">
             <p class="center"><b>Cours donnés</b></p>
             <!-- if cours donné = 0 ->  echo "Vous n'avez pas encore donné de cours" + lien donner un cours (renvoi vers région)| else : Affiche les cours donnés + donner un nouveau cours-->
-            Fonctionnalité à implémenter: affichage des cours donnés ou lien vers "donner un cours" dans la région de l'utilisateur 
+            Fonctionnalité à implémenter: affichage des cours donnés ou lien vers "donner un cours" dans la région de l'utilisateur
             </div>
           </div>
           <div class="row">
