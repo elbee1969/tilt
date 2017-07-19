@@ -48,14 +48,4 @@
 	</div>
 </div>
 
-<div class="container-fluid">
-<br>
-Idées : Personne qui a donné le plus de cours ? <br>
-				Personne qui a pris le plus de cours ?<br>
-				Quelles données pouvons nous mettre dans l'admin ?<br>
-				Prévoir une table des messages qui nous seront adressés via le form de contact -> back message
-
-
-</div>
-
 <?php $this->stop('main_content') ?>

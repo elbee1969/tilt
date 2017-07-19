@@ -1,22 +1,54 @@
 <?php $this->layout('layoutback', ['title' => 'Cours']) ?>
 
 <?php $this->start('main_content') ?>
+
 <div class="container-fluid">
 <div class="row">
 <div class="col-8 offset-md-2">
 <ul class="list-group">
 
+<?php
+
+$originalDate = $w_user['created_at'];
+$newDate = date("d/m/Y", strtotime($originalDate));
+
+?>
+
+
 <h4 style="margin-top:50px;">Liste des cours proposés</h4>
 <br>
-foreach
+ <li class="list-group-item">
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+<b><span>Matière :</span></b>
+    </div>
+    <div class="col-5">
+<b><span>Cours proposé par :</span></b>
+    </div>
+    <div class="col-3">
+<b><span>Date :</span></b>
+    </div>
+    <div class="col-1">
+    </form>
+    <form class="delete" action="" method="post">
+    <span><input class="btn btn-primary btn-lg btn-block" type="submit" name="btnSubmit" value="&#10006;"/></span>
+    </div>
 
-  <li class="list-group-item justify-content-between">
-    <b><span>Matières : </span></b>  <b><span>Cours proposé par :</span></b> <b><span>date :</span></b>
-    <span class="badge badge-default badge-pill"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></span>
-  </li>
+  </div>
+
+</div>
+
+
+
+    </li>
+
+
 </ul>
 </div>
 </div>
 </div>
+
+
 
 <?php $this->stop('main_content') ?>
