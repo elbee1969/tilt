@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
 <div class="row">
-<div class="col-8 offset-md-2">
+<div class="col-8 offset-md-2 offset-2">
 <ul class="list-group">
 
 <?php
@@ -23,19 +23,19 @@ $newDate = date("d/m/Y", strtotime($originalDate));
       echo '<li class="list-group-item">
   <div class="container-fluid">
   <div class="row">
-    <div class="col-3">
+    <div class="col-12 col-md-3">
 <b><span> '. $user['pseudo']. ' </span></b>
     </div>
-    <div class="col-4">
+    <div class="col-12 col-md-4">
 <b><span> '. $user['email']. ' </span></b>
     </div>
-    <div class="col-4">
-<b><span> '. $user['created_at']. ' </span></b>
+    <div class="col-12 col-md-4">
+<b><span> inscrit le '. $newDate. ' </span></b>
     </div>
-    <div class="col-1">
+    <div class="col-12 col-md-1">
     </form>
     <form class="delete" action="" method="post">
-    <span><input class="btn btn-primary btn-lg btn-block" type="submit" name="btnSubmit" value="&#10006;"/></span>
+    <input class="btn btn-primary btn-lg btn-block" type="submit" name="btnSubmit" value="&#10006;"/>
     </div>
 
   </div>
@@ -46,7 +46,9 @@ $newDate = date("d/m/Y", strtotime($originalDate));
 
     </li> ';
   } ?>
+<div class="wrapper" style="margin-bottom:50px;">
 
+</div>
 
 </ul>
 </div>
