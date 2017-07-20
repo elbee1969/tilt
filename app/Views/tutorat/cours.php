@@ -35,9 +35,9 @@ $this->layout('layout', ['title' => 'Cours']);
     ?> <div class="col-md-3 col-12">
 
 <?php
-      echo '<p class="policejosefin center bold">'.$cat[$i++].'</p> '.$key[0]; ?> <br> <?php
+      echo '<p class="policejosefin left bold" style="margin-left: 2em;">'.$cat[$i++].'</p> '.$key[0]; ?> <br> <?php
       foreach ($value as $key => $val) {
-        echo '<p class="center"><input type="checkbox" id="cbox'.++$a.'" name="'.$val['name'].'" value="'.$a.'"><label for="cbox'.$a.'">'.$val['name'].'</label><p>';# code...
+        echo '<p class="left" style="margin-left: 3.5em;"><input type="checkbox" id="cbox'.++$a.'" name="'.$val['name'].'" value="'.$a.'">  <label for="cbox'.$a.'">'.$val['name'].'</label><p>';# code...
       }
   //echo $value[0]['name'].'<br>';
  ?>     </div> <?php
@@ -49,7 +49,6 @@ $this->layout('layout', ['title' => 'Cours']);
 </div>
 </div>
 
-FAIRE UN IF POUR L'ENSEIGNANT : -> DONNER DES COURS //
 <?php
  if(in_array($w_user['role'], ['apprenant'])){
 ?>

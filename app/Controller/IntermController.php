@@ -47,7 +47,6 @@ class IntermController extends TiltController
 							}
 						}
 					}
-
 					if (!empty($errors)){
 						//message d'erreur à afficher quand une checkbox cochée fait déjà partie des matières dans lesquelles le user est inscrit
 						$error = 'vous êtes déjà inscrit à une ou des matière(s) selectionnée(s)';
@@ -56,20 +55,17 @@ class IntermController extends TiltController
 						//récupération des catégories pour afichage de la page cours
 						$model = new CompetencesModel();
 						$cours = $model->findAll();
-						$cat =  ['arts','chimie','cuisine','economie','francais','geographie',
-											 'histoire','langues','mathematiques','musique','nouvellestechnologies','sport'];
+						$cat =  ['Arts','Chimie','Cuisine','Économie','Francais','Géographie',
+											 'Histoire','Langues','Mathématiques','Musique','Nouvelles Technologies','Sport'];
 						$t = count($cat);
 							for ($i=0; $i < $t ; $i++) {
 									 $categories[] = $model->findCompetencesFromCategory($cat[$i]);
 							 }
-
-
 						$this->show('tutorat/cours', array(
 																								'error'       => $error,
 																								'cours' 			=> $cours,
 																								'categories'	=> $categories,
 																								'cat'					=> $cat));
-
 						} else {
 						//on fait un parcours du post pour enreg les matères dans bdd
 						//
@@ -84,18 +80,13 @@ class IntermController extends TiltController
 								}
 							}
 						}else{
-
 							foreach ($_POST as $matiere => $value) {
 								if($value !== 'Donner des cours'){
 									$model->insertInto($user_id,$region_id,$value);
 								}
 							}
 						}
-
-
 					}
-
-
 				} else {
 									//message d'erreur à afficher quand aucune checkbox n'a été cochée
 									$error = 'Vous n\'avez rien selectionné !';
@@ -103,13 +94,12 @@ class IntermController extends TiltController
 									//récupération des catégories pour afichage de la page cours
 									$model = new CompetencesModel();
 							    $cours = $model->findAll();
-							 		$cat =  ['arts','chimie','cuisine','economie','francais','geographie',
-							 			 				 'histoire','langues','mathematiques','musique','nouvellestechnologies','sport'];
+							 		$cat =  ['Arts','Chimie','Cuisine','Économie','Francais','Géographie',
+							 			 				 'Histoire','Langues','Mathématiques','Musique','Nouvelles Technologies','Sport'];
 							 		$t = count($cat);
 							 			for ($i=0; $i < $t ; $i++) {
 							 					 $categories[] = $model->findCompetencesFromCategory($cat[$i]);
 							 			 }
-
 									$this->show('tutorat/cours', array(
 																											'error'       => $error,
 																											'cours' 			=> $cours,

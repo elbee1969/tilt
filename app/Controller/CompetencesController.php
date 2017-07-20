@@ -22,8 +22,8 @@ class CompetencesController extends TiltController
 
 	 $model = new CompetencesModel();
        $cours = $model->findAll();
-			 $cat =  ['arts','chimie','cuisine','economie','francais','geographie',
-			 				 'histoire','langues','mathematiques','musique','nouvellestechnologies','sport'];
+			 $cat =  ['Arts','Chimie','Cuisine','Économie','Francais','Géographie',
+									'Histoire','Langues','Mathématiques','Musique','Nouvelles Technologies','Sport'];
 			 $t = count($cat);
 				 for ($i=0; $i < $t ; $i++) {
 					 $categories[] = $model->findCompetencesFromCategory($cat[$i]);
